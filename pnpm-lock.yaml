@@ -6,7 +6,11 @@ settings:
 
 importers:
 
-  .: {}
+  .:
+    devDependencies:
+      eslint:
+        specifier: ^8.57.0
+        version: 8.57.0
 
   apps/website:
     dependencies:
@@ -83,6 +87,12 @@ importers:
 
   packages/editor:
     devDependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.3.1(react@18.3.1)
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
