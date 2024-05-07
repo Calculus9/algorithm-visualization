@@ -2,6 +2,11 @@
   "name": "@mono/data-structure",
   "version": "1.0.0",
   "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@arco-design/web-react": "^2.62.0"
   }
 }
