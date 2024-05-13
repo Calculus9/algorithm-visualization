@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "devDependencies": {
-    "eslint": "^8.57.0"
+    "eslint": "^8.57.0",
+    "gh-pages": "^6.1.1"
   },
   "homepage": "./",
   "scripts": {
-    "predeploy": "pnpm run build",
-    "deploy": "gh-pages -d build",
     "dev": "pnpm --filter website dev",
-    "build": "pnpm --filter website build"
+    "build": "pnpm --filter website build",
+    "predeploy": "pnpm run build",
+    "deploy": "gh-pages -d dist"
   }
 }
