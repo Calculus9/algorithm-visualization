@@ -6,7 +6,7 @@
     "eslint": "^8.57.0",
     "gh-pages": "^6.1.1"
   },
-  "homepage": "./apps/website",
+  "homepage": "https://github.com/Calculus9/Calculus9.github.io",
   "scripts": {
     "dev": "pnpm --filter website dev",
     "build": "pnpm --filter website build",
