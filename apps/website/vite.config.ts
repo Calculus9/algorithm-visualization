@@ -8,4 +8,5 @@ export default defineConfig({
     react(),
     vitePluginForArco(),
   ],
+  // base: '/Calculus9.github.io/' // 为/仓库名/
 })

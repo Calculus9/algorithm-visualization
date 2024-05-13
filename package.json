@@ -4,5 +4,12 @@
   "description": "",
   "devDependencies": {
     "eslint": "^8.57.0"
+  },
+  "homepage": "./",
+  "scripts": {
+    "predeploy": "pnpm run build",
+    "deploy": "gh-pages -d build",
+    "dev": "pnpm --filter website dev",
+    "build": "pnpm --filter website build"
   }
 }

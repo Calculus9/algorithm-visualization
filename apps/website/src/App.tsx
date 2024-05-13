@@ -5,7 +5,6 @@ import { Menu } from '@arco-design/web-react'
 import { MenuList } from './constant'
 import { useEffect, useState } from 'react'
 import React from 'react'
-import Api from './api'
 import { Home } from './home'
 const MenuItem = Menu.Item
 const Header = Layout.Header
