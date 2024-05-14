@@ -43,7 +43,7 @@ function App() {
         </Layout>
         <Home />
         {/* <Api /> */}
-        <Editor text='Monorepo搭建成功' />
+        {/* <Editor text='Monorepo搭建成功' /> */}
       </div>
     </>
   )
