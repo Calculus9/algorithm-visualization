@@ -3,5 +3,9 @@
   "version": "1.0.0",
   "devDependencies": {
     "typescript": "^5.4.5"
+  },
+  "main": "index.tsx",
+  "dependencies": {
+    "@visactor/vchart": "^1.11.0"
   }
 }
