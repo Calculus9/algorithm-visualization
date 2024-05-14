@@ -1,0 +1,7 @@
+.menu-demo {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 40px;
+  background-color: var(--color-neutral-2);
+  display: inline-block;
+}
