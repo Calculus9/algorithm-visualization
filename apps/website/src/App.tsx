@@ -1,4 +1,3 @@
-
 import { Layout } from '@arco-design/web-react'
 import { Menu } from '@arco-design/web-react'
 import { MenuList } from './constant'
@@ -51,7 +50,7 @@ function App() {
         <Render text='render接入成功' />
         <DataStructure text='datastructure' />
         <ChartVisactor text='visactor' />
-        <ChartD3 text='d3包'/>
+        <ChartD3 text='d3包' />
         <Home />
         {/* <Api /> */}
       </div>

@@ -88,12 +88,6 @@ importers:
 
   packages/chart-d3:
     devDependencies:
-      '@types/react':
-        specifier: ^18.3.1
-        version: 18.3.2
-      '@types/react-dom':
-        specifier: ^18.2.22
-        version: 18.3.0
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
@@ -148,6 +142,12 @@ importers:
         specifier: ^2.62.0
         version: 2.62.0(@types/react@18.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
+      '@types/react':
+        specifier: ^18.3.1
+        version: 18.3.2
+      '@types/react-dom':
+        specifier: ^18.2.22
+        version: 18.3.0
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
