@@ -8,7 +8,7 @@ import { Home } from './home'
 import Editor from '@mono/editor'
 import Render from '@mono/render'
 import DataStructure from '@mono/data-structure'
-import ChartVisactor from '@mono/chart-visactor'
+import { BarChart } from '@mono/chart-visactor'
 import ChartD3 from '@mono/chart-d3'
 
 const MenuItem = Menu.Item
@@ -18,6 +18,18 @@ function App() {
   const [curMenu, setMenu] = useState('Home')
   // const [curPage, setCurPage] = useState("Home")
 
+  const data = [
+    {
+      id: 'barData',
+      values: [
+        { month: 'Monday', sales: 22 },
+        { month: 'Tuesday', sales: 13 },
+        { month: 'Wednesday', sales: 25 },
+        { month: 'Thursday', sales: 29 },
+        { month: 'Friday', sales: 38 }
+      ]
+    }
+  ]
   useEffect(() => {}, [curMenu])
 
   return (
@@ -49,7 +61,7 @@ function App() {
         <Editor text='Monorepo搭建成功' />
         <Render text='render接入成功' />
         <DataStructure text='datastructure' />
-        <ChartVisactor text='visactor' />
+        <BarChart data={data} />
         <ChartD3 text='d3包' />
         <Home />
         {/* <Api /> */}
