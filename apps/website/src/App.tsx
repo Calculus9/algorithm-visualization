@@ -6,10 +6,10 @@ import React from 'react'
 import { Home } from './home'
 
 import Editor from '@mono/editor'
-import Render from '@mono/render'
+// import Render from '@mono/render'
 import DataStructure from '@mono/data-structure'
 import { BarChart } from '@mono/chart-visactor'
-import ChartD3 from '@mono/chart-d3'
+// import ChartD3 from '@mono/chart-d3'
 
 const MenuItem = Menu.Item
 const Header = Layout.Header
@@ -59,10 +59,10 @@ function App() {
           </Header>
         </Layout>
         <Editor text='Monorepo搭建成功' />
-        <Render text='render接入成功' />
+        {/* <Render text='render接入成功' /> */}
         <DataStructure text='datastructure' />
         <BarChart data={data} />
-        <ChartD3 text='d3包' />
+        {/* <ChartD3 text='d3包' /> */}
         <Home />
         {/* <Api /> */}
       </div>

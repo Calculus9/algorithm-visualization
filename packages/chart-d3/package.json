@@ -2,6 +2,7 @@
   "name": "@mono/chart-d3",
   "version": "1.0.0",
   "devDependencies": {
+    "@types/react": "^18.3.2",
     "typescript": "^5.4.5"
   }
 }
