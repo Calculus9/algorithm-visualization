@@ -12,5 +12,8 @@
     "build": "pnpm --filter website build",
     "predeploy": "pnpm run build",
     "deploy": "gh-pages -d ./apps/website/dist"
+  },
+  "dependencies": {
+    "@arco-design/web-react": "^2.62.0"
   }
 }

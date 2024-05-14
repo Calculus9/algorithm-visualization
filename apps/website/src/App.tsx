@@ -1,11 +1,17 @@
-// import Editor from '@mono/editor'
+
 import { Layout } from '@arco-design/web-react'
 import { Menu } from '@arco-design/web-react'
-
 import { MenuList } from './constant'
 import { useEffect, useState } from 'react'
 import React from 'react'
 import { Home } from './home'
+
+import Editor from '@mono/editor'
+import Render from '@mono/render'
+import DataStructure from '@mono/data-structure'
+import ChartVisactor from '@mono/chart-visactor'
+import ChartD3 from '@mono/chart-d3'
+
 const MenuItem = Menu.Item
 const Header = Layout.Header
 
@@ -41,9 +47,13 @@ function App() {
             </div>
           </Header>
         </Layout>
+        <Editor text='Monorepo搭建成功' />
+        <Render text='render接入成功' />
+        <DataStructure text='datastructure' />
+        <ChartVisactor text='visactor' />
+        <ChartD3 text='d3包'/>
         <Home />
         {/* <Api /> */}
-        {/* <Editor text='Monorepo搭建成功' /> */}
       </div>
     </>
   )

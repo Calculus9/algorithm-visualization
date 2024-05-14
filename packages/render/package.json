@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "devDependencies": {
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@arco-design/web-react": "^2.62.0"
   }
 }
