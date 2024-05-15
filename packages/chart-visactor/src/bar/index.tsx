@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:53:07
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-05-14 15:57:58
+ * @LastEditTime: 2024-05-15 09:35:48
  * @FilePath: /algorithm-visualization/packages/chart-visactor/src/bar/index.tsx
  * @Description: barChart index
  */

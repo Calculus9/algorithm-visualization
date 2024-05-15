@@ -16,6 +16,8 @@
     "@mono/data-structure": "workspace:*",
     "@mono/editor": "workspace:*",
     "@mono/render": "workspace:*",
+    "@visactor/vchart": "^1.11.0",
+    "install": "^0.13.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

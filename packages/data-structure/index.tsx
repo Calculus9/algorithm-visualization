@@ -2,19 +2,11 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:35:11
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-05-14 10:47:33
+ * @LastEditTime: 2024-05-15 09:24:23
  * @FilePath: /algorithm-visualization/packages/data-structure/index.tsx
- * @Description: Datastrucutre index
+ * @Description: Datastrucutre exports
  */
-import React from "react"
 
+import { parseSchema2VChart } from "./src/utils/resolve.ts"
 
-interface IProps {
-  text: string
-}
-const DataStructure = (props: IProps) => {
-  const { text } = props
-  return <div>{text}接入成功</div>
-}
-
-export default DataStructure
+export { parseSchema2VChart }
