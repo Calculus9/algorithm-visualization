@@ -3,7 +3,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 09:03:40
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-05-29 11:02:28
+ * @LastEditTime: 2024-05-29 14:26:31
  * @FilePath: /algorithm-visualization/apps/website/src/constant.ts
  * @Description: mock data
  */
@@ -52,4 +52,8 @@ export const initData = [
 ]
 
 
+export enum CHARTTYPE{
+  visactor,
+  d3
+}
 
