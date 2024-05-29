@@ -1,15 +1,28 @@
+
 /*
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 09:03:40
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-05-15 14:36:33
+ * @LastEditTime: 2024-05-29 11:02:28
  * @FilePath: /algorithm-visualization/apps/website/src/constant.ts
  * @Description: mock data
  */
+
+
 export const MenuList = ['Home', 'API', 'Data Structure', 'Gallery']
 
 export const schema = {
   type: 'array',
+  init: {
+    id: 'barData',
+    values: [
+      { month: 'Monday', sales: 22 },
+      { month: 'Tuesday', sales: 13 },
+      { month: 'Wednesday', sales: 25 },
+      { month: 'Thursday', sales: 29 },
+      { month: 'Friday', sales: 38 }
+    ]
+  },
   actions: [
     {
       op: 'push',
@@ -25,8 +38,7 @@ export const schema = {
   ]
 }
 
-
-export const initData =[
+export const initData = [
   {
     id: 'barData',
     values: [
@@ -38,3 +50,6 @@ export const initData =[
     ]
   }
 ]
+
+
+

@@ -13,6 +13,7 @@
     "@arco-design/web-react": "^2.62.0",
     "@mono/chart-d3": "workspace:*",
     "@mono/chart-visactor": "workspace:*",
+    "@mono/exec": "workspace:*",
     "@mono/data-structure": "workspace:*",
     "@mono/editor": "workspace:*",
     "@mono/render": "workspace:*",
