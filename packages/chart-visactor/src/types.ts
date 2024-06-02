@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-06-01 14:57:40
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-01 17:12:26
+ * @LastEditTime: 2024-06-02 09:35:11
  * @FilePath: /algorithm-visualization/packages/chart-visactor/types.ts
  * @Description: We will define all the types and interface of visactor in this file.
  */
