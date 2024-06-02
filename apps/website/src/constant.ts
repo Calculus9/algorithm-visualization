@@ -1,17 +1,17 @@
-
 /*
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 09:03:40
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-05-29 14:26:31
+ * @LastEditTime: 2024-06-02 09:25:12
  * @FilePath: /algorithm-visualization/apps/website/src/constant.ts
  * @Description: mock data
  */
 
+import { ISchema } from "@mono/data-structure/src/datatype"
 
 export const MenuList = ['Home', 'API', 'Data Structure', 'Gallery']
 
-export const schema = {
+export const schema: ISchema = {
   type: 'array',
   init: {
     id: 'barData',
@@ -34,6 +34,10 @@ export const schema = {
     },
     {
       op: 'pop'
+    },
+    {
+      op: 'set',
+      value: { month: 'Tuesday', sales: 20 }
     }
   ]
 }
@@ -51,9 +55,7 @@ export const initData = [
   }
 ]
 
-
-export enum CHARTTYPE{
+export enum CHARTTYPE {
   visactor,
   d3
 }
-

@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-29 10:11:42
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-05-29 16:00:55
+ * @LastEditTime: 2024-06-02 09:28:06
  * @FilePath: /algorithm-visualization/apps/website/src/chart.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -13,14 +13,17 @@ import { CHARTTYPE, schema } from './constant'
 import { getChart } from './utils'
 import { actionExec } from '@mono/exec/src/index.ts'
 import VChart from '@visactor/vchart'
+import { IChartProps } from '@mono/chart-visactor/src/types'
+import { IActions } from '@mono/exec/src/type'
 
 const VisChart = () => {
   const [vchart, setVChart] = useState<VChart>()
-  const [actions, setActions] = useState<Array<object>>()
-  const [spec, setSpec] = useState()
+  const [actions, setActions] = useState<IActions[]>()
+  const [spec, setSpec] = useState<IChartProps>()
 
   useEffect(() => {
     const [spec, vchart, actionExecv] = getChart(schema, CHARTTYPE.visactor, 'chart')
+
     setVChart(vchart)
     setSpec(spec)
     setActions(actionExecv)
@@ -28,7 +31,7 @@ const VisChart = () => {
 
   const handleClick = useCallback(() => {
     const render = setInterval(() => {
-      const newSpec = actionExec(actions?.[0], spec)
+      const newSpec = actionExec(actions[0], spec)
       vchart?.updateSpec(newSpec)
       vchart?.renderAsync()
       actions?.shift()
