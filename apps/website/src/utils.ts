@@ -9,7 +9,7 @@ import { IActions } from '@mono/exec/src/type'
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-29 10:16:48
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-02 09:27:13
+ * @LastEditTime: 2024-06-03 17:01:02
  * @FilePath: /algorithm-visualization/apps/website/src/utils.ts
  * @Description: utils file contains the chart common operations
  */
@@ -39,7 +39,6 @@ export const getChart = (
   if (CHARTTYPE.visactor === chartType) {
     const spec: IChartProps = getSpec(schema)
     const actionExecv: IActions[] = getActionExe(schema)
-    console.log(actionExecv);
 
     const vchart: VChart = new VChart(spec, { dom: dom })
     vchart.renderAsync()

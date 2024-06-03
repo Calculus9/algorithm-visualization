@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-29 10:11:42
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-02 20:16:23
+ * @LastEditTime: 2024-06-03 16:18:37
  * @FilePath: /algorithm-visualization/apps/website/src/chart.tsx
  * @Description: the chart configuration
  */
@@ -14,7 +14,7 @@ import { getChart } from './utils'
 import VChart from '@visactor/vchart'
 import { IChartProps } from '@mono/chart-visactor/src/types'
 import { IActions } from '@mono/exec/src/type'
-import { actionExec } from '../../../packages/exec/src/index';
+import { actionExec } from '@mono/exec/src/index';
 
 const VisChart = () => {
   const [vchart, setVChart] = useState<VChart>()
@@ -31,7 +31,7 @@ const VisChart = () => {
 
   const handleClick = useCallback(() => {
     const render = setInterval(() => {
-      const spec1 = actionExec(actions[0], spec)
+      const spec1 = actionExec(actions?.[0], spec)
       actions?.shift()
       vchart?.updateSpec(spec1)
       vchart?.renderAsync()
