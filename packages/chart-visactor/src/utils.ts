@@ -2,9 +2,9 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-28 16:07:50
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-02 09:35:18
+ * @LastEditTime: 2024-06-03 09:54:28
  * @FilePath: /algorithm-visualization/packages/chart-visactor/src/utils.ts
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Description: this is the chart configuration, we will define all charts here.
  */
 
 import { IChart, IChartProps } from './types.ts'
