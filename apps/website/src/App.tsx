@@ -6,30 +6,22 @@
  * @FilePath: /algorithm-visualization/apps/website/src/App.tsx
  * @Description: project entry
  */
-import { Layout } from '@arco-design/web-react'
-import { Menu } from '@arco-design/web-react'
-import { MenuList } from './constant'
-import { useEffect, useState } from 'react'
 import React from 'react'
-import { Home } from './home'
 
-import Editor from '@mono/editor'
 import VisChart from './chart'
 // import Render from '@mono/render'
 // import ChartD3 from '@mono/chart-d3'
 
-const MenuItem = Menu.Item
-const Header = Layout.Header
-
 function App() {
-  const [curMenu, setMenu] = useState('Home')
+  // const [curMenu, setMenu] = useState('Home')
 
-  useEffect(() => {}, [curMenu])
+  // useEffect(() => {}, [curMenu])
 
   return (
     <>
       <div style={{ background: 'var(--color-fill-2)' }}>
-        <Layout>
+        <VisChart />
+        {/* <Layout>
           <Header>
             <div
               style={{
@@ -52,14 +44,13 @@ function App() {
             </div>
           </Header>
         </Layout>
-        <div id='vchart'></div>
         <Editor text='Monorepo搭建成功' />
-        {/* <Render text='render接入成功' /> */}
+        <Render text='render接入成功' />
 
-        <VisChart />
-        {/* <ChartD3 text='d3包' /> */}
+
+        <ChartD3 text='d3包' />
         <Home />
-        {/* <Api /> */}
+        <Api /> */}
       </div>
     </>
   )

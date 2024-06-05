@@ -2,19 +2,20 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-29 10:11:42
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-03 16:18:37
+ * @LastEditTime: 2024-06-05 16:27:52
  * @FilePath: /algorithm-visualization/apps/website/src/chart.tsx
  * @Description: the chart configuration
  */
 
 import { Button } from '@arco-design/web-react'
 import React, { useCallback, useEffect, useState } from 'react'
-import { CHARTTYPE, schema } from './constant'
+import { ChartLibType } from './constant'
 import { getChart } from './utils'
 import VChart from '@visactor/vchart'
 import { IChartProps } from '@mono/chart-visactor/src/types'
 import { IActions } from '@mono/exec/src/type'
 import { actionExec } from '@mono/exec/src/index';
+import { schema } from './mock'
 
 const VisChart = () => {
   const [vchart, setVChart] = useState<VChart>()
@@ -22,7 +23,7 @@ const VisChart = () => {
   const [spec, setSpec] = useState<IChartProps>()
 
   useEffect(() => {
-    const [spec, vchart, actionExecv] = getChart(schema, CHARTTYPE.visactor, 'chart')
+    const [spec, vchart, actionExecv] = getChart(schema, ChartLibType.visactor, 'chart')
 
     setVChart(vchart)
     setSpec(spec)
