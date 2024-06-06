@@ -2,50 +2,44 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-29 10:11:42
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-05 16:27:52
+ * @LastEditTime: 2024-06-06 14:46:56
  * @FilePath: /algorithm-visualization/apps/website/src/chart.tsx
  * @Description: the chart configuration
  */
 
-import { Button } from '@arco-design/web-react'
-import React, { useCallback, useEffect, useState } from 'react'
-import { ChartLibType } from './constant'
-import { getChart } from './utils'
-import VChart from '@visactor/vchart'
-import { IChartProps } from '@mono/chart-visactor/src/types'
-import { IActions } from '@mono/exec/src/type'
-import { actionExec } from '@mono/exec/src/index';
-import { schema } from './mock'
+import React, { useEffect } from 'react'
+import { schema } from './mock';
+import { ISchema } from '@mono/data-structure/src/datatype';
+import { getChart } from './utils';
+import { ChartLibType } from './constant';
+import { actionExec } from '../../../packages/exec/src/index';
 
 const VisChart = () => {
-  const [vchart, setVChart] = useState<VChart>()
-  const [actions, setActions] = useState<IActions[]>()
-  const [spec, setSpec] = useState<IChartProps>()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(async () => {
+    const schemas: ISchema = schema
+    const [spec, vchart] = getChart(schemas, ChartLibType.visactor, "chart")
 
-  useEffect(() => {
-    const [spec, vchart, actionExecv] = getChart(schema, ChartLibType.visactor, 'chart')
-
-    setVChart(vchart)
-    setSpec(spec)
-    setActions(actionExecv)
+    const exe = async () => {
+      for(let i = 0; i < schemas.actions.length; i++){
+        const action = schemas.actions[i]
+        const spec1 = actionExec(action, spec)
+        await new Promise((resolve) => setTimeout(resolve, 1000))
+        vchart.updateSpecSync(spec1)
+        vchart.renderAsync()
+      }
+    }
+    await exe()
+    return () => {
+      vchart.release()
+    }
   }, [])
-
-  const handleClick = useCallback(() => {
-    const render = setInterval(() => {
-      const spec1 = actionExec(actions?.[0], spec)
-      actions?.shift()
-      vchart?.updateSpec(spec1)
-      vchart?.renderAsync()
-
-      if(actions?.length === 0) clearInterval(render)
-    }, 1000)
-  }, [actions, spec, vchart])
 
   return (
     <div>
-      <Button shape='round' type='outline' size='large' onClick={handleClick}>
+      {/* <Button shape='round' type='outline' size='large' onClick={handleClick}>
         test
-      </Button>
+      </Button> */}
       <div id='chart'></div>
     </div>
   )

@@ -12,7 +12,7 @@ import { IActions } from "@mono/exec/src/type.ts"
 
 
 export interface ISchema {
-  init: IChart
+  initSpec: IChart
   type: string
   actions: IActions[]
   // options?:

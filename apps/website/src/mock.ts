@@ -2,17 +2,16 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-06-05 16:26:06
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-05 16:26:06
+ * @LastEditTime: 2024-06-05 18:41:43
  * @FilePath: /algorithm-visualization/apps/website/src/mock.ts
  * @Description: Here is the mock data.
  */
 
-import { ISchema } from "@mono/data-structure/src/datatype"
-
+import { ISchema } from '@mono/data-structure/src/datatype'
 
 export const schema: ISchema = {
   type: 'array',
-  init: {
+  initSpec: {
     id: 'barData',
     values: [
       { month: 'Monday', sales: 22 },
@@ -20,7 +19,9 @@ export const schema: ISchema = {
       { month: 'Wednesday', sales: 25 },
       { month: 'Thursday', sales: 29 },
       { month: 'Friday', sales: 38 }
-    ]
+    ],
+    xField: 'month',
+    yField: 'sales'
   },
   actions: [
     {

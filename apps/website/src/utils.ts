@@ -9,21 +9,19 @@ import { IActions } from '@mono/exec/src/type'
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-29 10:16:48
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-04 22:27:27
+ * @LastEditTime: 2024-06-05 19:06:01
  * @FilePath: /algorithm-visualization/apps/website/src/utils.ts
  * @Description: utils file contains the chart common operations
  */
 const getSpec = (schema: ISchema): IChartProps => {
-  const { type, init } = schema
+  const { type, initSpec } = schema
 
-  const xField = Object.keys(init?.['values'][0])[0]
-  const yField = Object.keys(init?.['values'][0])[1]
+  const { xField, yField } = initSpec
 
-
-  return datastructure2chartTypeMap[type]({init, xField, yField})
+  return datastructure2chartTypeMap[type]({ initSpec, xField, yField })
 }
 
-const getActionExe = (schema: ISchema): IActions[] => {
+export const getActionExe = (schema: ISchema): IActions[] => {
   return schema.actions
 }
 
@@ -36,19 +34,19 @@ export const getChart = (
   schema: ISchema,
   chartType: ChartLibType,
   dom: string
-): [IChartProps, VChart, IActions[]] => {
+): [IChartProps, VChart] => {
   if (ChartLibType.visactor === chartType) {
     const spec: IChartProps = getSpec(schema)
-    const actionExecv: IActions[] = getActionExe(schema)
+    // const actionExecv: IActions[] = getActionExe(schema)
 
     const vchart: VChart = new VChart(spec, { dom: dom })
     vchart.renderAsync()
-    return [spec, vchart, actionExecv]
+    return [spec, vchart]
   }
   // d3
   const spec = getSpec(schema)
-  const actionExecv = getActionExe(schema)
+  // const actionExecv = getActionExe(schema)
   const vchart: VChart = new VChart(spec, { dom: dom })
   vchart.renderAsync()
-  return [spec, vchart, actionExecv]
+  return [spec, vchart]
 }
