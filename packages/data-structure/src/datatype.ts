@@ -15,5 +15,6 @@ export interface ISchema {
   initSpec: IChart
   type: string
   actions: IActions[]
+
   // options?:
 }[]

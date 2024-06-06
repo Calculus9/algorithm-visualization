@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-06-05 16:26:06
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-05 18:41:43
+ * @LastEditTime: 2024-06-06 15:47:49
  * @FilePath: /algorithm-visualization/apps/website/src/mock.ts
  * @Description: Here is the mock data.
  */
@@ -38,6 +38,19 @@ export const schema: ISchema = {
     {
       op: 'set',
       value: { month: 'Tuesday', sales: 20 }
+    },
+    {
+      op: 'insert',
+      value: { month: 'Tuesday2', sales: 200 },
+      place: 3
+    },
+    {
+      op: 'delete',
+      value: { month: 'Tuesday' }
+    },
+    {
+      op: 'delete',
+      value: { sales: '200' }
     }
   ]
 }
