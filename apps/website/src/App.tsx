@@ -2,21 +2,23 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:30:32
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-05-29 10:15:55
+ * @LastEditTime: 2024-06-11 20:28:05
  * @FilePath: /algorithm-visualization/apps/website/src/App.tsx
  * @Description: project entry
  */
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import VisChart from './chart'
 // import Render from '@mono/render'
 // import ChartD3 from '@mono/chart-d3'
-
 function App() {
   // const [curMenu, setMenu] = useState('Home')
 
   // useEffect(() => {}, [curMenu])
 
+  useEffect(() => {
+
+  }, [])
   return (
     <>
       <div style={{ background: 'var(--color-fill-2)' }}>

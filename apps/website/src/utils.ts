@@ -36,11 +36,13 @@ export const getChart = (
   dom: string
 ): [IChartProps, VChart] => {
   if (ChartLibType.visactor === chartType) {
-    const spec: IChartProps = getSpec(schema)
-    // const actionExecv: IActions[] = getActionExe(schema)
+    console.log(schema);
 
+    const spec: IChartProps = getSpec(schema)
     const vchart: VChart = new VChart(spec, { dom: dom })
     vchart.renderAsync()
+    console.log(spec, vchart);
+
     return [spec, vchart]
   }
   // d3
