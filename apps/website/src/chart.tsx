@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-29 10:11:42
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-11 20:55:56
+ * @LastEditTime: 2024-06-12 16:31:33
  * @FilePath: /algorithm-visualization/apps/website/src/chart.tsx
  * @Description: the chart configuration
  */
@@ -12,7 +12,6 @@ import React, { useEffect } from 'react'
 // import { ISchema } from '@mono/data-structure/src/datatype'
 import { getChart } from './utils'
 import { ChartLibType } from './constant'
-import { actionExec } from '@mono/exec/src/index'
 import { MonoArray } from '@mono/data-structure/src/mono/array'
 import { ISchema } from '@mono/data-structure/src/datatype'
 
@@ -37,7 +36,6 @@ const VisChart = () => {
       arr.insert({ month: 'Tuesday2', sales: 200 }, 3)
       arr.delete({ month: 'Tuesday' })
       arr.delete({ sales: '200' })
-      console.log(arr);
 
       return arr.schema
     }
@@ -45,15 +43,11 @@ const VisChart = () => {
     const schema = getSchema()
 
     const render = async (schemas: ISchema) => {
-      const [spec, vchart] = getChart(schemas, ChartLibType.visactor, 'chart')
+      const [, vchart, actionExecutor] = getChart(schemas, ChartLibType.visactor, 'chart')
 
       const exe = async () => {
         for (let i = 0; i < schemas.actions.length; i++) {
-          const action = schemas.actions[i]
-          const spec1 = actionExec(action, spec)
-          await new Promise(resolve => setTimeout(resolve, 1000))
-          vchart.updateSpecSync(spec1)
-          vchart.renderAsync()
+          await actionExecutor.exeNext()
         }
       }
       await exe()
