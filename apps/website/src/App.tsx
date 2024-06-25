@@ -1,17 +1,20 @@
 /*
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:30:32
- * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-05-29 10:15:55
- * @FilePath: /algorithm-visualization/apps/website/src/App.tsx
+ * @LastEditors: hh 1441211576@qq.com
+ * @LastEditTime: 2024-06-25 19:07:06
+ * @FilePath: \algorithm-visualization\apps\website\src\App.tsx
  * @Description: project entry
  */
 import React from 'react'
 
 import VisChart from './chart'
+import MonacoEditor from '@mono/editor'
 // import Render from '@mono/render'
 // import ChartD3 from '@mono/chart-d3'
-
+import { Grid } from '@arco-design/web-react'
+const Row = Grid.Row
+const Col = Grid.Col
 function App() {
   // const [curMenu, setMenu] = useState('Home')
 
@@ -20,7 +23,15 @@ function App() {
   return (
     <>
       <div style={{ background: 'var(--color-fill-2)' }}>
-        <VisChart />
+        <Row className='grid-demo' style={{ marginBottom: 16 }}>
+          <Col span={11}>
+            <VisChart />
+          </Col>
+          <Col span={12}>
+            <MonacoEditor />
+          </Col>
+        </Row>
+
         {/* <Layout>
           <Header>
             <div
@@ -33,7 +44,7 @@ function App() {
                   mode='horizontal'
                   defaultSelectedKeys={['Home']}
                   onClickMenuItem={(key: string) => {
-                    setMenu(key)
+                    setMenu(key) 
                   }}
                 >
                   {MenuList?.map(d => {
