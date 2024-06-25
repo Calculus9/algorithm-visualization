@@ -2,43 +2,67 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-06-25 14:56:42
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-06-25 19:18:27
+ * @LastEditTime: 2024-06-25 20:18:13
  * @FilePath: \algorithm-visualization\packages\editor\index.tsx
- * @Description: 
- * 
+ * @Description:
+ *
  */
-import React, { useCallback, useState } from "react"
-import { Editor, OnChange } from '@monaco-editor/react';
-import { Space, Button } from "@arco-design/web-react";
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { Editor, OnChange } from '@monaco-editor/react'
+import { Space, Button } from '@arco-design/web-react'
 import { IconPlayArrow } from '@arco-design/web-react/icon'
-// interface IProps {
-//   text: string
-// }
-const MonacoEditor: React.FC = () => {
-  const [code, setCode] = useState("");
+import * as monaco from 'monaco-editor'
 
-  const handleEditorChange: OnChange = (value, event) => {
-    setCode(value ?? '');
-  };
+const MonacoEditor: React.FC = ({ onGetCode }) => {
+  const [code, setCode] = useState('')
+  const editorRef = useRef(null)
+
+  // useEffect(() => {
+  //   console.log(editorRef);
+
+  //   if (editorRef.current) {
+  //     const editor = monaco.editor.create(editorRef.current, {
+  //       value: '// Start typing your code...',
+  //       language: 'javascript',
+  //       theme: 'vs-dark'
+  //     })
+
+  //     editor.onDidChangeModelContent(() => {
+  //       setCode(editor.getValue())
+  //     })
+
+  //     return () => editor.dispose()
+  //   }
+
+  // }, [editorRef])
 
   const handleButtonClick = useCallback(() => {
-    // 调用vchart
+    const currentCode = editorRef?.current?.getValue()
+    onGetCode(currentCode)
   }, [code])
 
   return (
     <div style={{ height: '500px' }}>
       <Space>
-      <Button type='outline' icon={<IconPlayArrow/>} shape="circle" onClick={handleButtonClick} />
+        <Button
+          type='outline'
+          icon={<IconPlayArrow />}
+          shape='circle'
+          onClick={handleButtonClick}
+        />
       </Space>
       <Editor
-        height="500px"
-        language="javascript"
-        theme="vs-light"
+        onMount={(editor, monaco) => {
+          editorRef.current = editor // 将编辑器实例赋给 ref.current
+        }}
+        height='500px'
+        language='javascript'
+        theme='vs-light'
         value={code}
-        onChange={handleEditorChange}
+        // onChange={handleEditorChange}
       />
     </div>
-  );
+  )
 }
 
 export default MonacoEditor
