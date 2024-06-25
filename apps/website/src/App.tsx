@@ -2,11 +2,11 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:30:32
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-06-25 19:07:06
+ * @LastEditTime: 2024-06-25 19:19:53
  * @FilePath: \algorithm-visualization\apps\website\src\App.tsx
  * @Description: project entry
  */
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import VisChart from './chart'
 import MonacoEditor from '@mono/editor'
@@ -20,6 +20,9 @@ function App() {
 
   // useEffect(() => {}, [curMenu])
 
+  useEffect(() => {
+
+  }, [])
   return (
     <>
       <div style={{ background: 'var(--color-fill-2)' }}>
