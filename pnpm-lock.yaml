@@ -72,7 +72,7 @@ importers:
         version: 7.8.0(eslint@8.57.0)(typescript@5.4.5)
       '@vitejs/plugin-react-swc':
         specifier: ^3.5.0
-        version: 3.6.0(vite@5.2.11(@types/node@16.18.96)(less@4.2.0))
+        version: 3.6.0(vite@5.2.11(less@4.2.0))
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -93,7 +93,7 @@ importers:
         version: 5.4.5
       vite:
         specifier: ^5.2.0
-        version: 5.2.11(@types/node@16.18.96)(less@4.2.0)
+        version: 5.2.11(less@4.2.0)
 
   packages/chart-d3:
     devDependencies:
@@ -147,6 +147,12 @@ importers:
       '@arco-design/web-react':
         specifier: ^2.62.0
         version: 2.62.0(@types/react@18.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@monaco-editor/react':
+        specifier: ^4.6.0
+        version: 4.6.0(monaco-editor@0.50.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      monaco-editor:
+        specifier: ^0.50.0
+        version: 0.50.0
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -452,6 +458,18 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@monaco-editor/loader@1.4.0':
+    resolution: {integrity: sha512-00ioBig0x642hytVspPl7DbQyaSWRaolYie/UFNjoTdvoKPzo6xrXLhTk9ixgIKcLH5b5vDOjVNiGyY+uDCUlg==}
+    peerDependencies:
+      monaco-editor: '>= 0.21.0 < 1'
+
+  '@monaco-editor/react@4.6.0':
+    resolution: {integrity: sha512-RFkU9/i7cN2bsq/iTkurMWOEErmYcY6JiQI3Jn+WeR/FGISH8JbHERjpS9oRuSOPvDMJI0Z8nJeKkbOs9sBYQw==}
+    peerDependencies:
+      monaco-editor: '>= 0.25.0 < 1'
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1417,6 +1435,9 @@ packages:
   minimist@1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
 
+  monaco-editor@0.50.0:
+    resolution: {integrity: sha512-8CclLCmrRRh+sul7C08BmPBP3P8wVWfBHomsTcndxg5NRCEPfu/mc2AGU8k37ajjDVXcXFc12ORAMUkmk+lkFA==}
+
   ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
 
@@ -1714,6 +1735,9 @@ packages:
   source-map@0.6.1:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
+
+  state-local@1.0.7:
+    resolution: {integrity: sha512-HTEHMNieakEnoe33shBYcZ7NX83ACUjCu8c40iOGEZsngj9zRnkqS9j1pqQPXwobB0ZcVTk27REb7COQ0UR59w==}
 
   stream-source@0.3.5:
     resolution: {integrity: sha512-ZuEDP9sgjiAwUVoDModftG0JtYiLUV8K4ljYD1VyUMRWtbVf92474o4kuuul43iZ8t/hRuiDAx1dIJSvirrK/g==}
@@ -2132,6 +2156,18 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
+
+  '@monaco-editor/loader@1.4.0(monaco-editor@0.50.0)':
+    dependencies:
+      monaco-editor: 0.50.0
+      state-local: 1.0.7
+
+  '@monaco-editor/react@4.6.0(monaco-editor@0.50.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@monaco-editor/loader': 1.4.0(monaco-editor@0.50.0)
+      monaco-editor: 0.50.0
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -2595,10 +2631,10 @@ snapshots:
       '@turf/invariant': 6.5.0
       eventemitter3: 4.0.7
 
-  '@vitejs/plugin-react-swc@3.6.0(vite@5.2.11(@types/node@16.18.96)(less@4.2.0))':
+  '@vitejs/plugin-react-swc@3.6.0(vite@5.2.11(less@4.2.0))':
     dependencies:
       '@swc/core': 1.4.17
-      vite: 5.2.11(@types/node@16.18.96)(less@4.2.0)
+      vite: 5.2.11(less@4.2.0)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -3193,6 +3229,8 @@ snapshots:
 
   minimist@1.2.6: {}
 
+  monaco-editor@0.50.0: {}
+
   ms@2.1.2: {}
 
   nanoid@3.3.7: {}
@@ -3504,6 +3542,8 @@ snapshots:
   source-map@0.6.1:
     optional: true
 
+  state-local@1.0.7: {}
+
   stream-source@0.3.5: {}
 
   string_decoder@0.10.31: {}
@@ -3608,13 +3648,12 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  vite@5.2.11(@types/node@16.18.96)(less@4.2.0):
+  vite@5.2.11(less@4.2.0):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.17.2
     optionalDependencies:
-      '@types/node': 16.18.96
       fsevents: 2.3.3
       less: 4.2.0
 
