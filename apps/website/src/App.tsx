@@ -2,11 +2,11 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:30:32
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-06-25 19:19:53
+ * @LastEditTime: 2024-06-25 20:20:47
  * @FilePath: \algorithm-visualization\apps\website\src\App.tsx
  * @Description: project entry
  */
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import VisChart from './chart'
 import MonacoEditor from '@mono/editor'
@@ -16,22 +16,21 @@ import { Grid } from '@arco-design/web-react'
 const Row = Grid.Row
 const Col = Grid.Col
 function App() {
-  // const [curMenu, setMenu] = useState('Home')
+  const [code, setCode] = useState('')
 
-  // useEffect(() => {}, [curMenu])
+  const getCode = (code: string) => {
+    setCode(code)
+  }
 
-  useEffect(() => {
-
-  }, [])
   return (
     <>
       <div style={{ background: 'var(--color-fill-2)' }}>
         <Row className='grid-demo' style={{ marginBottom: 16 }}>
           <Col span={11}>
-            <VisChart />
+            <VisChart code={code} />
           </Col>
           <Col span={12}>
-            <MonacoEditor />
+            <MonacoEditor onGetCode={getCode} />
           </Col>
         </Row>
 
