@@ -1,19 +1,19 @@
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-06-25 14:56:42
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-06-25 20:18:13
+ * @LastEditors: hjy 1441211576@qq.com
+ * @LastEditTime: 2024-06-28 23:35:37
  * @FilePath: \algorithm-visualization\packages\editor\index.tsx
  * @Description:
  *
  */
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { Editor, OnChange } from '@monaco-editor/react'
+import { Editor } from '@monaco-editor/react'
 import { Space, Button } from '@arco-design/web-react'
 import { IconPlayArrow } from '@arco-design/web-react/icon'
 import * as monaco from 'monaco-editor'
 
-const MonacoEditor: React.FC = ({ onGetCode }) => {
+const MonacoEditor: React.FC = ({ onChange }) => {
   const [code, setCode] = useState('')
   const editorRef = useRef(null)
 
@@ -38,7 +38,7 @@ const MonacoEditor: React.FC = ({ onGetCode }) => {
 
   const handleButtonClick = useCallback(() => {
     const currentCode = editorRef?.current?.getValue()
-    onGetCode(currentCode)
+    onChange(currentCode)
   }, [code])
 
   return (

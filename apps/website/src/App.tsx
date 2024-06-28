@@ -18,7 +18,9 @@ const Col = Grid.Col
 function App() {
   const [code, setCode] = useState('')
 
-  const getCode = (code: string) => {
+  const onChange = (code: string) => {
+    console.log(code)
+
     setCode(code)
   }
 
@@ -30,7 +32,7 @@ function App() {
             <VisChart code={code} />
           </Col>
           <Col span={12}>
-            <MonacoEditor onGetCode={getCode} />
+            <MonacoEditor onChange={onChange} />
           </Col>
         </Row>
 
@@ -46,7 +48,7 @@ function App() {
                   mode='horizontal'
                   defaultSelectedKeys={['Home']}
                   onClickMenuItem={(key: string) => {
-                    setMenu(key) 
+                    setMenu(key)
                   }}
                 >
                   {MenuList?.map(d => {

@@ -1,8 +1,8 @@
 /*
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-29 10:11:42
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-06-25 20:31:35
+ * @LastEditors: hjy 1441211576@qq.com
+ * @LastEditTime: 2024-06-29 00:12:45
  * @FilePath: \algorithm-visualization\apps\website\src\chart.tsx
  * @Description: the chart configuration
  */
@@ -20,12 +20,12 @@ interface IProps {
 
 const VisChart = (props: IProps) => {
   const { code = '' } = props
+
+  // 写一个组件接收schema
   useEffect(() => {
-    console.log(code)
+    if (code.length === 0) return
     const func = new Function('MonoArray', code)
-    const schema = func(MonoArray)
-    console.log(schema);
-    
+    const schema = func(MonoArray).schema
 
     const render = async (schemas: ISchema) => {
       const [, vchart, actionExecutor] = getChart(schemas, ChartLibType.visactor, 'chart')

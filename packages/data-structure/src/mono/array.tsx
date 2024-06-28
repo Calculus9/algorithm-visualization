@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-06-11 19:02:38
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-11 20:57:51
+ * @LastEditTime: 2024-06-28 23:31:13
  * @FilePath: /algorithm-visualization/packages/data-structure/src/mono copy.tsx
  * @Description: Parse Mono Array To Schema
  */
@@ -31,6 +31,7 @@ export class MonoArray extends Mono {
     let x: string = '',
       y: string = ''
     if (!this.isNumberArray(params)) {
+      // TODO: isArray
       const { data, xField, yField } = params
       if (!this.isNumberArray(data)) {
         res = data
@@ -39,7 +40,7 @@ export class MonoArray extends Mono {
     } else {
       res = params.map((d: number) => ({ key: d, value: d }))
     }
-
+    // TODO: 将spec和data解ou
     initSpecs = {
       values: res,
       xField: x || 'key',
@@ -49,13 +50,13 @@ export class MonoArray extends Mono {
     this.initType()
     this.schema.initSpec = initSpecs
   }
-
+  // 写成属性
   initType() {
     this.schema.type = 'array'
   }
 
   push(pushParams: number | object) {
-    this.schema.actions.push({ op: 'push', value: this.checkNumber(pushParams) })
+    this.schema.actions.push({ op: 'push', value: this.checkValue(pushParams) })
   }
 
   pop() {
@@ -67,7 +68,7 @@ export class MonoArray extends Mono {
   }
 
   insert(insertData: number | object, place: number) {
-    this.schema.actions.push({ op: 'insert', value: this.checkNumber(insertData), place })
+    this.schema.actions.push({ op: 'insert', value: this.checkValue(insertData), place })
   }
 
   delete(deleteData: object) {

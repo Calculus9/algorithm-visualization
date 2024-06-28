@@ -2,14 +2,14 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:35:11
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-11 20:46:24
+ * @LastEditTime: 2024-06-28 23:31:18
  * @FilePath: /algorithm-visualization/packages/data-structure/index.tsx
- * @Description: Mono class
+ * @Description: BaseConfig class
  */
 
 import { ISchema } from './datatype'
 
-export default class Mono {
+export default class BaseConfig {
   schema: ISchema
   constructor(_params: any) {
     this.schema = {
@@ -24,13 +24,15 @@ export default class Mono {
     }
   }
 
+  // 组合>继承,lodash
   isNumberArray(arr: any): arr is number[] {
     return Array.isArray(arr) && arr.every(item => typeof item === 'number')
   }
 
-  checkNumber(checkParams: number | object): object {
+  checkValue(checkParams: number | object): object {
     let value: object
     if (typeof checkParams === 'number') {
+      // TODO： key，统一成object
       value = { key: `${checkParams}-${Math.random()}`, value: checkParams }
     } else {
       value = checkParams
