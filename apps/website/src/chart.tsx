@@ -2,18 +2,16 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-29 10:11:42
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-29 00:12:45
+ * @LastEditTime: 2024-07-01 18:06:58
  * @FilePath: \algorithm-visualization\apps\website\src\chart.tsx
  * @Description: the chart configuration
  */
 
 import React, { useEffect } from 'react'
-// import { schema } from './mock';
-// import { ISchema } from '@mono/data-structure/src/datatype'
 import { getChart } from './utils'
 import { ChartLibType } from './constant'
-import { ISchema } from '@mono/data-structure/src/datatype'
-import { MonoArray } from '@mono/data-structure/src/mono/array'
+import { ISchema } from '@alvis/data-structure/src/datatype'
+import { MonoArray } from '@alvis/data-structure/src/mono/array'
 interface IProps {
   code: string
 }
