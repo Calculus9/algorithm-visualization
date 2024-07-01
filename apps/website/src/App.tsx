@@ -2,11 +2,11 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:30:32
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-07-01 18:06:13
+ * @LastEditTime: 2024-07-01 18:34:00
  * @FilePath: \algorithm-visualization\apps\website\src\App.tsx
  * @Description: project entry
  */
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import VisChart from './chart'
 import MonacoEditor from '@alvis/editor'
