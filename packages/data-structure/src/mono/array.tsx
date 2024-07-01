@@ -2,12 +2,13 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-07-01 18:12:27
+ * @LastEditTime: 2024-07-01 19:09:55
  * @FilePath: /algorithm-visualization/packages/data-structure/src/mono/array.tsx
  * @Description: This is the monoarray
  */
 import { IChart } from '@alvis/chart-visactor/src/types'
 import Mono from '../mono'
+import { checkValue, isNumberArray } from '../utils'
 
 export interface IArrayProps {
   data: number[] | { [key: string]: string | number }[]
@@ -29,33 +30,28 @@ export class MonoArray extends Mono {
     let res: Object[], initSpecs: IChart
     let x: string = '',
       y: string = ''
-    if (!this.isNumberArray(params)) {
-      // TODO: isArray
+    if (!isNumberArray(params)) {
       const { data, xField, yField } = params
-      if (!this.isNumberArray(data)) {
+      if (!isNumberArray(data)) {
         res = data
-        ;(x = xField), (y = yField)
+        x = xField
+        y = yField
       } else res = data.map((d: number) => ({ key: d, value: d }))
     } else {
       res = params.map((d: number) => ({ key: d, value: d }))
     }
-    // TODO: 将spec和data解ou
     initSpecs = {
       values: res,
       xField: x || 'key',
       yField: y || 'value'
     }
 
-    this.initType()
-    this.schema.initSpec = initSpecs
-  }
-  // 写成属性
-  initType() {
     this.schema.type = 'array'
+    this.schema.initSpec = initSpecs
   }
 
   push(pushParams: number | object) {
-    this.schema.actions.push({ op: 'push', value: this.checkValue(pushParams) })
+    this.schema.actions.push({ op: 'push', value: checkValue(pushParams) })
   }
 
   pop() {
@@ -67,7 +63,7 @@ export class MonoArray extends Mono {
   }
 
   insert(insertData: number | object, place: number) {
-    this.schema.actions.push({ op: 'insert', value: this.checkValue(insertData), place })
+    this.schema.actions.push({ op: 'insert', value: checkValue(insertData), place })
   }
 
   delete(deleteData: object) {
