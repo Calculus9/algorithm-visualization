@@ -1,4 +1,4 @@
-import { IChartProps } from '../../chart-visactor/src/types'
+import { IChartProps } from '@alvis/chart-visactor/src/types'
 import { IActions } from './type'
 import VChart from '@visactor/vchart'
 import { actionExec } from './index'
@@ -6,7 +6,7 @@ import { actionExec } from './index'
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-06-12 09:17:40
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-28 23:52:27
+ * @LastEditTime: 2024-07-01 18:05:35
  * @FilePath: /algorithm-visualization/packages/exec/src/actionExec.ts
  * @Description: this is the action execute file.
  */

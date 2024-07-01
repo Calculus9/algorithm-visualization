@@ -1,13 +1,12 @@
 /*
  * @Author: hjy 1441211576@qq.com
- * @Date: 2024-06-11 19:02:38
+ * @Date: 2024-07-01 14:22:28
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-28 23:31:13
- * @FilePath: /algorithm-visualization/packages/data-structure/src/mono copy.tsx
- * @Description: Parse Mono Array To Schema
+ * @LastEditTime: 2024-07-01 18:12:27
+ * @FilePath: /algorithm-visualization/packages/data-structure/src/mono/array.tsx
+ * @Description: This is the monoarray
  */
-
-import { IChart } from '@mono/chart-visactor/src/types'
+import { IChart } from '@alvis/chart-visactor/src/types'
 import Mono from '../mono'
 
 export interface IArrayProps {

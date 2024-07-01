@@ -21,6 +21,24 @@ importers:
 
   apps/website:
     dependencies:
+      '@alvis/chart-d3':
+        specifier: workspace:*
+        version: link:../../packages/chart-d3
+      '@alvis/chart-visactor':
+        specifier: workspace:*
+        version: link:../../packages/chart-visactor
+      '@alvis/data-structure':
+        specifier: workspace:*
+        version: link:../../packages/data-structure
+      '@alvis/editor':
+        specifier: workspace:*
+        version: link:../../packages/editor
+      '@alvis/exec':
+        specifier: workspace:*
+        version: link:../../packages/exec
+      '@alvis/render':
+        specifier: workspace:*
+        version: link:../../packages/render
       '@arco-design/web-react':
         specifier: ^2.62.0
         version: 2.62.0(@types/react@18.3.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -33,24 +51,6 @@ importers:
       '@babel/preset-typescript':
         specifier: ^7.24.7
         version: 7.24.7(@babel/core@7.24.7)
-      '@mono/chart-d3':
-        specifier: workspace:*
-        version: link:../../packages/chart-d3
-      '@mono/chart-visactor':
-        specifier: workspace:*
-        version: link:../../packages/chart-visactor
-      '@mono/data-structure':
-        specifier: workspace:*
-        version: link:../../packages/data-structure
-      '@mono/editor':
-        specifier: workspace:*
-        version: link:../../packages/editor
-      '@mono/exec':
-        specifier: workspace:*
-        version: link:../../packages/exec
-      '@mono/render':
-        specifier: workspace:*
-        version: link:../../packages/render
       '@visactor/vchart':
         specifier: ^1.11.0
         version: 1.11.0
@@ -81,7 +81,7 @@ importers:
         version: 7.8.0(eslint@8.57.0)(typescript@5.4.5)
       '@vitejs/plugin-react-swc':
         specifier: ^3.5.0
-        version: 3.6.0(vite@5.2.11(less@4.2.0))
+        version: 3.6.0(vite@5.2.11(@types/node@16.18.96)(less@4.2.0))
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -102,7 +102,7 @@ importers:
         version: 5.4.5
       vite:
         specifier: ^5.2.0
-        version: 5.2.11(less@4.2.0)
+        version: 5.2.11(@types/node@16.18.96)(less@4.2.0)
 
   packages/chart-d3:
     devDependencies:
@@ -125,15 +125,15 @@ importers:
 
   packages/data-structure:
     dependencies:
+      '@alvis/chart-visactor':
+        specifier: workspace:*
+        version: link:../chart-visactor
+      '@alvis/exec':
+        specifier: workspace:*
+        version: link:../exec
       '@arco-design/web-react':
         specifier: ^2.62.0
         version: 2.62.0(@types/react@18.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@mono/chart-visactor':
-        specifier: workspace:*
-        version: link:../chart-visactor
-      '@mono/exec':
-        specifier: workspace:*
-        version: link:../exec
     devDependencies:
       '@types/react':
         specifier: ^18.3.1
@@ -187,12 +187,12 @@ importers:
 
   packages/exec:
     dependencies:
+      '@alvis/chart-visactor':
+        specifier: workspace:*
+        version: link:../chart-visactor
       '@arco-design/web-react':
         specifier: ^2.62.0
         version: 2.62.0(@types/react@18.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@mono/chart-visactor':
-        specifier: workspace:*
-        version: link:../chart-visactor
       '@visactor/vchart':
         specifier: ^1.11.0
         version: 1.11.0
@@ -4227,10 +4227,10 @@ snapshots:
       '@turf/invariant': 6.5.0
       eventemitter3: 4.0.7
 
-  '@vitejs/plugin-react-swc@3.6.0(vite@5.2.11(less@4.2.0))':
+  '@vitejs/plugin-react-swc@3.6.0(vite@5.2.11(@types/node@16.18.96)(less@4.2.0))':
     dependencies:
       '@swc/core': 1.4.17
-      vite: 5.2.11(less@4.2.0)
+      vite: 5.2.11(@types/node@16.18.96)(less@4.2.0)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -5363,12 +5363,13 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  vite@5.2.11(less@4.2.0):
+  vite@5.2.11(@types/node@16.18.96)(less@4.2.0):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.17.2
     optionalDependencies:
+      '@types/node': 16.18.96
       fsevents: 2.3.3
       less: 4.2.0
 

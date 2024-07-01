@@ -2,11 +2,11 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-29 10:37:39
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-11 20:40:46
+ * @LastEditTime: 2024-07-01 18:05:41
  * @FilePath: /algorithm-visualization/packages/exec/src/bar.ts
  * @Description: execute the actions
  */
-import { IChartProps } from '@mono/chart-visactor/src/types.ts'
+import { IChartProps } from '@alvis/chart-visactor/src/types.ts'
 import { IActions } from './type.ts'
 import { Operation, OP_STRATEGY, OperationParams } from './strategy'
 

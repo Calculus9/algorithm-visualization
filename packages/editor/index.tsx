@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-06-25 14:56:42
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-28 23:35:37
+ * @LastEditTime: 2024-07-01 17:18:44
  * @FilePath: \algorithm-visualization\packages\editor\index.tsx
  * @Description:
  *
@@ -14,27 +14,8 @@ import { IconPlayArrow } from '@arco-design/web-react/icon'
 import * as monaco from 'monaco-editor'
 
 const MonacoEditor: React.FC = ({ onChange }) => {
-  const [code, setCode] = useState('')
+  const [code, setCode] = useState(localStorage.getItem('storage') || '')
   const editorRef = useRef(null)
-
-  // useEffect(() => {
-  //   console.log(editorRef);
-
-  //   if (editorRef.current) {
-  //     const editor = monaco.editor.create(editorRef.current, {
-  //       value: '// Start typing your code...',
-  //       language: 'javascript',
-  //       theme: 'vs-dark'
-  //     })
-
-  //     editor.onDidChangeModelContent(() => {
-  //       setCode(editor.getValue())
-  //     })
-
-  //     return () => editor.dispose()
-  //   }
-
-  // }, [editorRef])
 
   const handleButtonClick = useCallback(() => {
     const currentCode = editorRef?.current?.getValue()

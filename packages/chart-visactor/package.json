@@ -1,5 +1,5 @@
 {
-  "name": "@mono/chart-visactor",
+  "name": "@alvis/chart-visactor",
   "version": "1.0.0",
   "devDependencies": {
     "typescript": "^5.4.5"

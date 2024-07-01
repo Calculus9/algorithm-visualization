@@ -1,5 +1,5 @@
 {
-  "name": "@mono/chart-d3",
+  "name": "@alvis/chart-d3",
   "version": "1.0.0",
   "devDependencies": {
     "@types/react": "^18.3.2",
