@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-29 10:11:42
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-07-01 18:54:15
+ * @LastEditTime: 2024-07-01 18:55:56
  * @FilePath: \algorithm-visualization\apps\website\src\chart.tsx
  * @Description: the chart configuration
  */
@@ -18,19 +18,14 @@ interface IProps {
 const VisChart = (props: IProps) => {
   const { code = '' } = props
 
-  // 写一个组件接收schema
   useEffect(() => {
     if (code.length === 0) return
-
     const schema = parseCode2Schema(code)
     renderChart(schema)
   }, [code])
 
   return (
     <div>
-      {/* <Button shape='round' type='outline' size='large' onClick={handleClick}>
-        test
-      </Button> */}
       <div id='chart'></div>
     </div>
   )

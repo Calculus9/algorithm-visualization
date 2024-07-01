@@ -11,6 +11,7 @@
   "dependencies": {
     "@arco-design/web-react": "^2.62.0",
     "@alvis/exec": "workspace:*",
+    "@alvis/schema": "workspace:*",
     "@alvis/chart-visactor": "workspace:*"
   }
 }

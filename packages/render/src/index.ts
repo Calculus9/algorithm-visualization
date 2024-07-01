@@ -2,15 +2,13 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:32:05
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-07-01 18:54:09
+ * @LastEditTime: 2024-07-01 18:55:49
  * @FilePath: /algorithm-visualization/packages/render/index.tsx
  * @Description: render index
  */
-import React from 'react'
 import { ISchema } from '@alvis/schema/src/types'
 import { datastructure2chartTypeMap } from '@alvis/chart-visactor/src/utils'
 import { IChartProps } from '@alvis/chart-visactor/src/types'
-import { IActions } from '@alvis/exec/src/types'
 
 import VChart from '@visactor/vchart'
 import { ActionExec } from '@alvis/exec/src/actionExec'

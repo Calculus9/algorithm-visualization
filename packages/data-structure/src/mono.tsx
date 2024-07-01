@@ -1,13 +1,12 @@
+import { ISchema } from '@alvis/schema/src/types'
 /*
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:35:11
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-06-28 23:31:18
+ * @LastEditTime: 2024-07-01 18:58:11
  * @FilePath: /algorithm-visualization/packages/data-structure/index.tsx
  * @Description: BaseConfig class
  */
-
-import { ISchema } from './datatype'
 
 export default class BaseConfig {
   schema: ISchema
