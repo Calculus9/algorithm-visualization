@@ -1,4 +1,4 @@
-import { IChartProps } from '@alvis/chart-visactor/src/types'
+import { IChartProps } from '../../charts/chart-visactor/src/types'
 import { IActions } from './types'
 import VChart from '@visactor/vchart'
 import { actionExec } from './index'

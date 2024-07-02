@@ -6,7 +6,7 @@
  * @FilePath: /algorithm-visualization/packages/data-structure/src/mono/array.tsx
  * @Description: This is the monoarray
  */
-import { IChart } from '@alvis/chart-visactor/src/types'
+import { IChart } from '../../../charts/chart-visactor/src/types'
 import Mono from '../mono'
 import { checkValue, isNumberArray } from '../utils'
 

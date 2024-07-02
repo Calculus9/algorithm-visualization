@@ -11,7 +11,7 @@
     "@alvis/schema": "workspace:*",
     "@alvis/exec": "workspace:*",
     "@alvis/website": "workspace:*",
-    "@alvis/chart-visactor": "workspace:*",
+    "@alvis/charts": "workspace:*",
     "@visactor/vchart": "^1.11.0"
   }
 }

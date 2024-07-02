@@ -21,12 +21,9 @@ importers:
 
   apps/website:
     dependencies:
-      '@alvis/chart-d3':
+      '@alvis/charts':
         specifier: workspace:*
-        version: link:../../packages/chart-d3
-      '@alvis/chart-visactor':
-        specifier: workspace:*
-        version: link:../../packages/chart-visactor
+        version: link:../../packages/charts
       '@alvis/data-structure':
         specifier: workspace:*
         version: link:../../packages/data-structure
@@ -107,16 +104,7 @@ importers:
         specifier: ^5.2.0
         version: 5.3.2(@types/node@16.18.101)(less@4.2.0)
 
-  packages/chart-d3:
-    devDependencies:
-      '@types/react':
-        specifier: ^18.3.2
-        version: 18.3.3
-      typescript:
-        specifier: ^5.4.5
-        version: 5.5.2
-
-  packages/chart-visactor:
+  packages/charts:
     dependencies:
       '@visactor/vchart':
         specifier: ^1.11.0
@@ -128,31 +116,16 @@ importers:
 
   packages/data-structure:
     dependencies:
-      '@alvis/chart-visactor':
+      '@alvis/charts':
         specifier: workspace:*
-        version: link:../chart-visactor
+        version: link:../charts
       '@alvis/exec':
         specifier: workspace:*
         version: link:../exec
       '@alvis/schema':
         specifier: workspace:*
         version: link:../schema
-      '@arco-design/web-react':
-        specifier: ^2.62.0
-        version: 2.63.0(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
-      '@types/react':
-        specifier: ^18.3.1
-        version: 18.3.3
-      '@types/react-dom':
-        specifier: ^18.2.22
-        version: 18.3.0
-      react:
-        specifier: ^18.2.0
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.3.1(react@18.3.1)
       typescript:
         specifier: ^5.4.5
         version: 5.5.2
@@ -193,9 +166,9 @@ importers:
 
   packages/exec:
     dependencies:
-      '@alvis/chart-visactor':
+      '@alvis/charts':
         specifier: workspace:*
-        version: link:../chart-visactor
+        version: link:../charts
       '@alvis/schema':
         specifier: workspace:*
         version: link:../schema
@@ -218,9 +191,9 @@ importers:
 
   packages/render:
     dependencies:
-      '@alvis/chart-visactor':
+      '@alvis/charts':
         specifier: workspace:*
-        version: link:../chart-visactor
+        version: link:../charts
       '@alvis/exec':
         specifier: workspace:*
         version: link:../exec
@@ -249,9 +222,9 @@ importers:
 
   packages/schema:
     dependencies:
-      '@alvis/chart-visactor':
+      '@alvis/charts':
         specifier: workspace:*
-        version: link:../chart-visactor
+        version: link:../charts
       '@alvis/data-structure':
         specifier: workspace:*
         version: link:../data-structure

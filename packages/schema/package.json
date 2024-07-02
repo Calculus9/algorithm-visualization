@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@alvis/chart-visactor": "workspace:*",
+    "@alvis/charts": "workspace:*",
     "@alvis/exec": "workspace:*",
     "@alvis/data-structure": "workspace:*"
   }

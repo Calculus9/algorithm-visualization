@@ -21,8 +21,7 @@
     "noFallthroughCasesInSwitch": true,
     "ignoreDeprecations": "5.0",
     "suppressImplicitAnyIndexErrors": true
-
   },
-  "include": ["src"],
+  "include": ["src", "../../packages/render/src/chart.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

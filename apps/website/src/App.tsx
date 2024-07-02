@@ -8,7 +8,7 @@
  */
 import React, { useState } from 'react'
 
-import VisChart from './chart'
+import VisChart from '@alvis/render/src/chart'
 import MonacoEditor from '@alvis/editor/src/index'
 import { Grid } from '@arco-design/web-react'
 const Row = Grid.Row

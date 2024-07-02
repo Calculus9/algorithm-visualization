@@ -6,7 +6,7 @@
  * @FilePath: /algorithm-visualization/packages/exec/src/bar.ts
  * @Description: execute the actions
  */
-import { IChartProps } from '@alvis/chart-visactor/src/types.ts'
+import { IChartProps } from '../../charts/chart-visactor/src/types.ts'
 import { IActions } from './types.ts'
 import { Operation, OP_STRATEGY, OperationParams } from './strategy'
 import { ActionExec } from './actionExec.ts'
