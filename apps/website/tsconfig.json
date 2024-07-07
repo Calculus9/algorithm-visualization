@@ -22,6 +22,6 @@
     "ignoreDeprecations": "5.0",
     "suppressImplicitAnyIndexErrors": true
   },
-  "include": ["src", "../../packages/render/src/chart.tsx"],
+  "include": ["src", "src/chart.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
