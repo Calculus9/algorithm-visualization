@@ -10,7 +10,7 @@
 import React, { useEffect, useState } from 'react'
 import { parseCode2Schema } from '@alvis/schema/src/service/buildSchema'
 import { ISchema } from '@alvis/schema/src/types'
-import { RenderChart } from '../../../packages/render/src/index'
+import { ChartVis } from '../../../packages/render/src/index'
 
 interface IProps {
   code: string
@@ -34,6 +34,6 @@ const VisChart = (props: IProps) => {
     setSchema(parseCode2Schema(code))
   }, [code])
 
-  return <RenderChart schema={schema} />
+  return <ChartVis schema={schema} />
 }
 export default VisChart
