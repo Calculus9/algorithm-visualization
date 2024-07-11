@@ -1,13 +1,13 @@
 /*
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
- * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-07-01 19:09:55
- * @FilePath: /algorithm-visualization/packages/data-structure/src/mono/array.tsx
+ * @LastEditors: hh 1441211576@qq.com
+ * @LastEditTime: 2024-07-11 16:43:22
+ * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array.ts
  * @Description: This is the monoarray
  */
-import { IChart } from '../../../charts/chart-visactor/src/types'
-import Mono from '../mono'
+import { IChart } from '@alvis/chart-visactor/src/index'
+import BaseConfig from './baseconfig'
 import { checkValue, isNumberArray } from '../utils'
 
 export interface IArrayProps {
@@ -20,7 +20,7 @@ export interface IArrayProps {
   yField: string
 }
 
-export class MonoArray extends Mono {
+export class AlvisArray extends BaseConfig {
   constructor(params: number[] | IArrayProps) {
     super(params)
     this.init(params)
