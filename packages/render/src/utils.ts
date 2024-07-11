@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:32:05
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-11 16:40:13
+ * @LastEditTime: 2024-07-11 17:40:34
  * @FilePath: \algorithm-visualization\packages\render\src\utils.ts
  * @Description: render index
  */
@@ -57,19 +57,4 @@ export const getChart = (
   const actionExecutor = new ActionExec(spec, vchart, actions)
 
   return [spec, vchart, actionExecutor]
-}
-
-export const renderChart = async (schemas: ISchema) => {
-  const [, vchart, actionExecutor] = getChart(schemas, ChartLibType.visactor, 'chart')
-
-  const exe = async () => {
-    for (let i = 0; i < schemas.actions.length; i++) {
-      await actionExecutor.exeNext()
-    }
-  }
-  await exe()
-
-  return () => {
-    vchart.release()
-  }
 }

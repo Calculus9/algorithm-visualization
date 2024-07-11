@@ -2,11 +2,11 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-11 16:43:22
+ * @LastEditTime: 2024-07-11 16:57:36
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array.ts
  * @Description: This is the monoarray
  */
-import { IChart } from '@alvis/chart-visactor/src/index'
+import { IChart } from '@alvis/charts/chart-visactor/src/index'
 import BaseConfig from './baseconfig'
 import { checkValue, isNumberArray } from '../utils'
 
