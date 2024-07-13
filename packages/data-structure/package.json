@@ -5,8 +5,10 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "@alvis/charts": "workspace:*",
     "@alvis/exec": "workspace:*",
     "@alvis/schema": "workspace:*",
-    "@alvis/charts": "workspace:*"
+    "@types/lodash": "^4.17.6",
+    "lodash": "^4.17.21"
   }
 }

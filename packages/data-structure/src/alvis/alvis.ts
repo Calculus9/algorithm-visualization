@@ -8,9 +8,11 @@ export interface IInitConfigurationProps {
 class Alvis {
   datastructureType: string
   schema: ISchemaProps
+  data: Object[]
 
   constructor(type: string, specs: IInitConfigurationProps) {
     this.datastructureType = type
+    this.data = []
     this.schema = {
       specs: {
         type: '',
