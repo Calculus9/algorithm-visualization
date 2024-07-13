@@ -2,15 +2,15 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-02 21:05:29
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-11 16:33:09
+ * @LastEditTime: 2024-07-13 14:27:02
  * @FilePath: \algorithm-visualization\packages\schema\src\service\buildSchema.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import { ISchema } from '../types'
-import { AlvisArray } from '@alvis/data-structure/src'
+import { Alvis } from '@alvis/data-structure/src/index'
+import { ISchemaProps } from '../types'
 
-export const parseCode2Schema = (code: string): ISchema => {
-  const func = new Function('AlvisArray', code)(AlvisArray)
-  const schema: ISchema = func().schema
+export const convertCode2Schema = (code: string): ISchemaProps => {
+  let alvis = new Function('Alvis', code)(Alvis)()
+  const schema: ISchemaProps = alvis.schema
   return schema
 }

@@ -169,6 +169,9 @@ importers:
       '@alvis/charts':
         specifier: workspace:*
         version: link:../charts
+      '@alvis/data-structure':
+        specifier: workspace:*
+        version: link:../data-structure
       '@alvis/schema':
         specifier: workspace:*
         version: link:../schema

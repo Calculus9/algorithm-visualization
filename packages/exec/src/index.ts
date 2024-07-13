@@ -6,13 +6,8 @@
  * @FilePath: \algorithm-visualization\packages\exec\src\index.ts
  * @Description: execute the actions
  */
-import { ActionExec } from "./actionExector";
-import { actionExec, getActionExe, getActions } from "./generateAction";
-import { OP_STRATEGY } from "./strategy";
-import { IActions } from "./types";
-export {
-    ActionExec,
-    actionExec, getActionExe, getActions,
-    OP_STRATEGY
-};
-export type { IActions };
+import { ActionExec } from './actionExector'
+import { actionExec, getActionExe, getActions } from './generateAction'
+import { IActions } from './types'
+export { ActionExec, actionExec, getActionExe, getActions }
+export type { IActions }

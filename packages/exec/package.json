@@ -10,6 +10,7 @@
     "@arco-design/web-react": "^2.62.0",
     "@alvis/charts": "workspace:*",
     "@visactor/vchart": "^1.11.0",
-    "@alvis/schema": "workspace:*"
+    "@alvis/schema": "workspace:*",
+    "@alvis/data-structure": "workspace:*"
   }
 }

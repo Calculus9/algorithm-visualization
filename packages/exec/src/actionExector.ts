@@ -1,23 +1,25 @@
 import { IChartProps } from '@alvis/charts/chart-visactor/src'
 import { IActions } from './types'
-import VChart from '@visactor/vchart'
-import { actionExec } from "./generateAction"
+import VChart, { ISpec } from '@visactor/vchart'
+import { actionExec } from './generateAction'
+import { ISchemaProps } from '@alvis/schema/src'
 /*
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-06-12 09:17:40
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-11 16:25:33
+ * @LastEditTime: 2024-07-13 14:49:23
  * @FilePath: \algorithm-visualization\packages\exec\src\actionExector.ts
  * @Description: this is the action execute file.
  */
 
 export class ActionExec {
-  spec: IChartProps
+  spec: ISchemaProps['specs']
   vchart: VChart
   actions: IActions[]
   // this is current operation index
   private index = 0
-  constructor(spec: IChartProps, vchart: VChart, actions: IActions[]) {
+
+  constructor(spec: ISchemaProps['specs'], vchart: VChart, actions: IActions[]) {
     this.spec = spec
     this.vchart = vchart
     this.actions = actions
@@ -41,4 +43,3 @@ export class ActionExec {
     this.index--
   }
 }
-

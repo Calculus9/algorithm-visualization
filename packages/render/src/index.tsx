@@ -1,4 +1,4 @@
-import { ISchema } from '@alvis/schema/src'
+import { ISchemaProps } from '@alvis/schema/src'
 import React, { useEffect } from 'react'
 import { getChart } from './utils'
 import { ChartLibType } from '@alvis/website/src'
@@ -6,12 +6,12 @@ import { ChartLibType } from '@alvis/website/src'
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 19:20:23
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-11 17:39:26
+ * @LastEditTime: 2024-07-13 14:24:49
  * @FilePath: \algorithm-visualization\packages\render\src\index.tsx
  * @Description: Here is RenderChart component, it receive the schema and then render.
  */
 
-export const ChartVis = (props: { schema: ISchema | null }) => {
+export const ChartVis = (props: { schema: ISchemaProps | null }) => {
   const { schema } = props
   const id = 'chart'
 
