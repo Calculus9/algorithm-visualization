@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:32:05
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-13 14:43:35
+ * @LastEditTime: 2024-07-13 19:48:27
  * @FilePath: \algorithm-visualization\packages\render\src\utils.ts
  * @Description: render index
  */
@@ -37,6 +37,7 @@ export const getChart = (
   if (ChartLibType.visactor === chartType) {
     const spec: ISchemaProps['specs'] = getSpec(schema)
     const vchart: VChart = getVChart(spec as ISpec, dom)
+
     const actionExecutor = getActions(schema, spec, vchart)
     return [spec, vchart, actionExecutor]
   }

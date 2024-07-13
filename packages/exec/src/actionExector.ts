@@ -7,7 +7,7 @@ import { ISchemaProps } from '@alvis/schema/src'
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-06-12 09:17:40
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-13 14:49:23
+ * @LastEditTime: 2024-07-13 20:36:07
  * @FilePath: \algorithm-visualization\packages\exec\src\actionExector.ts
  * @Description: this is the action execute file.
  */
@@ -26,9 +26,9 @@ export class ActionExec {
   }
 
   exe = async () => {
+    await new Promise(resolve => setTimeout(resolve, 200))
     const action = this.actions[this.index]
     const newSpec = actionExec(action, this.spec)
-    await new Promise(resolve => setTimeout(resolve, 1000))
     this.vchart.updateSpecSync(newSpec)
     this.vchart.renderAsync()
   }

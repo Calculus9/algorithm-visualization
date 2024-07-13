@@ -125,6 +125,12 @@ importers:
       '@alvis/schema':
         specifier: workspace:*
         version: link:../schema
+      '@types/lodash':
+        specifier: ^4.17.6
+        version: 4.17.6
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
     devDependencies:
       typescript:
         specifier: ^5.4.5
@@ -1340,6 +1346,9 @@ packages:
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
+
+  '@types/lodash@4.17.6':
+    resolution: {integrity: sha512-OpXEVoCKSS3lQqjx9GGGOapBeuW5eUboYHRlHP9urXPX25IKZ6AnP5ZRxtVf63iieUbsHxLn8NQ5Nlftc6yzAA==}
 
   '@types/node@16.18.101':
     resolution: {integrity: sha512-AAsx9Rgz2IzG8KJ6tXd6ndNkVcu+GYB6U/SnFAaokSPNx2N7dcIIfnighYUNumvj6YS2q39Dejz5tT0NCV7CWA==}
@@ -3801,6 +3810,8 @@ snapshots:
       '@babel/types': 7.24.7
 
   '@types/estree@1.0.5': {}
+
+  '@types/lodash@4.17.6': {}
 
   '@types/node@16.18.101': {}
 

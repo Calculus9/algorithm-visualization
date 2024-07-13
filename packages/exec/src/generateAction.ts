@@ -10,16 +10,16 @@ import { arrayOperations } from '@alvis/data-structure/src'
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-11 16:12:57
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-13 14:54:50
+ * @LastEditTime: 2024-07-13 20:35:11
  * @FilePath: \algorithm-visualization\packages\exec\src\generateAction.ts
  * @Description:
  *
  */
 export const actionExec = (action: IActions, spec: ISchemaProps['specs']) => {
   const { data, xField, yField } = spec
-  console.log(data[0].values)
 
   let valueOfData = data[0].values
+
   const value = action?.value
   const op: string = action?.op
   const place = action?.place
@@ -42,6 +42,7 @@ export const getActionExe = (schema: ISchemaProps): IActions[] => {
 
 export const getActions = (schema: ISchemaProps, spec: ISchemaProps['specs'], vchart: VChart) => {
   const actions = getActionExe(schema)
+
   const actionExecutor = new ActionExec(spec, vchart, actions)
 
   return actionExecutor
