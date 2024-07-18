@@ -2,11 +2,10 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-13 20:34:33
+ * @LastEditTime: 2024-07-18 14:50:52
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\array.ts
  * @Description: This is the monoarray
  */
-import { ISchemaProps } from '@alvis/schema/src'
 import { checkValue, isNumberArray } from '../../utils'
 import { Alvis, IInitConfigurationProps } from '../alvis'
 import _ from 'lodash'
@@ -16,10 +15,10 @@ export class AlvisArray extends Alvis {
   constructor(configs: IInitConfigurationProps) {
     super('array', configs)
 
-    const { xField, yField } = configs?.options
+    const { xField = 'key', yField = 'value' } = configs?.options ?? {}
 
-    this.xField = xField || 'key'
-    this.yField = yField || 'value'
+    this.xField = xField
+    this.yField = yField
 
     this.init(configs)
     return this.getProxy()
