@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 15:54:07
+ * @LastEditTime: 2024-07-20 17:03:20
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\array.ts
  * @Description: This is the monoarray
  */
@@ -26,32 +26,6 @@ export class AlvisArray extends Alvis {
 
   getInstance() {
     return this
-  }
-
-  private init(configs: IInitConfigurationProps) {
-    const { data, options } = configs
-    let res: object[] = data
-    if (isNumberArray(data)) {
-      res = data.map((d, index) => {
-        return {
-          id: `${d}-${index}`,
-          key: index,
-          value: d
-        }
-      })
-    }
-
-    this.data = res
-    this.schema = {
-      specs: {
-        type: 'bar',
-        ...options,
-        xField: this.xField,
-        yField: this.yField,
-        data: [{ id: 'barData', values: _.cloneDeep(res) }]
-      },
-      actions: []
-    }
   }
 
   get length(): number {
@@ -97,16 +71,28 @@ export class AlvisArray extends Alvis {
     this.schema.actions.push({ op: 'pop' })
   }
 
-  set(index: number, value: number) {
-    const setParams = {
-      id: `${value}-${index}`,
-      [this.xField]: +index,
-      [this.yField]: +value
+  set(params: object | number, value: string) {
+    let setParams = params
+    if (typeof params === 'number') {
+      setParams = {
+        id: `${value}-${params}`,
+        [this.xField]: params,
+        [this.yField]: +value
+      }
+      this.data[params] = _.cloneDeep(setParams)
+    } else {
+      let index = 0
+      this.data.map((d, i) => {
+        if (d[this.xField] === setParams[this.xField]) {
+          index = i
+          return
+        }
+      })
+      this.data[index] = _.cloneDeep(setParams)
     }
-    this.data[index] = _.cloneDeep(setParams)
+
     this.schema.actions.push({ op: 'set', value: setParams })
   }
-
   get(key: string | number | Symbol) {
     const getObj = this.data.filter(obj => {
       return obj[this.xField] === +key

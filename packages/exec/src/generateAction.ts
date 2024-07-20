@@ -5,17 +5,18 @@ import { ActionExec } from './index'
 import { OperationParams } from '@alvis/data-structure/src/utils/strategy'
 import { IActions } from './types'
 import { arrayOperations } from '@alvis/data-structure/src'
+import { IChartProps } from '@alvis/charts/utils/types'
 
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-11 16:12:57
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-13 20:35:11
+ * @LastEditTime: 2024-07-20 17:07:06
  * @FilePath: \algorithm-visualization\packages\exec\src\generateAction.ts
  * @Description:
  *
  */
-export const actionExec = (action: IActions, spec: ISchemaProps['specs']) => {
+export const actionExec = (action: IActions, spec: IChartProps) => {
   const { data, xField, yField } = spec
 
   let valueOfData = data[0].values
@@ -40,7 +41,7 @@ export const getActionExe = (schema: ISchemaProps): IActions[] => {
   return schema.actions
 }
 
-export const getActions = (schema: ISchemaProps, spec: ISchemaProps['specs'], vchart: VChart) => {
+export const getActions = (schema: ISchemaProps, spec: IChartProps, vchart: VChart) => {
   const actions = getActionExe(schema)
 
   const actionExecutor = new ActionExec(spec, vchart, actions)

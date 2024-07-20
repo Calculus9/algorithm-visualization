@@ -4,7 +4,7 @@ import { OperationParams } from '../../utils/strategy'
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-11 20:35:09
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-13 20:34:56
+ * @LastEditTime: 2024-07-20 17:06:39
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\function.ts
  * @Description:
  *
@@ -31,7 +31,15 @@ const arrayOperations: arrayOPMap = {
   },
   set: (props: OperationParams): Object[] => {
     const { data, value, xField = 'key' } = props
-    data[value[xField]] = value
+    let index
+    data.map((d, i) => {
+      if (d[xField] === value[xField]) {
+        index = i
+      }
+    })
+    data[index] = value
+    // data[value[xField]] = value
+
     return data
   },
   insert: (props: OperationParams): Object[] => {
