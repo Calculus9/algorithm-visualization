@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-20 14:04:17
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 17:20:18
+ * @LastEditTime: 2024-07-20 20:50:23
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\adapter.ts
  * @Description: use Adpter to unify the schema
  *
@@ -50,7 +50,7 @@ class Adapter {
         xField: 'key',
         yField: 'value'
       },
-      layout: {}
+      layout
     }
   }
 

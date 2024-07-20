@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-20 14:42:22
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 17:12:34
+ * @LastEditTime: 2024-07-20 20:52:19
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\adaptee.ts
  * @Description:
  *
@@ -27,8 +27,8 @@ class Adaptee {
     const { visual, type, layout } = chartConfig ?? {}
     const { xField, yField } = visual ?? {}
     if (type === 'pie') {
-      visual.categoryField = _.cloneDeep(xField)
-      visual.valueField = _.clone(yField)
+      visual.categoryField = xField
+      visual.valueField = yField
       delete visual.xField
       delete visual.yField
     } else {

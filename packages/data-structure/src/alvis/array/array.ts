@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 17:42:30
+ * @LastEditTime: 2024-07-20 20:47:01
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\array.ts
  * @Description: This is the monoarray
  */
@@ -50,7 +50,7 @@ export class AlvisArray extends Alvis {
       set(target, property, value) {
         if (!isNaN(Number(property))) {
           // 代理数组元素的设置
-          target.set(property, value)
+          target.set(+property, value)
           return true
         }
         // // 对于类属性的设置操作，使用默认行为
@@ -72,7 +72,7 @@ export class AlvisArray extends Alvis {
 
   set(params: object | number, value: string) {
     let setParams = params
-    if (typeof params === 'number') {
+    if (typeof +params === 'number') {
       setParams = {
         id: `${value}-${params}`,
         [this.xField]: params,
@@ -89,7 +89,6 @@ export class AlvisArray extends Alvis {
       })
       this.originData[index] = _.cloneDeep(setParams)
     }
-
     this.schema.actions.push({ op: 'set', value: setParams })
   }
   get(key: string | number | Symbol) {

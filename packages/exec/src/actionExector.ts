@@ -6,7 +6,7 @@ import { IChartProps } from '@alvis/charts/utils/types'
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-06-12 09:17:40
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 17:42:54
+ * @LastEditTime: 2024-07-20 20:33:01
  * @FilePath: \algorithm-visualization\packages\exec\src\actionExector.ts
  * @Description: this is the action execute file.
  */
