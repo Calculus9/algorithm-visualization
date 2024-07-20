@@ -17,11 +17,11 @@ export interface IInitConfigurationProps {
 class Alvis {
   datastructureType: string
   schema: ISchemaProps
-  data: Object[]
+  originData: Object[]
 
   constructor(type: string, specs: IInitConfigurationProps) {
     this.datastructureType = type
-    this.data = []
+    this.originData = []
     this.schema = {
       dataStructureType: '',
       chartConfig: {

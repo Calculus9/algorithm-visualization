@@ -6,7 +6,7 @@ import { IChartProps } from '@alvis/charts/utils/types'
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-06-12 09:17:40
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 17:08:00
+ * @LastEditTime: 2024-07-20 17:42:54
  * @FilePath: \algorithm-visualization\packages\exec\src\actionExector.ts
  * @Description: this is the action execute file.
  */
@@ -25,7 +25,7 @@ export class ActionExec {
   }
 
   exe = async () => {
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    await new Promise(resolve => setTimeout(resolve, 200))
     const action = this.actions[this.index]
     const newSpec = actionExec(action, this.spec)
     this.vchart.updateSpecSync(newSpec)

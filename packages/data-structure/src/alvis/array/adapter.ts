@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-20 14:04:17
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 15:50:26
+ * @LastEditTime: 2024-07-20 17:20:18
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\adapter.ts
  * @Description: use Adpter to unify the schema
  *
@@ -11,7 +11,7 @@
 import { ISchemaProps } from '@alvis/schema/src'
 import { IInitConfigurationProps } from '../alvis'
 import { isNumberArray } from '../../utils'
-import _, { update, values } from 'lodash'
+import _ from 'lodash'
 
 class Adapter {
   schema: ISchemaProps
@@ -40,14 +40,17 @@ class Adapter {
       delete visual.categoryField
       delete visual.valueField
     } else {
-      const { direction } = layout
+      const { direction = '' } = layout ?? {}
       if (direction) [visual.xField, visual.yField] = [visual.yField, visual.xField]
     }
 
     return {
       type,
-      visual: _.cloneDeep(visual),
-      layout
+      visual: _.cloneDeep(visual) || {
+        xField: 'key',
+        yField: 'value'
+      },
+      layout: {}
     }
   }
 

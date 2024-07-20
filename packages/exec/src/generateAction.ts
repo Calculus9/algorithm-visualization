@@ -11,13 +11,14 @@ import { IChartProps } from '@alvis/charts/utils/types'
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-11 16:12:57
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 17:07:06
+ * @LastEditTime: 2024-07-20 17:41:05
  * @FilePath: \algorithm-visualization\packages\exec\src\generateAction.ts
  * @Description:
  *
  */
 export const actionExec = (action: IActions, spec: IChartProps) => {
   const { data, xField, yField } = spec
+  console.log(data)
 
   let valueOfData = data[0].values
 

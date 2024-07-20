@@ -2,12 +2,12 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 17:03:20
+ * @LastEditTime: 2024-07-20 17:42:30
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\array.ts
  * @Description: This is the monoarray
  */
 
-import { checkValue, isNumberArray } from '../../utils'
+import { checkValue } from '../../utils'
 import { Alvis, IInitConfigurationProps } from '../alvis'
 import _ from 'lodash'
 import { Adapter } from './adapter'
@@ -17,10 +17,9 @@ export class AlvisArray extends Alvis {
   constructor(config: IInitConfigurationProps) {
     super('array', config)
     this.schema = new Adapter('array', config).getSchema()
-
+    this.originData = _.cloneDeep(this.schema.data?.[0]?.values)
     this.xField = this.schema?.chartConfig?.visual?.xField
     this.yField = this.schema?.chartConfig?.visual?.yField
-
     return this.getProxy()
   }
 
@@ -29,7 +28,7 @@ export class AlvisArray extends Alvis {
   }
 
   get length(): number {
-    return this.data.length
+    return this.originData.length
   }
 
   getProxy() {
@@ -62,12 +61,12 @@ export class AlvisArray extends Alvis {
   }
 
   push(pushParams: object) {
-    this.data.push(checkValue(pushParams))
+    this.originData.push(checkValue(pushParams))
     this.schema.actions.push({ op: 'push', value: checkValue(pushParams) })
   }
 
   pop() {
-    this.data.pop()
+    this.originData.pop()
     this.schema.actions.push({ op: 'pop' })
   }
 
@@ -79,22 +78,22 @@ export class AlvisArray extends Alvis {
         [this.xField]: params,
         [this.yField]: +value
       }
-      this.data[params] = _.cloneDeep(setParams)
+      this.originData[params] = _.cloneDeep(setParams)
     } else {
       let index = 0
-      this.data.map((d, i) => {
+      this.originData.map((d, i) => {
         if (d[this.xField] === setParams[this.xField]) {
           index = i
           return
         }
       })
-      this.data[index] = _.cloneDeep(setParams)
+      this.originData[index] = _.cloneDeep(setParams)
     }
 
     this.schema.actions.push({ op: 'set', value: setParams })
   }
   get(key: string | number | Symbol) {
-    const getObj = this.data.filter(obj => {
+    const getObj = this.originData.filter(obj => {
       return obj[this.xField] === +key
     })
     if (!getObj[0]) return
@@ -103,17 +102,17 @@ export class AlvisArray extends Alvis {
   }
 
   insert(insertData: number | object, place: number) {
-    this.data.splice(place, 0, insertData)
+    this.originData.splice(place, 0, insertData)
     this.schema.actions.push({ op: 'insert', value: checkValue(insertData), place })
   }
 
   delete(deleteData: object) {
     const type = Object.keys(deleteData)[0]
     let index = 0
-    this.data.map((obj, i) => {
+    this.originData.map((obj, i) => {
       if (obj[type] === +Object.values(deleteData)[0]) index = i
     })
-    this.data.splice(index, 1)
+    this.originData.splice(index, 1)
     this.schema.actions.push({ op: 'delete', value: deleteData })
   }
 }
