@@ -4,15 +4,15 @@ import { OperationParams } from '../../utils/strategy'
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-11 20:35:09
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 17:06:39
+ * @LastEditTime: 2024-07-20 21:43:24
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\function.ts
  * @Description:
  *
  */
-import _, { values } from 'lodash'
-type arrayOP = 'push' | 'pop' | 'set' | 'insert' | 'delete' //| 'length' | 'shift' | 'unshift' | 'swap'
+import _ from 'lodash'
+export type arrayOP = 'push' | 'pop' | 'set' | 'insert' | 'delete' //| 'length' | 'shift' | 'unshift' | 'swap'
 
-type arrayOPMap = Record<arrayOP, Object | Function>
+export type arrayOPMap = Record<arrayOP, Function>
 
 export interface ISetParams {
   [key: string]: number | string
@@ -31,7 +31,7 @@ const arrayOperations: arrayOPMap = {
   },
   set: (props: OperationParams): Object[] => {
     const { data, value, xField = 'key' } = props
-    let index
+    let index: number = 0
     data.map((d, i) => {
       if (d[xField] === value[xField]) {
         index = i

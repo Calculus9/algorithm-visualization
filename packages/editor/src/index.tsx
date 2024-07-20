@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-06-25 14:56:42
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-18 20:18:37
+ * @LastEditTime: 2024-07-20 20:56:39
  * @FilePath: \algorithm-visualization\packages\editor\src\index.tsx
  * @Description:
  *
@@ -11,14 +11,17 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Editor, useMonaco } from '@monaco-editor/react'
 import { Space, Button } from '@arco-design/web-react'
 import { IconPlayArrow } from '@arco-design/web-react/icon'
+import * as monaco from 'monaco-editor'
 
-const MonacoEditor: React.FC = ({ onChange }) => {
-  const [code, setCode] = useState(localStorage.getItem('storage') || '')
-  const editorRef = useRef(null)
-  const [editorInstance, setEditorInstance] = useState(null)
+const MonacoEditor: React.FC<{ onChange: (code: string) => void }> = ({ onChange }) => {
+  const [code] = useState(localStorage.getItem('storage') || '')
+  const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null)
+  const [editorInstance, setEditorInstance] = useState<monaco.editor.IStandaloneCodeEditor | null>(
+    null
+  )
   const monaco = useMonaco()
 
-  const onMount = useCallback(editor => {
+  const onMount = useCallback((editor: monaco.editor.IStandaloneCodeEditor) => {
     editorRef.current = editor
     setEditorInstance(editor)
   }, [])
@@ -26,7 +29,7 @@ const MonacoEditor: React.FC = ({ onChange }) => {
   useEffect(() => {
     if (editorInstance) {
       const dispose = monaco?.languages.registerCompletionItemProvider('javascript', {
-        provideCompletionItems: function (model, position, context, token) {
+        provideCompletionItems: function (model, position) {
           const word = model.getWordUntilPosition(position)
           const range = {
             startLineNumber: position.lineNumber,
@@ -59,6 +62,12 @@ const MonacoEditor: React.FC = ({ onChange }) => {
                 range: range
               })
             })
+            suggestions.push({
+              label: `length`,
+              kind: monaco.languages.CompletionItemKind.Property,
+              insertText: `length`,
+              range: range
+            })
           }
 
           return { suggestions: suggestions }
@@ -69,7 +78,7 @@ const MonacoEditor: React.FC = ({ onChange }) => {
   }, [editorInstance])
 
   const handleButtonClick = useCallback(() => {
-    const currentCode = editorRef?.current?.getValue()
+    const currentCode = editorRef?.current?.getValue() || ''
     onChange(currentCode)
   }, [code])
 

@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:32:05
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 17:35:03
+ * @LastEditTime: 2024-07-20 21:43:40
  * @FilePath: \algorithm-visualization\packages\render\src\utils.ts
  * @Description: render index
  */
@@ -56,7 +56,7 @@ export const getChart = (
   // d3
   const spec = getSpec(schema)
   // const actionExecv = getActionExe(schema)
-  const vchart: VChart = new VChart(spec, { dom: dom })
+  const vchart: VChart = new VChart(spec as ISpec, { dom: dom })
   vchart.renderAsync()
   const actions = getActionExe(schema)
   const actionExecutor = new ActionExec(spec, vchart, actions)

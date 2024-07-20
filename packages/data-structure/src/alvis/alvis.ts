@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-20 13:33:56
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 14:37:16
+ * @LastEditTime: 2024-07-20 21:31:08
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\alvis.ts
  * @Description:
  *
@@ -14,10 +14,13 @@ export interface IInitConfigurationProps {
   data: object[]
   [key: string]: any
 }
+export interface IDataProps {
+  [key: string]: string | number
+}
 class Alvis {
   datastructureType: string
   schema: ISchemaProps
-  originData: Object[]
+  originData: object[]
 
   constructor(type: string, specs: IInitConfigurationProps) {
     this.datastructureType = type
@@ -33,7 +36,8 @@ class Alvis {
       },
       data: [
         {
-          values: []
+          values: [],
+          id: ''
         }
       ],
       actions: []
