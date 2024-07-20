@@ -1,3 +1,12 @@
+/*
+ * @Author: hh 1441211576@qq.com
+ * @Date: 2024-07-20 13:33:56
+ * @LastEditors: hh 1441211576@qq.com
+ * @LastEditTime: 2024-07-20 14:37:16
+ * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\alvis.ts
+ * @Description:
+ *
+ */
 import { ISchemaProps } from '@alvis/schema/src'
 import { AlvisArray } from './array'
 
@@ -14,15 +23,19 @@ class Alvis {
     this.datastructureType = type
     this.data = []
     this.schema = {
-      specs: {
+      dataStructureType: '',
+      chartConfig: {
         type: '',
-        data: [
-          {
-            id: '',
-            values: []
-          }
-        ]
+        visual: {
+          xField: '',
+          yField: ''
+        }
       },
+      data: [
+        {
+          values: []
+        }
+      ],
       actions: []
     }
 

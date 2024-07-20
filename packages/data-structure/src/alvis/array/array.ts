@@ -2,25 +2,25 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-18 14:50:52
+ * @LastEditTime: 2024-07-20 15:54:07
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\array.ts
  * @Description: This is the monoarray
  */
+
 import { checkValue, isNumberArray } from '../../utils'
 import { Alvis, IInitConfigurationProps } from '../alvis'
 import _ from 'lodash'
+import { Adapter } from './adapter'
 export class AlvisArray extends Alvis {
   xField: string
   yField: string
-  constructor(configs: IInitConfigurationProps) {
-    super('array', configs)
+  constructor(config: IInitConfigurationProps) {
+    super('array', config)
+    this.schema = new Adapter('array', config).getSchema()
 
-    const { xField = 'key', yField = 'value' } = configs?.options ?? {}
+    this.xField = this.schema?.chartConfig?.visual?.xField
+    this.yField = this.schema?.chartConfig?.visual?.yField
 
-    this.xField = xField
-    this.yField = yField
-
-    this.init(configs)
     return this.getProxy()
   }
 

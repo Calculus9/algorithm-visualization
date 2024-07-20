@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:32:05
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-13 19:48:27
+ * @LastEditTime: 2024-07-20 15:51:33
  * @FilePath: \algorithm-visualization\packages\render\src\utils.ts
  * @Description: render index
  */
@@ -14,14 +14,25 @@ import { ActionExec } from '@alvis/exec/src/index'
 import { getActionExe, getActions } from '@alvis/exec/src/index'
 import { ChartLibType } from '@alvis/website/src/constant.ts'
 import { getVChart } from '@alvis/charts/chart-visactor/src'
+import { IChartProps } from '@alvis/charts/utils/types'
+import { Adaptee } from '../../data-structure/src/alvis/array/adaptee'
 
 /**
  * parse schema 2 Specs
  * @param schema
  * @returns spec
  */
-export const getSpec = (schema: ISchemaProps): ISchemaProps['specs'] => {
-  return schema.specs
+export const getSpec = (schema: ISchemaProps): IChartProps => {
+  const { chartConfig, data } = schema
+  const { type, layout } = chartConfig
+  const visual = new Adaptee(schema).getVisual()
+
+  return {
+    type,
+    ...visual,
+    ...layout,
+    data
+  }
 }
 
 /**
@@ -33,9 +44,10 @@ export const getChart = (
   schema: ISchemaProps,
   chartType: ChartLibType,
   dom: string
-): [ISchemaProps['specs'], VChart, ActionExec] => {
+): [IChartProps, VChart, ActionExec] => {
   if (ChartLibType.visactor === chartType) {
-    const spec: ISchemaProps['specs'] = getSpec(schema)
+    const spec: IChartProps = getSpec(schema)
+
     const vchart: VChart = getVChart(spec as ISpec, dom)
 
     const actionExecutor = getActions(schema, spec, vchart)

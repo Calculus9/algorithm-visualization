@@ -6,7 +6,7 @@ import { ChartLibType } from '@alvis/website/src'
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 19:20:23
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-13 19:48:42
+ * @LastEditTime: 2024-07-20 15:52:14
  * @FilePath: \algorithm-visualization\packages\render\src\index.tsx
  * @Description: Here is RenderChart component, it receive the schema and then render.
  */
@@ -18,7 +18,6 @@ export const ChartVis = (props: { schema: ISchemaProps | null }) => {
   useEffect(() => {
     if (!schema) return
     const [, vchart, actionExecutor] = getChart(schema, ChartLibType.visactor, id)
-
     const exe = async () => {
       for (let i = 0; i < schema.actions.length; i++) {
         await actionExecutor.exeNext()
