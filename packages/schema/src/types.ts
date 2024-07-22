@@ -3,17 +3,14 @@ import { IActions } from '@alvis/exec/src/index'
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 18:16:58
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 21:45:34
+ * @LastEditTime: 2024-07-22 17:03:14
  * @FilePath: \algorithm-visualization\packages\schema\src\types.ts
  * @Description: Here is the defination of schemas.
  */
 
 export interface ISchemaProps {
   dataStructureType: string
-  data: Array<{
-    id: string
-    values: object[]
-  }>
+  data: object[]
   chartConfig: {
     type: string
     visual: IVisualProps //Visual Channel, here we will save the property related to data
