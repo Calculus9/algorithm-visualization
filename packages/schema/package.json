@@ -13,6 +13,7 @@
     "@alvis/charts": "workspace:*",
     "@alvis/exec": "workspace:*",
     "@alvis/data-structure": "workspace:*",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "@types/lodash": "^4.17.6"
   }
 }

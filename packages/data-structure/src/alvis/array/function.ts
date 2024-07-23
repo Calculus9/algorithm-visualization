@@ -4,7 +4,7 @@ import { OperationParams } from '../../utils/strategy'
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-11 20:35:09
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 21:43:24
+ * @LastEditTime: 2024-07-23 20:31:10
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\function.ts
  * @Description:
  *
@@ -20,8 +20,8 @@ export interface ISetParams {
 
 const arrayOperations: arrayOPMap = {
   push: (props: OperationParams): Object[] => {
-    const { data, value = {} } = props
-    data.push(value)
+    const { data, modifyValue = {} } = props
+    data.push(modifyValue)
     return data
   },
   pop: (props: OperationParams) => {
@@ -30,30 +30,29 @@ const arrayOperations: arrayOPMap = {
     return data
   },
   set: (props: OperationParams): Object[] => {
-    const { data, value, xField = 'key' } = props
+    const { data, modifyValue, category = 'key' } = props
     let index: number = 0
     data.map((d, i) => {
-      if (d[xField] === value[xField]) {
+      if (d[category] === modifyValue[category]) {
         index = i
       }
     })
-    data[index] = value
-    // data[value[xField]] = value
+    data[index] = modifyValue
 
     return data
   },
   insert: (props: OperationParams): Object[] => {
-    const { data, value = {}, place = 0 } = props
-    data.splice(place, 0, value)
+    const { data, modifyValue = {}, place = 0 } = props
+    data.splice(place, 0, modifyValue)
     return data
   },
   delete: (props: OperationParams): Object[] => {
-    const { data, value = {} } = props
-    const type = Object.keys(value)[0]
+    const { data, modifyValue = {} } = props
+    const type = Object.keys(modifyValue)[0]
     let index = 0
 
     data.map((obj, i) => {
-      if (obj[type] === +Object.values(value)[0]) index = i
+      if (obj[type] === +Object.values(modifyValue)[0]) index = i
     })
     data.splice(index, 1)
     return data

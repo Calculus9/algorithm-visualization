@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-22 17:11:08
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-23 17:00:33
+ * @LastEditTime: 2024-07-23 19:42:07
  * @FilePath: \algorithm-visualization\packages\schema\src\schema.ts
  * @Description:
  *
@@ -17,12 +17,14 @@ import { DataContext } from './strategy/data/context'
 import { dataStrategyMap } from './strategy/data/types'
 import { dataStructureInitPropsMap } from './init/initMap'
 import _ from 'lodash'
+import { IFieldsProps } from './types'
 
 class Schema {
-  dataStructureType: string
   config: IInitConfigurationProps
-  chartConfig: ISchemaProps['chartConfig']
-  data: any
+  dataStructureType: string
+  chartConfig!: ISchemaProps['chartConfig']
+  fields!: IFieldsProps
+  data!: ISchemaProps['data']
   constructor(dataStructureType: string, config: IInitConfigurationProps) {
     this.dataStructureType = dataStructureType
     this.config = config
@@ -32,8 +34,9 @@ class Schema {
   }
 
   init(): void {
-    const { type } = this.config ?? {}
-    if (!type) {
+    const { options } = this.config ?? {}
+
+    if (!options) {
       const tempConfig = dataStructureInitPropsMap.get(this.dataStructureType)
       this.config = _.cloneDeep({ ...tempConfig, data: this.config as unknown as number[] })
     }
@@ -41,10 +44,13 @@ class Schema {
 
   formalize(): void {
     const { data, options } = this.config ?? {}
-    const { type } = options ?? {}
+    const { type, fields } = options ?? {}
+    this.fields = fields
+    // Chart
     const chartInstance = chartStrategyMap?.get(type)
     if (chartInstance)
-      this.chartConfig = new ChartContext(new chartInstance()).getChartOptions(options)
+      this.chartConfig = new ChartContext(new chartInstance()).getChartOptions(this.config)
+    // Data
     let dataType = 'array'
     if (dataType === 'array') {
       const pre = data.every(d => Number.isFinite(d)) ? 'number' : 'object'
@@ -58,8 +64,8 @@ class Schema {
     return this.data
   }
 
-  getBasicProperties(): [string, IActions[]] {
-    return [this.dataStructureType, []]
+  getBasicProperties(): [string, IActions[], ISchemaProps['fields']] {
+    return [this.dataStructureType, [], this.fields]
   }
   getChartOptions(): ISchemaProps['chartConfig'] {
     return this.chartConfig

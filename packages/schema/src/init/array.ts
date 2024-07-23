@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-23 16:23:07
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-23 17:02:12
+ * @LastEditTime: 2024-07-23 19:39:39
  * @FilePath: \algorithm-visualization\packages\schema\src\init\array.ts
  * @Description:
  *
@@ -15,9 +15,10 @@ const initArrayConfigs: IInitConfigurationProps = {
   data: [],
   options: {
     type: 'bar',
-    visual: {
-      xField: 'key',
-      yField: 'value'
+    visual: {},
+    fields: {
+      category: 'key',
+      values: 'value'
     }
   },
   actions: []

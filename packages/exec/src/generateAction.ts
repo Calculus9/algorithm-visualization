@@ -12,28 +12,29 @@ import { arrayOP } from '@alvis/data-structure/src/alvis/array/function'
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-11 16:12:57
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 21:41:54
+ * @LastEditTime: 2024-07-23 20:30:22
  * @FilePath: \algorithm-visualization\packages\exec\src\generateAction.ts
  * @Description:
  *
  */
-export const actionExec = (action: IActions, spec: IChartProps) => {
-  const { data, xField, yField } = spec
-  let valueOfData = data[0].values
-
-  const value = action?.value
+import _ from 'lodash'
+export const actionExec = (action: IActions, spec: IChartProps, schema: ISchemaProps) => {
+  const { data } = spec
+  const { category, value } = schema?.fields ?? {}
+  const actionValue = action?.value
   const op: arrayOP = action?.op as arrayOP
   const place = action?.place
 
   const props: OperationParams = {
-    data: valueOfData,
-    value: value,
-    xField: xField,
+    data: data[0].values,
+    modifyValue: actionValue,
+    category: category,
     place: place,
-    yField: yField
+    value: value
   }
 
-  data.values = arrayOperations[op](props)
+  data[0].values = _.cloneDeep(arrayOperations[op](props))
+
   return spec as ISpec
 }
 
@@ -44,7 +45,7 @@ export const getActionExe = (schema: ISchemaProps): IActions[] => {
 export const getActions = (schema: ISchemaProps, spec: IChartProps, vchart: VChart) => {
   const actions = getActionExe(schema)
 
-  const actionExecutor = new ActionExec(spec, vchart, actions)
+  const actionExecutor = new ActionExec(spec, vchart, actions, schema)
 
   return actionExecutor
 }

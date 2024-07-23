@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-23 16:36:10
+ * @LastEditTime: 2024-07-23 19:43:33
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\array.ts
  * @Description: This is the monoarray
  */
@@ -12,14 +12,15 @@ import { AlVis, IInitConfigurationProps } from '../alvis'
 import _ from 'lodash'
 
 export class AlVisArray extends AlVis {
-  xField: string
-  yField: string;
+  category: string
+  value: string;
   [key: string]: any
   constructor(config: IInitConfigurationProps) {
     super('array', config)
     this.data = _.cloneDeep(this.schema.data)
-    this.xField = this.schema?.chartConfig?.visual?.xField || 'key'
-    this.yField = this.schema?.chartConfig?.visual?.yField || 'value'
+    this.category = this.schema?.fields?.category
+    this.value = this.schema?.fields?.value
+
     return this.getProxy()
   }
 
@@ -72,35 +73,36 @@ export class AlVisArray extends AlVis {
 
   set(params: object | number, value: string) {
     let setParams: object = params as object
-    if (typeof +params === 'number') {
+    if (!isNaN(+params)) {
       setParams = {
         id: `${value}-${params}`,
-        [this.xField]: +params,
-        [this.yField]: +value
+        [this.category]: +params,
+        [this.value]: +value
       }
       this.data[+params] = _.cloneDeep(setParams)
     } else {
       let index = 0
       this.data.map((d, i) => {
         if (
-          (d as { [key: string]: string })?.[this.xField] ===
-          (setParams as { [key: string]: string })?.[this.xField]
+          (d as { [key: string]: string })?.[this.category] ===
+          (setParams as { [key: string]: string })?.[this.category]
         ) {
           index = i
           return
         }
       })
+
       this.data[index] = _.cloneDeep(setParams)
     }
     this.schema.actions.push({ op: 'set', value: setParams })
   }
   get(key: string | number | Symbol) {
     const getObj = this.data.filter(obj => {
-      return (obj as { [key: string]: number })?.[this.xField] === +key
+      return (obj as { [key: string]: number })?.[this.category] === +key
     })
     if (!getObj[0]) return
 
-    return (getObj[0] as { [key: string]: number })?.[this.yField]
+    return (getObj[0] as { [key: string]: number })?.[this.value]
   }
 
   insert(insertData: object, place: number) {

@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-20 13:33:56
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-23 17:05:15
+ * @LastEditTime: 2024-07-23 19:42:47
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\alvis.ts
  * @Description:
  *
@@ -19,11 +19,12 @@ export interface IDataProps {
 }
 
 class AlVis {
-  datastructureType: string
-  schema: ISchemaProps
+  datastructureType!: string
+  schema!: ISchemaProps
   data: ISchemaProps['data']
-  chartConfig: ISchemaProps['chartConfig']
-  actions: ISchemaProps['actions']
+  chartConfig!: ISchemaProps['chartConfig']
+  actions!: ISchemaProps['actions']
+  fields!: ISchemaProps['fields']
 
   constructor(type: string, config: IInitConfigurationProps) {
     this.data = []
@@ -34,12 +35,13 @@ class AlVis {
   init(datastructureType: string, config: IInitConfigurationProps) {
     const schemaBuilder = new Schema(datastructureType, config)
     this.data = schemaBuilder.getData()
-    ;[this.datastructureType, this.actions] = schemaBuilder.getBasicProperties()
+    ;[this.datastructureType, this.actions, this.fields] = schemaBuilder.getBasicProperties()
     this.chartConfig = schemaBuilder.getChartOptions()
 
     this.schema = {
       dataStructureType: this.datastructureType,
       data: this.data,
+      fields: this.fields,
       chartConfig: this.chartConfig,
       actions: this.actions
     }
