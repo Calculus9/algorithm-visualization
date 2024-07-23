@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:32:05
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 21:43:40
+ * @LastEditTime: 2024-07-23 17:04:04
  * @FilePath: \algorithm-visualization\packages\render\src\utils.ts
  * @Description: render index
  */
@@ -31,7 +31,12 @@ export const getSpec = (schema: ISchemaProps): IChartProps => {
     type,
     ...visual,
     ...layout,
-    data
+    data: [
+      {
+        id: `${type}-data`,
+        values: data
+      }
+    ]
   }
 }
 

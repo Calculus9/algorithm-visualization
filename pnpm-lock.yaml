@@ -184,9 +184,6 @@ importers:
       '@arco-design/web-react':
         specifier: ^2.62.0
         version: 2.63.1(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@types/lodash':
-        specifier: ^4.17.6
-        version: 4.17.6
       '@visactor/vchart':
         specifier: ^1.11.0
         version: 1.11.8
@@ -243,6 +240,9 @@ importers:
       '@alvis/exec':
         specifier: workspace:*
         version: link:../exec
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
 
 packages:
 

@@ -2,23 +2,23 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-20 13:33:56
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-22 18:43:25
+ * @LastEditTime: 2024-07-23 17:05:15
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\alvis.ts
  * @Description:
  *
  */
 import { ISchemaProps, Schema } from '@alvis/schema/src'
-import { AlvisArray } from './array'
+import { AlVisArray } from './array'
 
 export interface IInitConfigurationProps {
-  data: object[]
+  data: object[] | number[]
   [key: string]: any
 }
 export interface IDataProps {
   [key: string]: string | number
 }
 
-class Alvis {
+class AlVis {
   datastructureType: string
   schema: ISchemaProps
   data: ISchemaProps['data']
@@ -36,7 +36,6 @@ class Alvis {
     this.data = schemaBuilder.getData()
     ;[this.datastructureType, this.actions] = schemaBuilder.getBasicProperties()
     this.chartConfig = schemaBuilder.getChartOptions()
-    console.log(this.data, datastructureType, this.actions, this.chartConfig)
 
     this.schema = {
       dataStructureType: this.datastructureType,
@@ -49,11 +48,11 @@ class Alvis {
   getInstance(specs: IInitConfigurationProps) {
     switch (this.datastructureType) {
       case 'array':
-        return new AlvisArray(specs)
+        return new AlVisArray(specs)
       default:
         throw new Error(`Unknown type: ${this.datastructureType}`)
     }
   }
 }
 
-export { Alvis }
+export { AlVis }

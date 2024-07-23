@@ -2,24 +2,21 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-22 18:44:41
+ * @LastEditTime: 2024-07-23 16:36:10
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\array.ts
  * @Description: This is the monoarray
  */
 
 import { checkValue } from '../../utils'
-import { Alvis, IInitConfigurationProps } from '../alvis'
+import { AlVis, IInitConfigurationProps } from '../alvis'
 import _ from 'lodash'
 
-export class AlvisArray extends Alvis {
+export class AlVisArray extends AlVis {
   xField: string
   yField: string;
   [key: string]: any
   constructor(config: IInitConfigurationProps) {
     super('array', config)
-    console.log(this.schema)
-
-    // this.schema = new Adapter('array', config).getSchema()
     this.data = _.cloneDeep(this.schema.data)
     this.xField = this.schema?.chartConfig?.visual?.xField || 'key'
     this.yField = this.schema?.chartConfig?.visual?.yField || 'value'

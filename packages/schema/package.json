@@ -12,6 +12,7 @@
   "dependencies": {
     "@alvis/charts": "workspace:*",
     "@alvis/exec": "workspace:*",
-    "@alvis/data-structure": "workspace:*"
+    "@alvis/data-structure": "workspace:*",
+    "lodash": "^4.17.21"
   }
 }
