@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-29 10:11:42
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-13 14:07:43
+ * @LastEditTime: 2024-07-24 17:52:20
  * @FilePath: \algorithm-visualization\apps\website\src\chart.tsx
  * @Description: We will parse code to schema in this file
  */
@@ -22,6 +22,7 @@ const VisChart = (props: IProps) => {
 
   useEffect(() => {
     if (code.length === 0) return
+    debugger
     setSchema(convertCode2Schema(code))
   }, [code])
 

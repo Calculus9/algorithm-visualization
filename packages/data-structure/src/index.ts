@@ -7,8 +7,8 @@
  * @Description:
  *
  */
-
+import { AlVisStack } from './alvis/stack'
 import { AlVisArray, arrayOperations } from './alvis/array'
 import { AlVis } from './alvis/alvis.ts'
 import { isNumberArray, checkValue } from './utils/index.ts'
-export { AlVisArray, arrayOperations, AlVis, isNumberArray, checkValue }
+export { AlVisArray, arrayOperations, AlVis, isNumberArray, checkValue, AlVisStack }
