@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-05 16:11:02
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 17:42:11
+ * @LastEditTime: 2024-08-05 19:16:15
  * @FilePath: \algorithm-visualization\packages\schema\src\builder\schema.ts
  * @Description:
  *
@@ -44,7 +44,7 @@ class Schema {
   }
 
   // chartConfig
-  setChartConfig(chartConfig) {
+  setChartConfig(chartConfig: ISchemaProps['chartConfig']) {
     this.schema.chartConfig = _.cloneDeep(chartConfig)
   }
   getChartConfig() {

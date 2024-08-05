@@ -2,14 +2,14 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-20 13:33:56
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 19:08:10
+ * @LastEditTime: 2024-08-05 19:30:23
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\alvis.ts
  * @Description:
  *
  */
 import { IInitConfigurationProps } from './index'
 import { AlVisArray } from './array'
-
+import { AlVisStack } from './stack'
 class AlVis {
   constructor(type: string, config: IInitConfigurationProps) {
     // according users' demand, init the datastructure and return
@@ -21,6 +21,8 @@ class AlVis {
     switch (dataStructureType) {
       case 'array':
         return new AlVisArray(dataStructureType, specs)
+      case 'stack':
+        return new AlVisStack(dataStructureType, specs)
       default:
         throw new Error(`Unknown type: ${dataStructureType}`)
     }

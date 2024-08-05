@@ -2,12 +2,12 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-05 15:57:48
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 19:02:28
+ * @LastEditTime: 2024-08-05 19:16:24
  * @FilePath: \algorithm-visualization\packages\schema\src\builder\schemaBuilder.ts
  * @Description:
  *
  */
-import { IFieldsProps, ISchemaProps } from '../types'
+import { IFieldsProps } from '../types'
 import { Builder } from './builder'
 import { chartStrategyMap } from '../strategy/chart/types'
 import { dataStrategyMap } from '../strategy/data/types'
