@@ -6,7 +6,7 @@ import { ChartLibType } from '@alvis/website/src'
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 19:20:23
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 20:34:56
+ * @LastEditTime: 2024-08-05 14:51:01
  * @FilePath: \algorithm-visualization\packages\render\src\index.tsx
  * @Description: Here is RenderChart component, it receive the schema and then render.
  */

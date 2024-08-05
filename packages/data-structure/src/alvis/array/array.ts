@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-23 19:43:33
+ * @LastEditTime: 2024-08-05 14:56:20
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\array.ts
  * @Description: This is the monoarray
  */
@@ -19,7 +19,7 @@ export class AlVisArray extends AlVis {
     super('array', config)
     this.data = _.cloneDeep(this.schema.data)
     this.category = this.schema?.fields?.category
-    this.value = this.schema?.fields?.value
+    this.value = this.schema?.fields?.values
 
     return this.getProxy()
   }

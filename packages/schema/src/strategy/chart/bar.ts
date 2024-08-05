@@ -16,15 +16,15 @@ class BarStrategy implements ChartStrategy {
   public generateChartOptions(config: IInitConfigurationProps): ISchemaProps['chartConfig'] {
     const { options } = config ?? {}
     const { fields, type, layout, visual } = options ?? {}
-    const { category, value } = fields ?? {}
+    const { category, values } = fields ?? {}
     const { direction = 'vertical' } = layout ?? {}
     let chartFields: IFieldsProps = {
       xField: category,
-      yField: value
+      yField: values
     }
     if (direction === 'horizontal') {
       chartFields = {
-        xField: value,
+        xField: values,
         yField: category
       }
     }

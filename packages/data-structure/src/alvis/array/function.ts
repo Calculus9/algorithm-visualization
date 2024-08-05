@@ -4,7 +4,7 @@ import { OperationParams } from '../../utils/strategy'
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-11 20:35:09
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-23 21:36:03
+ * @LastEditTime: 2024-08-05 14:49:48
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\function.ts
  * @Description:
  *
@@ -56,8 +56,6 @@ const arrayOperations: arrayOPMap = {
     let index = 0
 
     data.map((obj, i) => {
-      console.log(obj)
-
       if ((obj as { [key: string]: object })[type] === Object.values(modifyValue)[0]) index = i
     })
     data.splice(index, 1)
