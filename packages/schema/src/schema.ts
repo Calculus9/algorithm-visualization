@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-22 17:11:08
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-23 19:42:07
+ * @LastEditTime: 2024-08-05 15:15:14
  * @FilePath: \algorithm-visualization\packages\schema\src\schema.ts
  * @Description:
  *
@@ -53,7 +53,7 @@ class Schema {
     // Data
     let dataType = 'array'
     if (dataType === 'array') {
-      const pre = data.every(d => Number.isFinite(d)) ? 'number' : 'object'
+      const pre = data.every(d => _.isNumber(d)) ? 'number' : 'object'
       dataType = `${pre}-${dataType}`
     }
     const dataInstance = dataStrategyMap?.get(dataType)
