@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 14:56:20
+ * @LastEditTime: 2024-08-05 15:02:57
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\array.ts
  * @Description: This is the monoarray
  */
@@ -10,16 +10,12 @@
 import { checkValue } from '../../utils'
 import { AlVis, IInitConfigurationProps } from '../alvis'
 import _ from 'lodash'
-
+import { getFields } from '../../utils/fileds.ts'
 export class AlVisArray extends AlVis {
-  category: string
-  value: string;
   [key: string]: any
   constructor(config: IInitConfigurationProps) {
     super('array', config)
     this.data = _.cloneDeep(this.schema.data)
-    this.category = this.schema?.fields?.category
-    this.value = this.schema?.fields?.values
 
     return this.getProxy()
   }
@@ -72,20 +68,22 @@ export class AlVisArray extends AlVis {
   }
 
   set(params: object | number, value: string) {
+    const category = getFields(this.schema, 'category')
+    const values = getFields(this.schema, 'values')
     let setParams: object = params as object
     if (!isNaN(+params)) {
       setParams = {
         id: `${value}-${params}`,
-        [this.category]: +params,
-        [this.value]: +value
+        [category]: +params,
+        [values]: +value
       }
       this.data[+params] = _.cloneDeep(setParams)
     } else {
       let index = 0
       this.data.map((d, i) => {
         if (
-          (d as { [key: string]: string })?.[this.category] ===
-          (setParams as { [key: string]: string })?.[this.category]
+          (d as { [key: string]: string })?.[category] ===
+          (setParams as { [key: string]: string })?.[category]
         ) {
           index = i
           return
@@ -97,12 +95,14 @@ export class AlVisArray extends AlVis {
     this.schema.actions.push({ op: 'set', value: setParams })
   }
   get(key: string | number | Symbol) {
+    const category = getFields(this.schema, 'category')
+    const values = getFields(this.schema, 'values')
     const getObj = this.data.filter(obj => {
-      return (obj as { [key: string]: number })?.[this.category] === +key
+      return (obj as { [key: string]: number })?.[category] === +key
     })
     if (!getObj[0]) return
 
-    return (getObj[0] as { [key: string]: number })?.[this.value]
+    return (getObj[0] as { [key: string]: number })?.[values]
   }
 
   insert(insertData: object, place: number) {
