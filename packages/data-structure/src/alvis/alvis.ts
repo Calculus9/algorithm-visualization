@@ -2,57 +2,27 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-20 13:33:56
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 14:46:53
+ * @LastEditTime: 2024-08-05 19:08:10
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\alvis.ts
  * @Description:
  *
  */
-import { ISchemaProps, Schema } from '@alvis/schema/src'
+import { IInitConfigurationProps } from './index'
 import { AlVisArray } from './array'
 
-export interface IInitConfigurationProps {
-  data: object[] | number[]
-  [key: string]: any
-}
-export interface IDataProps {
-  [key: string]: string | number
-}
-
 class AlVis {
-  datastructureType!: string
-  schema!: ISchemaProps
-  data: ISchemaProps['data']
-  chartConfig!: ISchemaProps['chartConfig']
-  actions!: ISchemaProps['actions']
-  fields!: ISchemaProps['fields']
-
   constructor(type: string, config: IInitConfigurationProps) {
-    this.data = []
-    this.init(type, config)
-    return this.getInstance(config)
+    // according users' demand, init the datastructure and return
+    // it doesn't need to care our schema.
+    return this.getInstance(type, config)
   }
 
-  init(datastructureType: string, config: IInitConfigurationProps) {
-    const schemaBuilder = new Schema(datastructureType, config)
-    this.data = schemaBuilder.getData()
-    ;[this.datastructureType, this.actions, this.fields] = schemaBuilder.getBasicProperties()
-    this.chartConfig = schemaBuilder.getChartOptions()
-
-    this.schema = {
-      dataStructureType: this.datastructureType,
-      data: this.data,
-      fields: this.fields,
-      chartConfig: this.chartConfig,
-      actions: this.actions
-    }
-  }
-
-  getInstance(specs: IInitConfigurationProps) {
-    switch (this.datastructureType) {
+  getInstance(dataStructureType: string, specs: IInitConfigurationProps) {
+    switch (dataStructureType) {
       case 'array':
-        return new AlVisArray(specs)
+        return new AlVisArray(dataStructureType, specs)
       default:
-        throw new Error(`Unknown type: ${this.datastructureType}`)
+        throw new Error(`Unknown type: ${dataStructureType}`)
     }
   }
 }

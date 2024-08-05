@@ -1,4 +1,4 @@
-import { IInitConfigurationProps } from '@alvis/data-structure/src/alvis/alvis'
+import { IInitConfigurationProps } from '@alvis/data-structure/src/index'
 import { DataStrategy } from './strategy'
 /*
  * @Author: hh 1441211576@qq.com

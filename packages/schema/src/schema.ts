@@ -2,13 +2,13 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-22 17:11:08
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 15:15:14
+ * @LastEditTime: 2024-08-05 19:00:21
  * @FilePath: \algorithm-visualization\packages\schema\src\schema.ts
  * @Description:
  *
  */
 
-import { IInitConfigurationProps } from '@alvis/data-structure/src/alvis/alvis'
+import { IInitConfigurationProps } from '@alvis/data-structure/src/index'
 import { IActions } from '@alvis/exec/src'
 import { ChartContext } from './strategy/chart/chartContext'
 import { ISchemaProps } from '.'
@@ -37,7 +37,7 @@ class Schema {
     const { options } = this.config ?? {}
 
     if (!options) {
-      const tempConfig = dataStructureInitPropsMap.get(this.dataStructureType)
+      const tempConfig = dataStructureInitPropsMap?.[this.dataStructureType]
       this.config = _.cloneDeep({ ...tempConfig, data: this.config as unknown as number[] })
     }
   }

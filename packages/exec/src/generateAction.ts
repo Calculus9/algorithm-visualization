@@ -5,14 +5,14 @@ import { ActionExec } from './index'
 import { OperationParams } from '@alvis/data-structure/src/utils/strategy'
 import { IActions } from './types'
 import { arrayOperations } from '@alvis/data-structure/src'
-import { IChartProps } from '@alvis/charts/utils/types'
+import { IChartProps } from '@alvis/charts/index'
 import { arrayOP } from '@alvis/data-structure/src/alvis/array/function'
 
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-11 16:12:57
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-23 20:30:22
+ * @LastEditTime: 2024-08-05 18:43:46
  * @FilePath: \algorithm-visualization\packages\exec\src\generateAction.ts
  * @Description:
  *

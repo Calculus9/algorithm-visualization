@@ -1,4 +1,4 @@
-import { IInitConfigurationProps } from '@alvis/data-structure/src/alvis/alvis'
+import { IInitConfigurationProps } from '@alvis/data-structure/src/index'
 import { ChartStrategy } from './chartStrategy'
 import { ISchemaProps } from '../..'
 
@@ -6,7 +6,7 @@ import { ISchemaProps } from '../..'
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-22 16:54:41
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-23 20:15:59
+ * @LastEditTime: 2024-08-05 19:04:12
  * @FilePath: \algorithm-visualization\packages\schema\src\strategy\chart\pie.ts
  * @Description:
  *

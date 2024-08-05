@@ -2,22 +2,48 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 15:02:57
+ * @LastEditTime: 2024-08-05 19:07:53
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\array.ts
  * @Description: This is the monoarray
  */
 
 import { checkValue } from '../../utils'
-import { AlVis, IInitConfigurationProps } from '../alvis'
+import { IInitConfigurationProps } from '../index.ts'
 import _ from 'lodash'
 import { getFields } from '../../utils/fileds.ts'
-export class AlVisArray extends AlVis {
-  [key: string]: any
-  constructor(config: IInitConfigurationProps) {
-    super('array', config)
-    this.data = _.cloneDeep(this.schema.data)
+import { schemaBuilder } from '@alvis/schema/src/builder/schemaBuilder.ts'
+import { dataStructureInitPropsMap } from '../init/initMap.ts'
 
+export class AlVisArray {
+  [key: string]: any
+  constructor(datastructureType: string, config: IInitConfigurationProps) {
+    this.init(datastructureType, config)
     return this.getProxy()
+  }
+
+  getDefaultConfig(
+    dataStructureType: string,
+    config: IInitConfigurationProps
+  ): IInitConfigurationProps {
+    const tempConfig = dataStructureInitPropsMap?.[dataStructureType]
+    config = _.cloneDeep({ ...tempConfig, data: config as unknown as number[] })
+    return config
+  }
+
+  init(dataStructureType: string, config: IInitConfigurationProps) {
+    if (!config?.options) {
+      config = this.getDefaultConfig(dataStructureType, config)
+    }
+    const { data, options } = config ?? {}
+    const { fields } = options ?? {}
+
+    const builder = schemaBuilder()
+    builder.loadData(data)
+    builder.loadChartConfig(config)
+    builder.loadBasicProperties(fields, dataStructureType)
+    const instance = builder.build()
+    this.schema = instance.getSchema()
+    this.data = instance.getData()
   }
 
   getInstance() {
@@ -69,7 +95,7 @@ export class AlVisArray extends AlVis {
 
   set(params: object | number, value: string) {
     const category = getFields(this.schema, 'category')
-    const values = getFields(this.schema, 'values')
+    const values = getFields(this.schema, 'value')
     let setParams: object = params as object
     if (!isNaN(+params)) {
       setParams = {
@@ -80,7 +106,7 @@ export class AlVisArray extends AlVis {
       this.data[+params] = _.cloneDeep(setParams)
     } else {
       let index = 0
-      this.data.map((d, i) => {
+      this.data.map((d: object, i: number) => {
         if (
           (d as { [key: string]: string })?.[category] ===
           (setParams as { [key: string]: string })?.[category]
@@ -96,8 +122,8 @@ export class AlVisArray extends AlVis {
   }
   get(key: string | number | Symbol) {
     const category = getFields(this.schema, 'category')
-    const values = getFields(this.schema, 'values')
-    const getObj = this.data.filter(obj => {
+    const values = getFields(this.schema, 'value')
+    const getObj = this.data.filter((obj: object) => {
       return (obj as { [key: string]: number })?.[category] === +key
     })
     if (!getObj[0]) return
@@ -113,7 +139,7 @@ export class AlVisArray extends AlVis {
   delete(deleteData: object) {
     const type = Object.keys(deleteData)[0]
     let index = 0
-    this.data.map((obj, i) => {
+    this.data.map((obj: object, i: number) => {
       if ((obj as { [key: string]: string | number })?.[type] === +Object.values(deleteData)[0])
         index = i
     })

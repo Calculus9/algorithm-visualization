@@ -8,7 +8,7 @@
  *
  */
 
-import { IInitConfigurationProps } from '@alvis/data-structure/src/alvis/alvis'
+import { IInitConfigurationProps } from '@alvis/data-structure/src/index'
 import { ISchemaProps } from '../..'
 import { DataStrategy } from './strategy'
 

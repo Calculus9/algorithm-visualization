@@ -7,7 +7,7 @@
  * @Description:
  *
  */
-import { IInitConfigurationProps } from '@alvis/data-structure/src/alvis/alvis'
+import { IInitConfigurationProps } from '@alvis/data-structure/src/index'
 import { ChartStrategy } from './chartStrategy'
 
 class ChartContext {

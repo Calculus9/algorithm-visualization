@@ -2,37 +2,19 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:30:32
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-29 16:45:09
+ * @LastEditTime: 2024-08-05 18:32:34
  * @FilePath: \algorithm-visualization\apps\website\src\App.tsx
  * @Description: project entry
  */
-import React, { useState } from 'react'
+import React from 'react'
 
-import ALVisChart from './chart'
-import MonacoEditor from '@alvis/editor/src/index'
-import { Grid } from '@arco-design/web-react'
-const Row = Grid.Row
-const Col = Grid.Col
+import { AlVisEditor } from './editorVis'
+
 function App() {
-  const [code, setCode] = useState('') //localStorage.getItem("storage")
-
-  const onChange = (code: string) => {
-    setCode(code)
-    localStorage.setItem('storage', code)
-  }
-
   return (
     <>
       <div style={{ background: 'var(--color-fill-2)' }}>
-        <Row className='grid-demo' style={{ marginBottom: 16 }}>
-          <Col span={11}>
-            <ALVisChart code={code} />
-          </Col>
-          <Col span={12}>
-            <MonacoEditor onChange={onChange} />
-          </Col>
-        </Row>
-
+        <AlVisEditor />
         {/* <Layout>
           <Header>
             <div

@@ -2,9 +2,9 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-29 10:11:42
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-29 16:44:52
+ * @LastEditTime: 2024-08-05 18:34:11
  * @FilePath: \algorithm-visualization\apps\website\src\chart.tsx
- * @Description: We will parse code to schema in this file
+ * @Description: We will parse code to schema in this file and call the vischart
  */
 
 import React, { useEffect, useState } from 'react'
@@ -16,7 +16,7 @@ interface IProps {
   code: string
 }
 
-const ALVisChart = (props: IProps) => {
+const AlVisChart = (props: IProps) => {
   const { code = '' } = props
   const [schema, setSchema] = useState<ISchemaProps | null>(null)
 
@@ -28,4 +28,4 @@ const ALVisChart = (props: IProps) => {
 
   return <ChartVis schema={schema} />
 }
-export default ALVisChart
+export default AlVisChart

@@ -1,13 +1,13 @@
 import { IActions } from './types'
-import VChart, { ISpec } from '@visactor/vchart'
+import VChart from '@visactor/vchart'
 import { actionExec } from './generateAction'
-import { IChartProps } from '@alvis/charts/utils/types'
+import { IChartProps } from '@alvis/charts/index'
 import { ISchemaProps } from '@alvis/schema/src'
 /*
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-06-12 09:17:40
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 15:09:45
+ * @LastEditTime: 2024-08-05 18:43:31
  * @FilePath: \algorithm-visualization\packages\exec\src\actionExector.ts
  * @Description: this is the action execute file.
  */

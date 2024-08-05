@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:32:05
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-23 21:23:26
+ * @LastEditTime: 2024-08-05 18:43:53
  * @FilePath: \algorithm-visualization\packages\render\src\utils.ts
  * @Description: render index
  */
@@ -14,7 +14,7 @@ import { ActionExec } from '@alvis/exec/src/index'
 import { getActionExe, getActions } from '@alvis/exec/src/index'
 import { ChartLibType } from '@alvis/website/src/constant.ts'
 import { getVChart } from '@alvis/charts/chart-visactor/src'
-import { IChartProps } from '@alvis/charts/utils/types'
+import { IChartProps } from '@alvis/charts/index'
 
 /**
  * parse schema 2 Specs

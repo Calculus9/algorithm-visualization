@@ -10,5 +10,5 @@
 
 import { ISchemaProps } from './types'
 export type { ISchemaProps }
-import { Schema } from './schema'
+import { Schema } from './builder/schema'
 export { Schema }
