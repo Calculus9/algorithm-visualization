@@ -1,22 +1,16 @@
+import { arrayOPMap } from '.'
 import { OperationParams } from '../../utils/strategy'
 
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-11 20:35:09
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 14:49:48
+ * @LastEditTime: 2024-08-05 19:12:58
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\function.ts
  * @Description:
  *
  */
 import _ from 'lodash'
-export type arrayOP = 'push' | 'pop' | 'set' | 'insert' | 'delete' //| 'length' | 'shift' | 'unshift' | 'swap'
-
-export type arrayOPMap = Record<arrayOP, Function>
-
-export interface ISetParams {
-  [key: string]: number | string
-}
 
 const arrayOperations: arrayOPMap = {
   push: (props: OperationParams): Object[] => {

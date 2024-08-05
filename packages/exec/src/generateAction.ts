@@ -6,13 +6,13 @@ import { OperationParams } from '@alvis/data-structure/src/utils/strategy'
 import { IActions } from './types'
 import { arrayOperations } from '@alvis/data-structure/src'
 import { IChartProps } from '@alvis/charts/index'
-import { arrayOP } from '@alvis/data-structure/src/alvis/array/function'
+import { arrayOP } from '@alvis/data-structure/src'
 
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-11 16:12:57
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 18:43:46
+ * @LastEditTime: 2024-08-05 19:13:59
  * @FilePath: \algorithm-visualization\packages\exec\src\generateAction.ts
  * @Description:
  *
@@ -26,7 +26,7 @@ export const actionExec = (action: IActions, spec: IChartProps, schema: ISchemaP
   const place = action?.place
 
   const props: OperationParams = {
-    data: data[0].values,
+    data: data[0].values as object[],
     modifyValue: actionValue,
     category: category,
     place: place,

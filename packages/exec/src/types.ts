@@ -2,12 +2,12 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-06-01 16:11:21
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 21:42:10
+ * @LastEditTime: 2024-08-05 19:12:25
  * @FilePath: \algorithm-visualization\packages\exec\src\types.ts
  * @Description: this is the types definations
  */
 
-import { arrayOP } from '@alvis/data-structure/src/alvis/array/function'
+import { arrayOP } from '@alvis/data-structure/src/index'
 
 export interface IActions {
   op: arrayOP | string
