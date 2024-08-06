@@ -10,20 +10,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@arco-design/web-react": "^2.62.0",
-    "@babel/core": "^7.24.7",
-    "@babel/preset-env": "^7.24.7",
-    "@babel/preset-typescript": "^7.24.7",
     "@alvis/charts": "workspace:*",
     "@alvis/data-structure": "workspace:*",
     "@alvis/editor": "workspace:*",
     "@alvis/exec": "workspace:*",
-    "@alvis/schema": "workspace:*",
     "@alvis/render": "workspace:*",
+    "@alvis/schema": "workspace:*",
+    "@arco-design/web-react": "^2.62.0",
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
     "@visactor/vchart": "^1.11.0",
+    "history": "5",
     "install": "^0.13.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "6"
   },
   "devDependencies": {
     "@arco-plugins/vite-react": "^1.3.3",

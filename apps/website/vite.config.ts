@@ -17,5 +17,5 @@ export default defineConfig({
   build: {
     outDir: 'build'
   },
-  base: ' https://calculus9.github.io/algorithm-visualization/' // 为/仓库名/
+  base: ' https://calculus9.github.io/' // 为/仓库名/
 })

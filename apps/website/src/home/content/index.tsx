@@ -6,6 +6,7 @@ import React from 'react'
 import { ContentApi } from './api'
 import { ContentDataStructure } from './datastructure'
 import { ContentAlgorithmGallery } from './algorithmgallery'
+import { AlVisEditor } from '../..'
 
 const Row = Grid.Row
 const Col = Grid.Col
@@ -16,7 +17,7 @@ const HomeContent = () => {
   return (
     <>
       <Layout>
-        <Content style={{ padding: 10, backgroundColor: 'white', marginTop: 10 }}>
+        <Content style={{ backgroundColor: 'white', marginTop: 10 }}>
           <Row>
             <Col span={4}>
               <div></div>
@@ -36,14 +37,14 @@ const HomeContent = () => {
               <Divider />
               <ContentApi />
 
-              <Divider/>
-              <ContentDataStructure/>
+              <Divider />
+              <ContentDataStructure />
 
-              <Divider/>
-              <ContentDataStructure/>
+              <Divider />
+              <ContentDataStructure />
 
-              <Divider/>
-              <ContentAlgorithmGallery/>
+              <Divider />
+              <ContentAlgorithmGallery />
             </Col>
             <Col span={4}>
               <div></div>
