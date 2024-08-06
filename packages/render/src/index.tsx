@@ -6,7 +6,7 @@ import { ChartLibType } from '@alvis/website/src'
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 19:20:23
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 14:51:01
+ * @LastEditTime: 2024-08-06 19:51:08
  * @FilePath: \algorithm-visualization\packages\render\src\index.tsx
  * @Description: Here is RenderChart component, it receive the schema and then render.
  */
@@ -32,7 +32,7 @@ export const ChartVis = (props: { schema: ISchemaProps | null }) => {
 
   return (
     <div>
-      <div id={id}></div>
+      <div style={{ height: '560px' }} id={id}></div>
     </div>
   )
 }

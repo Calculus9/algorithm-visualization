@@ -2,14 +2,14 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-06-25 14:56:42
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 20:56:39
+ * @LastEditTime: 2024-08-06 19:51:33
  * @FilePath: \algorithm-visualization\packages\editor\src\index.tsx
  * @Description:
  *
  */
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Editor, useMonaco } from '@monaco-editor/react'
-import { Space, Button } from '@arco-design/web-react'
+import { Space, Button, Tooltip } from '@arco-design/web-react'
 import { IconPlayArrow } from '@arco-design/web-react/icon'
 import * as monaco from 'monaco-editor'
 
@@ -83,23 +83,31 @@ const MonacoEditor: React.FC<{ onChange: (code: string) => void }> = ({ onChange
   }, [code])
 
   return (
-    <div id={'container'} style={{ height: '500px' }}>
-      <Space>
-        <Button
-          type='outline'
-          icon={<IconPlayArrow />}
-          shape='circle'
-          onClick={handleButtonClick}
-        />
-      </Space>
+    <div id={'container'} style={{ height: '550px' }}>
+      <div
+        style={{
+          padding: 10,
+          marginBottom: 8,
+          backgroundColor: 'var(--color-bg-2)'
+        }}
+      >
+        <Tooltip content='Run' color='#165DFF'>
+          <Space>
+            <Button
+              type='outline'
+              icon={<IconPlayArrow />}
+              shape='circle'
+              onClick={handleButtonClick}
+            ></Button>
+          </Space>
+        </Tooltip>
+      </div>
       <Editor
         onMount={onMount}
         height='500px'
         language='javascript'
         theme='vs-light'
         value={code}
-        // options={}
-        // onChange={handleEditorChange}
       />
     </div>
   )
