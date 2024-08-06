@@ -18,7 +18,7 @@ const Row = Grid.Row
 const Col = Grid.Col
 
 const AlVisEditor = () => {
-  const [code, setCode] = useState(DEFAULTCODE) //
+  const [code, setCode] = useState(DEFAULTCODE)
 
   const onChange = (code: string) => {
     setCode(code)

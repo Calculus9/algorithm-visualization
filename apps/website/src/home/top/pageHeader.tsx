@@ -1,8 +1,8 @@
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-06 16:12:25
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-06 20:19:19
+ * @LastEditors: hjy 1441211576@qq.com
+ * @LastEditTime: 2024-08-06 23:19:38
  * @FilePath: \algorithm-visualization\apps\website\src\home\top\pageHeader.tsx
  * @Description:
  *
@@ -10,9 +10,13 @@
 import { PageHeader, Menu } from '@arco-design/web-react'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { MenuList } from '../../constant'
+import { useTranslation } from 'react-i18next'
 const MenuItem = Menu.Item
 
 const MenuRoute = () => {
+  const { t } = useTranslation()
+  const menuList = t('menulist', { returnObjects: true })
   return (
     <div style={{ background: 'var(--color-fill-2)' }}>
       <PageHeader
@@ -27,15 +31,13 @@ const MenuRoute = () => {
               console.log(a)
             }}
           >
-            <MenuItem key='1'>
-              <Link to={'/'}>Home</Link>
-            </MenuItem>
-            <MenuItem key='2'>
-              <Link to={'/api'}>API</Link>
-            </MenuItem>
-            <MenuItem key='3'>
-              <Link to={'/gallery'}>Gallery</Link>
-            </MenuItem>
+            {menuList?.map((item: { key: string; value: string }, index: number) => {
+              return (
+                <MenuItem key={index}>
+                  <Link to={item?.key}>{item?.value}</Link>
+                </MenuItem>
+              )
+            })}
           </Menu>
         }
         extra={<div>国际化+github</div>}

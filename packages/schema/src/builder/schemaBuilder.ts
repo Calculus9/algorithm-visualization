@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-05 15:57:48
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-08-06 22:49:17
+ * @LastEditTime: 2024-08-06 23:04:25
  * @FilePath: \algorithm-visualization\packages\schema\src\builder\schemaBuilder.ts
  * @Description:
  *
@@ -23,13 +23,11 @@ const schemaBuilder = (): Builder => {
   const loadData = (data: IInitConfigurationProps['data']) => {
     let dataType = 'array'
     if (dataType === 'array') {
-      console.log(data)
-
       const pre = data?.every(d => _.isNumber(d)) ? 'number' : 'object'
       dataType = `${pre}-${dataType}`
     }
     const dataInstance = dataStrategyMap?.get(dataType)
-    if (dataInstance) schema.setData(new DataContext(new dataInstance())?.getData(data))
+    if (dataInstance) schema?.setData(new DataContext(new dataInstance())?.getData(data))
   }
 
   const loadBasicProperties = (fields: IFieldsProps, dataStructure: string) => {
