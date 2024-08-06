@@ -1,8 +1,8 @@
 /*
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 19:07:53
+ * @LastEditors: hjy 1441211576@qq.com
+ * @LastEditTime: 2024-08-06 23:01:04
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\array.ts
  * @Description: This is the monoarray
  */
@@ -16,8 +16,10 @@ import { dataStructureInitPropsMap } from '../init/initMap.ts'
 
 export class AlVisArray {
   [key: string]: any
-  constructor(datastructureType: string, config: IInitConfigurationProps) {
-    this.init(datastructureType, config)
+  constructor(dataStructureType: string, config: IInitConfigurationProps) {
+    console.log(dataStructureType, config)
+
+    this.init(dataStructureType, config)
     return this.getProxy()
   }
 
@@ -25,19 +27,23 @@ export class AlVisArray {
     dataStructureType: string,
     config: IInitConfigurationProps
   ): IInitConfigurationProps {
-    const tempConfig = dataStructureInitPropsMap?.[dataStructureType]
-    config = _.cloneDeep({ ...tempConfig, data: config as unknown as number[] })
+    if (typeof dataStructureType !== 'string') {
+      const tempConfig = dataStructureInitPropsMap?.['array']
+
+      config = _.cloneDeep({ ...tempConfig, data: dataStructureType as unknown as number[] })
+    }
+    console.log(config)
+
     return config
   }
 
   init(dataStructureType: string, config: IInitConfigurationProps) {
-    if (!config?.options) {
-      config = this.getDefaultConfig(dataStructureType, config)
-    }
+    config = this.getDefaultConfig(dataStructureType, config)
     const { data, options } = config ?? {}
     const { fields } = options ?? {}
 
     const builder = schemaBuilder()
+
     builder.loadData(data)
     builder.loadChartConfig(config)
     builder.loadBasicProperties(fields, dataStructureType)

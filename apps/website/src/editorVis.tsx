@@ -1,8 +1,8 @@
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-05 18:30:53
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-06 19:57:16
+ * @LastEditors: hjy 1441211576@qq.com
+ * @LastEditTime: 2024-08-06 22:47:24
  * @FilePath: \algorithm-visualization\apps\website\src\editorVis.tsx
  * @Description:
  * This is the file of monaco editor and visualization chart.
@@ -18,7 +18,7 @@ const Row = Grid.Row
 const Col = Grid.Col
 
 const AlVisEditor = () => {
-  const [code, setCode] = useState(localStorage.getItem('storage') || DEFAULTCODE) //
+  const [code, setCode] = useState(DEFAULTCODE) //
 
   const onChange = (code: string) => {
     setCode(code)

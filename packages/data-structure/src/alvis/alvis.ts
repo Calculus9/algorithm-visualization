@@ -1,8 +1,8 @@
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-20 13:33:56
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 19:30:23
+ * @LastEditors: hjy 1441211576@qq.com
+ * @LastEditTime: 2024-08-06 22:51:39
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\alvis.ts
  * @Description:
  *
@@ -18,6 +18,8 @@ class AlVis {
   }
 
   getInstance(dataStructureType: string, specs: IInitConfigurationProps) {
+    console.log(specs)
+
     switch (dataStructureType) {
       case 'array':
         return new AlVisArray(dataStructureType, specs)

@@ -1,8 +1,8 @@
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-05 15:57:48
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 19:16:24
+ * @LastEditors: hjy 1441211576@qq.com
+ * @LastEditTime: 2024-08-06 22:49:17
  * @FilePath: \algorithm-visualization\packages\schema\src\builder\schemaBuilder.ts
  * @Description:
  *
@@ -23,7 +23,9 @@ const schemaBuilder = (): Builder => {
   const loadData = (data: IInitConfigurationProps['data']) => {
     let dataType = 'array'
     if (dataType === 'array') {
-      const pre = data.every(d => _.isNumber(d)) ? 'number' : 'object'
+      console.log(data)
+
+      const pre = data?.every(d => _.isNumber(d)) ? 'number' : 'object'
       dataType = `${pre}-${dataType}`
     }
     const dataInstance = dataStrategyMap?.get(dataType)

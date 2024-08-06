@@ -22,9 +22,12 @@
     "@babel/preset-typescript": "^7.24.7",
     "@visactor/vchart": "^1.11.0",
     "history": "5",
+    "i18next": "^23.12.2",
+    "i18next-browser-languagedetector": "^8.0.0",
     "install": "^0.13.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^15.0.0",
     "react-router-dom": "6"
   },
   "devDependencies": {
