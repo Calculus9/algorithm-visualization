@@ -6,7 +6,8 @@ import React from 'react'
 import { ContentApi } from './api'
 import { ContentDataStructure } from './datastructure'
 import { ContentAlgorithmGallery } from './algorithmgallery'
-import { AlVisEditor } from '../..'
+
+import { useTranslation } from 'react-i18next'
 
 const Row = Grid.Row
 const Col = Grid.Col
@@ -14,6 +15,7 @@ const Col = Grid.Col
 const { Content } = Layout
 
 const HomeContent = () => {
+  const { t } = useTranslation()
   return (
     <>
       <Layout>
@@ -25,13 +27,8 @@ const HomeContent = () => {
             <Col span={16}>
               {/* Design Goal */}
               <Typography>
-                <Title>Design Goal</Title>
-                <Paragraph>
-                  My main goal is algorithm visualization, but it is not easy to visualize the
-                  execution process of the Algorithm. I try to find a general solution. After a lot
-                  of exploration, suddenly on that day, I realized! To visualize the Algorithm, must
-                  visualize the Data Structure that the Algorithm depends on!
-                </Paragraph>
+                <Title>{t('designGoal.title')}</Title>
+                <Paragraph>{t('designGoal.content')}</Paragraph>
               </Typography>
 
               <Divider />

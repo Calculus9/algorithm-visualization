@@ -1,7 +1,17 @@
+/*
+ * @Author: hh 1441211576@qq.com
+ * @Date: 2024-06-25 14:56:42
+ * @LastEditors: hh 1441211576@qq.com
+ * @LastEditTime: 2024-08-08 15:29:08
+ * @FilePath: \algorithm-visualization\apps\website\src\home\top\index.tsx
+ * @Description:
+ *
+ */
 import { Typography, Button, Layout, Grid } from '@arco-design/web-react'
 import Paragraph from '@arco-design/web-react/es/Typography/paragraph'
 import Title from '@arco-design/web-react/es/Typography/title'
 import React, { useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
 const { Header } = Layout
@@ -9,6 +19,8 @@ const Row = Grid.Row
 const Col = Grid.Col
 const HomeTop = () => {
   const navigate = useNavigate()
+  const { t } = useTranslation()
+  const menuButton = t('menuButton', { returnObjects: true })
 
   const handleClick = useCallback((e: Event) => {
     console.log(e.target)
@@ -16,20 +28,6 @@ const HomeTop = () => {
     navigate(e?.target?.value)
   }, [])
 
-  const menuButton = [
-    {
-      key: 'APIs',
-      value: 'api'
-    },
-    // {
-    //   key: 'Algorithms',
-    //   value: 'algorithm'
-    // },
-    {
-      key: 'Gallerys',
-      value: 'gallery'
-    }
-  ]
   return (
     <div style={{ backgroundColor: 'var(--color-fill-2)' }}>
       <Layout>
@@ -42,11 +40,11 @@ const HomeTop = () => {
             <Col span={4}></Col>
             <Col span={7}>
               <Typography>
-                <Title style={{ fontSize: 50, wordBreak: 'keep-all', fontWeight: 'bolder' }}>
-                  An algorithm visualization library based on schema.
+                <Title style={{ fontSize: 50, wordBreak: 'break-all', fontWeight: 'bolder' }}>
+                  {t('title')}
                 </Title>
                 <Paragraph type='secondary' style={{ fontSize: 22 }}>
-                  Finite DataStructures & Infinite Algorithms.
+                  {t('subTitle')}
                 </Paragraph>
               </Typography>
               <div style={{ paddingBottom: 10, display: 'flex', justifyContent: 'space-between' }}>

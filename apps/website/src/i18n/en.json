@@ -1,0 +1,24 @@
+{
+  "footer": { "detail": "All rights reserved @ ReactTravel.com" },
+  "menuList": [
+    { "key": "/", "value": "Home" },
+    { "key": "/api", "value": "API" },
+    { "key": "/gallery", "value": "Gallery" }
+  ],
+  "title": "An algorithm visualization library based on schema.",
+  "subTitle": "Finite DataStructures & Infinite Algorithms.",
+  "menuButton": [
+    {
+      "key": "APIs",
+      "value": "api"
+    },
+    {
+      "key": "Gallerys",
+      "value": "gallery"
+    }
+  ],
+  "designGoal": {
+    "title": "Design Goal",
+    "content": "My main goal is algorithm visualization, but it is not easy to visualize the execution process of the Algorithm."
+  }
+}

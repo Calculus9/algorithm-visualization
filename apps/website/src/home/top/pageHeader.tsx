@@ -1,8 +1,8 @@
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-06 16:12:25
- * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-08-06 23:19:38
+ * @LastEditors: hh 1441211576@qq.com
+ * @LastEditTime: 2024-08-08 15:17:00
  * @FilePath: \algorithm-visualization\apps\website\src\home\top\pageHeader.tsx
  * @Description:
  *
@@ -10,13 +10,13 @@
 import { PageHeader, Menu } from '@arco-design/web-react'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { MenuList } from '../../constant'
 import { useTranslation } from 'react-i18next'
 const MenuItem = Menu.Item
 
 const MenuRoute = () => {
   const { t } = useTranslation()
-  const menuList = t('menulist', { returnObjects: true })
+  const menuList = t('menuList', { returnObjects: true })
+
   return (
     <div style={{ background: 'var(--color-fill-2)' }}>
       <PageHeader
@@ -31,9 +31,9 @@ const MenuRoute = () => {
               console.log(a)
             }}
           >
-            {menuList?.map((item: { key: string; value: string }, index: number) => {
+            {(menuList as [])?.map((item: { key: string; value: string }, index: number) => {
               return (
-                <MenuItem key={index}>
+                <MenuItem key={`menu-${index}`}>
                   <Link to={item?.key}>{item?.value}</Link>
                 </MenuItem>
               )

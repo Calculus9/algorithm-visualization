@@ -1,17 +1,12 @@
 /*
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 09:03:40
- * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-08-06 23:14:11
+ * @LastEditors: hh 1441211576@qq.com
+ * @LastEditTime: 2024-08-08 15:17:41
  * @FilePath: \algorithm-visualization\apps\website\src\constant.ts
  * @Description: Here is the constant data.
  */
 
-export const MenuList = [
-  { key: '/', value: 'Home' },
-  { key: '/api', value: 'API' },
-  { key: '/gallery', value: 'Gallery' }
-]
 export const DEFAULTCODE = `const defaultFunctionTemplate = function () {
     // Your code here
     const arr = new AlVis("array", {

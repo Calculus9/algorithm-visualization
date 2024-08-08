@@ -1,0 +1,24 @@
+{
+  "footer": { "detail": "版权所有 @ React 旅游网" },
+  "menuList": [
+    { "key": "/", "value": "首页" },
+    { "key": "/api", "value": "接口文档" },
+    { "key": "/gallery", "value": "算法画廊" }
+  ],
+  "title": "一个基于标准的算法可视化库。",
+  "subTitle": "有限的数据结构，无限的算法。",
+  "menuButton": [
+    {
+      "key": "接口文档",
+      "value": "api"
+    },
+    {
+      "key": "算法画廊",
+      "value": "gallery"
+    }
+  ],
+  "designGoal": {
+    "title": "设计目标",
+    "content": "主要目标是算法可视化，但要将算法的执行过程可视化并不容易。"
+  }
+}
