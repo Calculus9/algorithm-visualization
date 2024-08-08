@@ -1,24 +1,33 @@
 {
-  "footer": { "detail": "版权所有 @ React 旅游网" },
   "menuList": [
-    { "key": "/", "value": "首页" },
-    { "key": "/api", "value": "接口文档" },
-    { "key": "/gallery", "value": "算法画廊" }
+    { "key": "/", "value": "首页", "index": "0" },
+    { "key": "/api", "value": "接口文档", "index": "1" },
+    { "key": "/gallery", "value": "算法画廊", "index": "2" }
   ],
-  "title": "一个基于标准的算法可视化库。",
+  "title": "一个基于[标准]的算法可视化库。",
   "subTitle": "有限的数据结构，无限的算法。",
   "menuButton": [
     {
       "key": "接口文档",
-      "value": "api"
+      "value": "api",
+      "index": "1"
     },
     {
       "key": "算法画廊",
-      "value": "gallery"
+      "value": "gallery",
+      "index": "2"
     }
   ],
   "designGoal": {
     "title": "设计目标",
     "content": "主要目标是算法可视化，但要将算法的执行过程可视化并不容易。"
+  },
+  "api": {
+    "title": "接口",
+    "content": "根据我的设计目标，在算法可视化之前，需要先将数据结构可视化。这里列出了所实现的数据结构和接口，可以直观地了解每个接口如何使用。在大多数情况下，每行代码的执行都是动画，以帮助你了解结构的变化。"
+  },
+  "gallery": {
+    "title": "算法画廊",
+    "content": "这里是算法画廊。"
   }
 }

@@ -4,7 +4,6 @@ import Paragraph from '@arco-design/web-react/es/Typography/paragraph'
 import Title from '@arco-design/web-react/es/Typography/title'
 import React from 'react'
 import { ContentApi } from './api'
-import { ContentDataStructure } from './datastructure'
 import { ContentAlgorithmGallery } from './algorithmgallery'
 
 import { useTranslation } from 'react-i18next'
@@ -33,12 +32,6 @@ const HomeContent = () => {
 
               <Divider />
               <ContentApi />
-
-              <Divider />
-              <ContentDataStructure />
-
-              <Divider />
-              <ContentDataStructure />
 
               <Divider />
               <ContentAlgorithmGallery />

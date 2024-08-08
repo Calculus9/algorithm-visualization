@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-06-25 14:56:42
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-08 15:29:08
+ * @LastEditTime: 2024-08-08 17:14:57
  * @FilePath: \algorithm-visualization\apps\website\src\home\top\index.tsx
  * @Description:
  *
@@ -10,9 +10,10 @@
 import { Typography, Button, Layout, Grid } from '@arco-design/web-react'
 import Paragraph from '@arco-design/web-react/es/Typography/paragraph'
 import Title from '@arco-design/web-react/es/Typography/title'
-import React, { useCallback } from 'react'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
+import { usePageStore, useThemeStore } from '../../store/create'
 
 const { Header } = Layout
 const Row = Grid.Row
@@ -21,12 +22,8 @@ const HomeTop = () => {
   const navigate = useNavigate()
   const { t } = useTranslation()
   const menuButton = t('menuButton', { returnObjects: true })
-
-  const handleClick = useCallback((e: Event) => {
-    console.log(e.target)
-
-    navigate(e?.target?.value)
-  }, [])
+  const themeColor: string = useThemeStore(state => state.themeColor)
+  const setPage = usePageStore(state => state.setPage)
 
   return (
     <div style={{ backgroundColor: 'var(--color-fill-2)' }}>
@@ -54,7 +51,10 @@ const HomeTop = () => {
                       shape='round'
                       type='outline'
                       size='large'
-                      onClick={handleClick}
+                      onClick={() => {
+                        setPage(item?.index)
+                        navigate(item?.value)
+                      }}
                       key={item.value}
                       value={item.value}
                     >
@@ -69,7 +69,7 @@ const HomeTop = () => {
               <div
                 style={{
                   fontSize: 55,
-                  color: '#165dff'
+                  color: themeColor
                 }}
               >
                 <div>[̲̅A̲̲̅̅l̲̲̅̅g̲̲̅̅o̲̲̅̅r̲̲̅̅i̲̲̅̅t̲̲̅̅h̲̲̅̅m̲̅</div>

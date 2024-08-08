@@ -1,24 +1,27 @@
+/*
+ * @Author: hh 1441211576@qq.com
+ * @Date: 2024-06-25 14:56:42
+ * @LastEditors: hh 1441211576@qq.com
+ * @LastEditTime: 2024-08-08 15:50:13
+ * @FilePath: \algorithm-visualization\apps\website\src\home\content\api.tsx
+ * @Description:
+ *
+ */
 import { Typography } from '@arco-design/web-react'
 import Paragraph from '@arco-design/web-react/es/Typography/paragraph'
 import Title from '@arco-design/web-react/es/Typography/title'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 export const ContentApi = () => {
+  const { t } = useTranslation()
   return (
     <>
       <Typography>
-        <Title>API</Title>
-        <Paragraph>
-          According to my design goals, before the algorithm can be visualized, the data structure
-          needs to be visualized firstly. I have listed the data structures and interfaces I have
-          implemented. Here you can intuitively understand how to use each interface. In most cases,
-          the execution of each line of code is animated to help you understand the change in
-          structure.
-        </Paragraph>
+        <Title>{t('api.title')}</Title>
+        <Paragraph>{t('api.content')}</Paragraph>
       </Typography>
-      <div>
-        map一下
-      </div>
+      <div>map一下</div>
     </>
   )
 }
