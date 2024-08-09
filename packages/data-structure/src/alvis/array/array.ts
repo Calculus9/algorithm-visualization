@@ -1,8 +1,8 @@
 /*
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
- * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-08-06 23:04:17
+ * @LastEditors: hh 1441211576@qq.com
+ * @LastEditTime: 2024-08-09 09:57:16
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\array.ts
  * @Description: This is the monoarray
  */
@@ -24,28 +24,27 @@ export class AlVisArray {
   getDefaultConfig(
     dataStructureType: string,
     config: IInitConfigurationProps
-  ): IInitConfigurationProps {
+  ): [string, IInitConfigurationProps] {
     if (typeof dataStructureType !== 'string') {
       const tempConfig = dataStructureInitPropsMap?.['array']
       config = _.cloneDeep({ ...tempConfig, data: dataStructureType as unknown as number[] })
     }
 
-    return config
+    return ['array', config]
   }
 
   init(dataStructureType: string, config: IInitConfigurationProps) {
-    config = this.getDefaultConfig(dataStructureType, config)
+    ;[dataStructureType, config] = this.getDefaultConfig(dataStructureType, config)
     const { data, options } = config ?? {}
     const { fields } = options ?? {}
 
     const builder = schemaBuilder()
-
     builder.loadData(data)
     builder.loadChartConfig(config)
     builder.loadBasicProperties(fields, dataStructureType)
     const instance = builder.build()
     this.schema = instance.getSchema()
-    this.data = instance.getData()
+    this.data = _.cloneDeep(instance.getData())
   }
 
   getInstance() {

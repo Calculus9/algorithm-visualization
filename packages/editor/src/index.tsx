@@ -1,8 +1,8 @@
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-06-25 14:56:42
- * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-08-06 23:07:18
+ * @LastEditors: hh 1441211576@qq.com
+ * @LastEditTime: 2024-08-09 09:45:35
  * @FilePath: \algorithm-visualization\packages\editor\src\index.tsx
  * @Description:
  *
@@ -39,9 +39,15 @@ const MonacoEditor: React.FC<{ onChange: (code: string) => void }> = ({ onChange
           }
           const suggestions = [
             {
-              label: 'VisArray',
+              label: 'AlvisArray',
               kind: monaco.languages.CompletionItemKind.Class,
-              insertText: 'VisArray()',
+              insertText: 'AlvisArray([])',
+              range: range
+            },
+            {
+              label: 'AlvisStack',
+              kind: monaco.languages.CompletionItemKind.Class,
+              insertText: 'AlvisStack([])',
               range: range
             },
             {

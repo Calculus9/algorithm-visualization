@@ -6,7 +6,7 @@ import { ChartLibType } from '@alvis/website/src'
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 19:20:23
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-06 19:51:08
+ * @LastEditTime: 2024-08-09 09:44:10
  * @FilePath: \algorithm-visualization\packages\render\src\index.tsx
  * @Description: Here is RenderChart component, it receive the schema and then render.
  */
@@ -14,6 +14,7 @@ import { ChartLibType } from '@alvis/website/src'
 export const ChartVis = (props: { schema: ISchemaProps | null }) => {
   const { schema } = props
   const id = 'chart'
+  console.log(schema)
 
   useEffect(() => {
     if (!schema) return

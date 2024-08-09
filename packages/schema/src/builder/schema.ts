@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-05 16:11:02
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 19:16:15
+ * @LastEditTime: 2024-08-09 09:52:48
  * @FilePath: \algorithm-visualization\packages\schema\src\builder\schema.ts
  * @Description:
  *
@@ -29,7 +29,7 @@ class Schema {
 
   // Data
   setData(data: ISchemaProps['data']) {
-    this.schema.data = data
+    this.schema.data = _.cloneDeep(data)
   }
   getData() {
     return this.schema.data
@@ -61,7 +61,7 @@ class Schema {
 
   // fields
   setFields(fields: ISchemaProps['fields']) {
-    this.schema.fields = fields
+    this.schema.fields = _.cloneDeep(fields)
   }
   getFields() {
     return this.schema.fields

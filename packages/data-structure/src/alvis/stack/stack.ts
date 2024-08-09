@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-05 19:21:34
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 19:31:33
+ * @LastEditTime: 2024-08-09 10:02:01
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\stack\stack.ts
  * @Description:
  *
