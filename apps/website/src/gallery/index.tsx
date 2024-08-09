@@ -6,10 +6,6 @@ import { GalleryContent } from './content/content'
 const Content = Layout.Content
 const Sider = Layout.Sider
 const Gallery = () => {
-  const [position, setPosition] = useState<string>('')
-  const onClick = useCallback((key: string) => {
-    setPosition(key)
-  }, [])
   return (
     <>
       <div>
@@ -22,10 +18,10 @@ const Gallery = () => {
             // trigger={this.state.collapsed ? <IconCaretRight /> : <IconCaretLeft />}
             // breakpoint='xl'
             >
-              <GallerySlider onClick={onClick} />
+              <GallerySlider />
             </Sider>
             <Content style={{ margin: 10 }}>
-              <GalleryContent position={position} />
+              <GalleryContent />
             </Content>
           </Layout>
         </Layout>

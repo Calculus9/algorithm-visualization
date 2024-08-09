@@ -34,10 +34,13 @@
         "title": "暴力",
         "algorithms": ["冒泡排序"]
       },
-
       {
-        "title": "分治",
-        "algorithms": ["归并排序", "快速排序"]
+        "title": "动态规划",
+        "algorithms": ["斐波那契数列", "爬楼梯"]
+      },
+      {
+        "title": "分(减)治",
+        "algorithms": ["插入排序", "快速排序"]
       }
     ]
   }

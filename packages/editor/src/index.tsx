@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-06-25 14:56:42
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-09 15:08:25
+ * @LastEditTime: 2024-08-09 15:52:13
  * @FilePath: \algorithm-visualization\packages\editor\src\index.tsx
  * @Description:
  *
@@ -43,27 +43,28 @@ const MonacoEditor: React.FC<{ onChange: (code: string) => void; code: string }>
           }
           const suggestions = [
             {
-              label: 'AlvisArray',
+              label: 'AlVisArray',
               kind: monaco.languages.CompletionItemKind.Class,
-              insertText: 'AlvisArray([])',
+              insertText: 'AlVisArray([])',
               range: range
             },
             {
-              label: 'AlvisStack',
+              label: 'AlVisStack',
               kind: monaco.languages.CompletionItemKind.Class,
-              insertText: 'AlvisStack([])',
+              insertText: 'AlVisStack([])',
               range: range
             },
             {
-              label: 'Alvis',
+              label: 'AlVis',
               kind: monaco.languages.CompletionItemKind.Class,
-              insertText: `Alvis("", { data: [], options: {}})`,
+              insertText: `AlVis("", { data: [], options: {}})`,
               range: range
             }
           ]
           const str = model.getValue()
           const arrayMethods = ['push', 'pop', 'insert', 'get', 'set', 'delete']
-          if (str.includes('AlvisArray' || 'Alvis' || 'AlvisStack')) {
+          const stackMethods = ['push', 'pop']
+          if (str.includes('AlVisArray' || 'AlVis')) {
             arrayMethods?.map(d => {
               suggestions.push({
                 label: d,
@@ -77,6 +78,15 @@ const MonacoEditor: React.FC<{ onChange: (code: string) => void; code: string }>
               kind: monaco.languages.CompletionItemKind.Property,
               insertText: `length`,
               range: range
+            })
+          } else if (str.includes('AlVisStack')) {
+            stackMethods?.map(d => {
+              suggestions.push({
+                label: d,
+                kind: monaco.languages.CompletionItemKind.Method,
+                insertText: `${d}()`,
+                range: range
+              })
             })
           }
 

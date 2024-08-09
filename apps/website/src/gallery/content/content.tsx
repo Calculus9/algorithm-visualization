@@ -2,19 +2,17 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-09 11:13:50
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-09 15:06:23
+ * @LastEditTime: 2024-08-09 15:13:36
  * @FilePath: \algorithm-visualization\apps\website\src\gallery\content\content.tsx
  * @Description:
  *
  */
 
-import { Card, Link, Modal } from '@arco-design/web-react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { ContentCard } from './content_card'
 
-export const GalleryContent = (props: { position: string }) => {
-  const { position } = props
+export const GalleryContent = () => {
   const { t } = useTranslation()
   const algorithmList = t('gallery.algorithmList', { returnObjects: true })
 

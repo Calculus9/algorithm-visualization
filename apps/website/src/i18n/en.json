@@ -34,10 +34,13 @@
         "title": "Brute Force",
         "algorithms": ["Bubble Sort"]
       },
-
       {
-        "title": "Divide and Conquer",
-        "algorithms": ["Merge Sort", "Quick Sort"]
+        "title": "dp",
+        "algorithms": ["Fibonacci Numbers", "Climbing stairs"]
+      },
+      {
+        "title": "Conquer",
+        "algorithms": ["Insert Sort", "Quick Sort"]
       }
     ]
   }

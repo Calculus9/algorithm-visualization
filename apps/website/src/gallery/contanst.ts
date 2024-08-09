@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-09 11:03:31
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-09 15:04:18
+ * @LastEditTime: 2024-08-09 15:23:56
  * @FilePath: \algorithm-visualization\apps\website\src\gallery\contanst.ts
  * @Description:
  *
@@ -27,27 +27,23 @@ const bruteForce = [
   
   return defaultFunctionTemplate`
 ]
+const dp = []
 
 const divideConquer = [
   `const defaultFunctionTemplate = function () {
-    const nums = new AlVisArray([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
-    qSort(nums, 0, nums.length - 1)
-    return nums;
-}
+    // Your code here
+    const array = new AlVisArray([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
+    for (let i = 1; i < array.length; i++) {
+        const key = array.get(i);
+        let j = i - 1;
 
-const qSort = (q, l, r) => {
-    if (l >= r) return;
-
-    let i = l - 1, j = r + 1, x = q[l];
-    while (i < j) {
-        do i++; while (q[i] < x);
-        do j--; while (q[j] > x);
-        if (i < j) [q[i], q[j]] = [q[j], q[i]]
+        while (j >= 0 && array.get(j) > key) {
+            [array[j+1], array[j]] = [array[j], array[j + 1]]
+            j = j - 1;
+        }
     }
-    qSort(q, l, j);
-    qSort(q, j + 1, r);
+    return array
 }
-
 
 return defaultFunctionTemplate`,
   `const defaultFunctionTemplate = function () {
@@ -72,4 +68,4 @@ const qSort = (q, l, r) => {
 
 return defaultFunctionTemplate`
 ]
-export const defaultAlgorithms = [bruteForce, divideConquer]
+export const defaultAlgorithms = [bruteForce, dp, divideConquer]
