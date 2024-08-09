@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-05 18:30:53
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-09 12:30:21
+ * @LastEditTime: 2024-08-09 15:08:41
  * @FilePath: \algorithm-visualization\apps\website\src\editorVis.tsx
  * @Description:
  * This is the file of monaco editor and visualization chart.
@@ -32,7 +32,7 @@ const AlVisEditor = () => {
       </Col>
 
       <Col span={13} style={{ paddingLeft: 10, height: '560px' }}>
-        <MonacoEditor onChange={onChange} />
+        <MonacoEditor onChange={onChange} code={code} />
       </Col>
     </Row>
   )

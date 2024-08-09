@@ -3,20 +3,21 @@ import React, { useState } from 'react'
 import AlVisChart from '../../chart'
 import MonacoEditor from '@alvis/editor/src'
 import { DEFAULTCODE } from '../../constant'
+import { defaultAlgorithms } from '../contanst'
 
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-09 11:53:01
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-09 12:35:22
+ * @LastEditTime: 2024-08-09 15:08:54
  * @FilePath: \algorithm-visualization\apps\website\src\gallery\content\content_card.tsx
  * @Description:
  *
  */
-export const ContentCard = (props: { name: string; id: number }) => {
-  const { name, id } = props
+export const ContentCard = (props: { name: string; type: number; num: number }) => {
+  const { name, type, num } = props
   const [visible, setVisible] = useState(false)
-  const [code, setCode] = useState(DEFAULTCODE)
+  const [code, setCode] = useState(defaultAlgorithms?.[type]?.[num])
 
   const onChange = (code: string) => {
     setCode(code)
@@ -26,7 +27,7 @@ export const ContentCard = (props: { name: string; id: number }) => {
       <Card
         style={{ marginBottom: 10, marginRight: 10 }}
         title={name}
-        extra={<div onClick={() => setVisible(true)}>{'detail'}</div>}
+        extra={<div onClick={() => setVisible(true)}>More</div>}
       >
         <div style={{ width: 360, height: 400 }}>
           <AlVisChart id={name} code={code} />
@@ -46,7 +47,7 @@ export const ContentCard = (props: { name: string; id: number }) => {
             <AlVisChart id={`${name}-chart`} code={code} />
           </div>
           <div style={{ width: 700 }}>
-            <MonacoEditor onChange={onChange} />
+            <MonacoEditor onChange={onChange} code={code} />
           </div>
         </div>
       </Modal>

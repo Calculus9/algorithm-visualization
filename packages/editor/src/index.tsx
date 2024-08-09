@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-06-25 14:56:42
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-09 12:27:33
+ * @LastEditTime: 2024-08-09 15:08:25
  * @FilePath: \algorithm-visualization\packages\editor\src\index.tsx
  * @Description:
  *
@@ -12,11 +12,12 @@ import { Editor, useMonaco } from '@monaco-editor/react'
 import { Space, Button, Tooltip } from '@arco-design/web-react'
 import { IconPlayArrow } from '@arco-design/web-react/icon'
 import * as monaco from 'monaco-editor'
-import { DEFAULTCODE } from '../../../apps/website/src/constant'
 import { useThemeStore } from '../../../apps/website/src/store/create'
 
-const MonacoEditor: React.FC<{ onChange: (code: string) => void }> = ({ onChange }) => {
-  const [code] = useState(DEFAULTCODE)
+const MonacoEditor: React.FC<{ onChange: (code: string) => void; code: string }> = ({
+  onChange,
+  code
+}) => {
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null)
   const [editorInstance, setEditorInstance] = useState<monaco.editor.IStandaloneCodeEditor | null>(
     null
