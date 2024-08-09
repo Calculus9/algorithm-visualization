@@ -4,7 +4,7 @@
     { "key": "/api", "value": "接口文档", "index": "1" },
     { "key": "/gallery", "value": "算法画廊", "index": "2" }
   ],
-  "title": "一个基于[标准]的算法可视化库。",
+  "title": "一个基于标准的算法可视化库。",
   "subTitle": "有限的数据结构，无限的算法。",
   "menuButton": [
     {
