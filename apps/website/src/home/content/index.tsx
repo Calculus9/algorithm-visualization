@@ -1,3 +1,12 @@
+/*
+ * @Author: hh 1441211576@qq.com
+ * @Date: 2024-06-25 14:56:42
+ * @LastEditors: hh 1441211576@qq.com
+ * @LastEditTime: 2024-08-09 10:20:54
+ * @FilePath: \algorithm-visualization\apps\website\src\home\content\index.tsx
+ * @Description:
+ *
+ */
 import { Divider, Layout, Typography } from '@arco-design/web-react'
 import { Grid } from '@arco-design/web-react'
 import Paragraph from '@arco-design/web-react/es/Typography/paragraph'
@@ -18,7 +27,7 @@ const HomeContent = () => {
   return (
     <>
       <Layout>
-        <Content style={{ backgroundColor: 'white', marginTop: 10 }}>
+        <Content style={{ backgroundColor: 'white', margin: '15px 0' }}>
           <Row>
             <Col span={4}>
               <div></div>

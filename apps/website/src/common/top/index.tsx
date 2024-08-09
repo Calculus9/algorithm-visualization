@@ -2,8 +2,8 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-06-25 14:56:42
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-08 17:14:57
- * @FilePath: \algorithm-visualization\apps\website\src\home\top\index.tsx
+ * @LastEditTime: 2024-08-09 10:49:44
+ * @FilePath: \algorithm-visualization\apps\website\src\common\top\index.tsx
  * @Description:
  *
  */
@@ -19,14 +19,19 @@ const { Header } = Layout
 const Row = Grid.Row
 const Col = Grid.Col
 const HomeTop = () => {
+  // nav
   const navigate = useNavigate()
+  // i18n
   const { t } = useTranslation()
   const menuButton = t('menuButton', { returnObjects: true })
+  // theme
   const themeColor: string = useThemeStore(state => state.themeColor)
+  const titleColor: string = useThemeStore(state => state.titleBachgroundColor)
+
   const setPage = usePageStore(state => state.setPage)
 
   return (
-    <div style={{ backgroundColor: 'var(--color-fill-2)' }}>
+    <div style={{ backgroundColor: titleColor }}>
       <Layout>
         <Header
           style={{

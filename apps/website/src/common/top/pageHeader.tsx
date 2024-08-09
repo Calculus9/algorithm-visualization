@@ -2,8 +2,8 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-06 16:12:25
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-09 09:36:34
- * @FilePath: \algorithm-visualization\apps\website\src\home\top\pageHeader.tsx
+ * @LastEditTime: 2024-08-09 10:50:36
+ * @FilePath: \algorithm-visualization\apps\website\src\common\top\pageHeader.tsx
  * @Description:
  *
  */
@@ -11,7 +11,7 @@ import { PageHeader, Menu, Link, Dropdown } from '@arco-design/web-react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useThemeStore, usePageStore, useLngStore } from '../../store/create'
+import { useThemeStore, usePageStore, useLngStore } from '../../store/create.ts'
 const MenuItem = Menu.Item
 import { ZhIMG, GITHUBICON } from '../../constant.tsx'
 import { LANGUAGES } from './constants.ts'
@@ -21,9 +21,12 @@ const MenuRoute = () => {
   const menuList = t('menuList', { returnObjects: true })
 
   const themeColor = useThemeStore(state => state.themeColor)
-  const page = usePageStore(state => state.page)
+  const titleColor: string = useThemeStore(state => state.titleBachgroundColor)
+  const contentBgcColor: string = useThemeStore(state => state.contentBackgroundColor)
 
+  const page = usePageStore(state => state.page)
   const setPage = usePageStore(state => state.setPage)
+
   const navigate = useNavigate()
 
   const droplist = (
@@ -44,9 +47,9 @@ const MenuRoute = () => {
   )
 
   return (
-    <div style={{ background: 'var(--color-fill-2)' }}>
+    <div style={{ background: titleColor }}>
       <PageHeader
-        style={{ background: 'var(--color-bg-2)' }}
+        style={{ background: contentBgcColor }}
         title={<div style={{ color: themeColor }}>[̲̅A̲̲̅̅l̲̲̅̅V̲̲̅̅i̲̲̅̅s̲̅</div>}
         subTitle={
           <Menu

@@ -1,8 +1,8 @@
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-05 18:30:53
- * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-08-06 22:47:24
+ * @LastEditors: hh 1441211576@qq.com
+ * @LastEditTime: 2024-08-09 12:30:21
  * @FilePath: \algorithm-visualization\apps\website\src\editorVis.tsx
  * @Description:
  * This is the file of monaco editor and visualization chart.
@@ -22,15 +22,16 @@ const AlVisEditor = () => {
 
   const onChange = (code: string) => {
     setCode(code)
-    localStorage.setItem('storage', code)
   }
   return (
     <Row style={{ marginBottom: 16 }}>
       <Col span={11}>
-        <AlVisChart code={code} />
+        <div style={{ height: '560px' }}>
+          <AlVisChart id='chart' code={code} />
+        </div>
       </Col>
 
-      <Col span={13} style={{ paddingLeft: 10 }}>
+      <Col span={13} style={{ paddingLeft: 10, height: '560px' }}>
         <MonacoEditor onChange={onChange} />
       </Col>
     </Row>

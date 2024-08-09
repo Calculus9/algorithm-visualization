@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-06-25 14:56:42
  * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-09 09:45:35
+ * @LastEditTime: 2024-08-09 12:27:33
  * @FilePath: \algorithm-visualization\packages\editor\src\index.tsx
  * @Description:
  *
@@ -12,14 +12,17 @@ import { Editor, useMonaco } from '@monaco-editor/react'
 import { Space, Button, Tooltip } from '@arco-design/web-react'
 import { IconPlayArrow } from '@arco-design/web-react/icon'
 import * as monaco from 'monaco-editor'
+import { DEFAULTCODE } from '../../../apps/website/src/constant'
+import { useThemeStore } from '../../../apps/website/src/store/create'
 
 const MonacoEditor: React.FC<{ onChange: (code: string) => void }> = ({ onChange }) => {
-  const [code] = useState(localStorage.getItem('storage') || '')
+  const [code] = useState(DEFAULTCODE)
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null)
   const [editorInstance, setEditorInstance] = useState<monaco.editor.IStandaloneCodeEditor | null>(
     null
   )
   const monaco = useMonaco()
+  const contentBgcColor = useThemeStore(state => state.contentBackgroundColor)
 
   const onMount = useCallback((editor: monaco.editor.IStandaloneCodeEditor) => {
     editorRef.current = editor
@@ -94,7 +97,7 @@ const MonacoEditor: React.FC<{ onChange: (code: string) => void }> = ({ onChange
         style={{
           padding: 10,
           marginBottom: 8,
-          backgroundColor: 'var(--color-bg-2)'
+          backgroundColor: contentBgcColor
         }}
       >
         <Tooltip content='Run' color='#165DFF'>

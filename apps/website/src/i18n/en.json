@@ -28,6 +28,20 @@
   },
   "gallery": {
     "title": "Gallery",
-    "content": "Here is the algorithm gallery."
+    "content": "Here is the algorithm gallery.",
+    "algorithmList": [
+      {
+        "title": "Brute Force",
+        "algorithms": ["Bubble Sort"]
+      },
+      {
+        "title": "dp",
+        "algorithms": ["Fibonacci Numbers", "Climbing stairs"]
+      },
+      {
+        "title": "Divide and Conquer",
+        "algorithms": ["Merge Sort", "Quick Sort"]
+      }
+    ]
   }
 }
