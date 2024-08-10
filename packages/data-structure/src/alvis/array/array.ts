@@ -1,8 +1,8 @@
 /*
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-09 15:45:18
+ * @LastEditors: hjy 1441211576@qq.com
+ * @LastEditTime: 2024-08-10 10:17:19
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\array.ts
  * @Description: This is the monoarray
  */
@@ -65,7 +65,6 @@ export class AlVisArray {
         }
         // 如果属性是类的方法或属性，返回其值
         const value = target?.[property]
-        console.log(target, property)
 
         if (typeof value === 'function') {
           // 返回方法的绑定版本，使其可以在代理上调用
@@ -87,7 +86,6 @@ export class AlVisArray {
   }
 
   push(pushParams: object | number) {
-    console.log(pushParams, checkValue(pushParams))
     this.data.push(checkValue(pushParams))
     this.schema.actions.push({ op: 'push', value: checkValue(pushParams) })
   }
