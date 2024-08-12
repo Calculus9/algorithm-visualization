@@ -8,10 +8,10 @@
   },
   "homepage": "https://github.com/Calculus9/Calculus9.github.io",
   "scripts": {
-    "build": "pnpm --filter website build",
+    "build": "pnpm --filter web build",
     "predeploy": "pnpm run build",
-    "deploy": "gh-pages -d ./apps/website/dist",
-    "start": "pnpm --filter website dev"
+    "deploy": "gh-pages -d ./apps/web/dist",
+    "start": "pnpm --filter web dev"
   },
   "dependencies": {
     "@arco-design/web-react": "^2.62.0"
