@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd ./apps/web # monorepo 需要切换到对应的包路径进行相关操作！！切记！！！
-          pnpm install --frozen-lockfile
+          pnpm install
       - name: Build monorepo-website
         run: |
           echo ${{ github.workspace }}  # 输出工作区上下文路径，就是工程路径
