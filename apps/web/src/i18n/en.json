@@ -1,0 +1,47 @@
+{
+  "menuList": [
+    { "key": "/", "value": "Home", "index": "0" },
+    { "key": "/api", "value": "API", "index": "1" },
+    { "key": "/gallery", "value": "Gallery", "index": "2" }
+  ],
+  "title": "An algorithm visualization library based on schema.",
+  "subTitle": "Finite DataStructures & Infinite Algorithms.",
+  "menuButton": [
+    {
+      "key": "APIs",
+      "value": "api",
+      "index": "1"
+    },
+    {
+      "key": "Gallerys",
+      "value": "gallery",
+      "index": "2"
+    }
+  ],
+  "designGoal": {
+    "title": "Design Goal",
+    "content": "My main goal is algorithm visualization, but it is not easy to visualize the execution process of the Algorithm."
+  },
+  "api": {
+    "title": "API",
+    "content": "According to our design goals, before the algorithm can be visualized, the data structure needs to be visualized firstly. I have listed the data structures and interfaces I have implemented. Here you can intuitively understand how to use each interface. In most cases, the execution of each line of code is animated to help you understand the change in structure."
+  },
+  "gallery": {
+    "title": "Gallery",
+    "content": "Here is the algorithm gallery.",
+    "algorithmList": [
+      {
+        "title": "Brute Force",
+        "algorithms": ["Bubble Sort"]
+      },
+      {
+        "title": "dp",
+        "algorithms": ["Fibonacci Numbers", "Climbing stairs"]
+      },
+      {
+        "title": "Conquer",
+        "algorithms": ["Insert Sort", "Quick Sort"]
+      }
+    ]
+  }
+}
