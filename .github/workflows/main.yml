@@ -1,28 +1,37 @@
 name: Deploy to GitHub Pages
 
-env:
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   deploy:
+    name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Build
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
         with:
-          node-version: 20
+          version: 8
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
           cache: 'pnpm'
-      - run: |
+      - name: Install dependencies
+        run: |
           pnpm install
+      - name: Build monorepo-website
+        run: |
+          echo ${{ github.workspace }}  # 输出工作区上下文路径，就是工程路径
           pnpm run build
-      - name: GitHub Pages action
-        uses: peaceiris/actions-gh-pages@v3.7.3
+
+      # Popular action to deploy to GitHub Pages:
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./apps/web/dist
+          # Build output to publish to the `gh-pages` branch:
+          publish_dir: ./apps/web/dist # 文档打包产物的目录名就是build
+          commit_message: ${{ github.event.head_commit.message }}
