@@ -1,58 +1,43 @@
-# Sample workflow for building and deploying a Rsbuild site to GitHub Pages
-name: Rsbuild Deployment
+name: Deploy to GitHub Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ['main']
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment
-concurrency:
-  group: 'pages'
-  cancel-in-progress: false
+    branches:
+      - docs
+    # Review gh actions docs if you want to further define triggers, paths, etc
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
-  build:
+  deploy:
+    name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Use Node.js 20
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
         with:
-          node-version: 20
-
-      # If you use other package managers like yarn or pnpm,
-      # you will need to install them first
+          version: 8
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'pnpm'
       - name: Install dependencies
         run: |
-          cd ./apps/web
+          cd ./apps/web # monorepo 需要切换到对应的包路径进行相关操作！！切记！！！
           pnpm install
-
-      - name: Build
+      - name: Build monorepo-website
         run: |
-          echo ${{ github.workspace }} 
+          echo ${{ github.workspace }}  # 输出工作区上下文路径，就是工程路径
           cd ./apps/web
           pnpm run build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './apps/web/dist'
-
+      # Popular action to deploy to GitHub Pages:
+      # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Build output to publish to the `gh-pages` branch:
+          publish_dir: ./apps/web/build # 文档打包产物的目录名就是build
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: ${{ github.event.head_commit.message }}
