@@ -13,7 +13,6 @@ import { Link, Menu } from '@arco-design/web-react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 const MenuItem = Menu.Item
-import './index.css'
 const GallerySlider = () => {
   const { t } = useTranslation()
   const algorithmList = t('gallery.algorithmList', { returnObjects: true })
