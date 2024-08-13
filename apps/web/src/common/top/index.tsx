@@ -14,7 +14,6 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { usePageStore, useThemeStore } from '../../store/create'
-import './index.css'
 import { ZHTitlte, ENTitlte } from './constants.tsx'
 const { Header } = Layout
 const Row = Grid.Row

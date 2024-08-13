@@ -6,6 +6,13 @@ export default defineConfig({
   html: {
     template: './index.html'
   },
+
+  output: {
+    assetPrefix: '/algorithm-visualization/',
+    distPath: {
+      root: 'dist'
+    }
+  },
   source: {
     entry: {
       index: './src/main.tsx'

@@ -1,6 +1,0 @@
-title::nth-child(5),
-title::nth-child(6) {
-  text-decoration: underline;
-  color: red;
-  /* 其他你想要的样式 */
-}
