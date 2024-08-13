@@ -24,7 +24,7 @@ jobs:
         run: |
           cd ./apps/web # monorepo 需要切换到对应的包路径进行相关操作！！切记！！！
           pnpm install
-      - name: Build monorepo-website
+      - name: Build monorepo-docs-website
         run: |
           echo ${{ github.workspace }}  # 输出工作区上下文路径，就是工程路径
           cd ./apps/web
@@ -37,7 +37,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # Build output to publish to the `gh-pages` branch:
-          publish_dir: ./apps/web/build # 文档打包产物的目录名就是build
+          publish_dir: ./apps/web/dist # 文档打包产物的目录名就是build
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_message: ${{ github.event.head_commit.message }}
