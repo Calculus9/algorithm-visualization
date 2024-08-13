@@ -22,13 +22,11 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: |
-          cd ./apps/web # monorepo 需要切换到对应的包路径进行相关操作！！切记！！！
           pnpm install
       - name: Build monorepo-website
         run: |
           echo ${{ github.workspace }}  # 输出工作区上下文路径，就是工程路径
-          cd ./apps/web
-          pnpm build
+          pnpm run build
 
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
