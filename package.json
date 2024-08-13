@@ -6,7 +6,11 @@
     "eslint": "^8.57.0",
     "gh-pages": "^6.1.1"
   },
-  "homepage": "https://Calculus9.github.io/algorithm-visulization",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Calculus9/algorithm-visualization.git"
+  },
+  "homepage": "https://github.com/Calculus9/algorithm-visualization",
   "scripts": {
     "build": "pnpm --filter web build",
     "predeploy": "pnpm run build",
