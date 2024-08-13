@@ -11,7 +11,7 @@ import { PageHeader, Menu, Link, Dropdown } from '@arco-design/web-react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useThemeStore, usePageStore, useLngStore } from '../../store/create.ts'
+import { useThemeStore, usePageStore } from '../../store/create.ts'
 const MenuItem = Menu.Item
 import { ZhIMG, GITHUBICON } from '../../constant.tsx'
 import { LANGUAGES } from './constants.ts'

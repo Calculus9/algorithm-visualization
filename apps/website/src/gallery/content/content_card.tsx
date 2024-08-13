@@ -2,7 +2,6 @@ import { Card, Modal } from '@arco-design/web-react'
 import React, { useState } from 'react'
 import AlVisChart from '../../chart'
 import MonacoEditor from '@alvis/editor/src'
-import { DEFAULTCODE } from '../../constant'
 import { defaultAlgorithms } from '../contanst'
 
 /*

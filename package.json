@@ -6,11 +6,11 @@
     "eslint": "^8.57.0",
     "gh-pages": "^6.1.1"
   },
-  "homepage": "https://github.com/Calculus9/Calculus9.github.io",
+  "homepage": "https://calculus9.github.io/algorithm-visualization/",
   "scripts": {
     "build": "pnpm --filter website build",
     "predeploy": "pnpm run build",
-    "deploy": "gh-pages -d ./apps/website/dist",
+    "deploy": "gh-pages -d ./apps/website/build",
     "start": "pnpm --filter website dev"
   },
   "dependencies": {

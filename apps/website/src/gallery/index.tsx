@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React from 'react'
 import { Layout } from '@arco-design/web-react'
 import { GallerySlider } from './slider'
 import { GalleryContent } from './content/content'

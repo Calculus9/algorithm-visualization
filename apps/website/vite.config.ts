@@ -16,6 +16,6 @@ export default defineConfig({
   plugins: [react(), vitePluginForArco()],
   build: {
     outDir: 'build'
-  },
-  base: ' https://calculus9.github.io/' // 为/仓库名/
+  }
+  // base: 'algorithm-visualization' // 为/仓库名/
 })

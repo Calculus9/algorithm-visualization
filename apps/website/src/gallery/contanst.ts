@@ -27,7 +27,7 @@ const bruteForce = [
   
   return defaultFunctionTemplate`
 ]
-const dp = []
+const dp = ['']
 
 const divideConquer = [
   `const defaultFunctionTemplate = function () {
