@@ -1,10 +1,10 @@
-name: Build and deploy static content to Pages
+# Sample workflow for building and deploying a Rsbuild site to GitHub Pages
+name: Rsbuild Deployment
 
 on:
   # Runs on pushes targeting the default branch
   push:
     branches: ['main']
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -14,34 +14,45 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
+# Allow only one concurrent deployment
 concurrency:
   group: 'pages'
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      # If you use other package managers like yarn or pnpm,
+      # you will need to install them first
+      - name: Install dependencies
+        run: |
+          cd ./apps/web
+          pnpm install
 
       - name: Build
         run: |
+          echo ${{ github.workspace }} 
           cd ./apps/web
           pnpm run build
 
       - name: Setup Pages
-        uses: actions/configure-pages@v2
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist'
+          path: './apps/web/dist'
+
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4

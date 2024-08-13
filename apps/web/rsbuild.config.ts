@@ -1,14 +1,14 @@
 import { defineConfig } from '@rsbuild/core'
 import { pluginReact } from '@rsbuild/plugin-react'
-import path from 'path'
 
 export default defineConfig({
   plugins: [pluginReact()],
   html: {
     template: './index.html'
   },
-  // base: ' https://calculus9.github.io/', // 为/仓库名/
+
   output: {
+    assetPrefix: '/algorithm-visualization/',
     distPath: {
       root: 'dist'
     }
