@@ -1,0 +1,48 @@
+{
+  "name": "@alvis/web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "rsbuild dev",
+    "build": "rsbuild build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "rsbuild preview"
+  },
+  "dependencies": {
+    "@alvis/charts": "workspace:*",
+    "@alvis/data-structure": "workspace:*",
+    "@alvis/editor": "workspace:*",
+    "@alvis/exec": "workspace:*",
+    "@alvis/render": "workspace:*",
+    "@alvis/schema": "workspace:*",
+    "@arco-design/web-react": "^2.62.0",
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
+    "@visactor/vchart": "^1.11.0",
+    "history": "5",
+    "i18next": "^23.12.2",
+    "i18next-browser-languagedetector": "^8.0.0",
+    "install": "^0.13.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^15.0.0",
+    "react-router-dom": "6",
+    "zustand": "^4.5.4"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "1.0.1-beta.11",
+    "@rsbuild/plugin-react": "1.0.1-beta.11",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "gh-pages": "^6.1.1",
+    "less": "^4.2.0",
+    "typescript": "^5.4.5"
+  }
+}
