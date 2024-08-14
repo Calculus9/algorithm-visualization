@@ -32,6 +32,41 @@ export const DEFAULTCODE = `const defaultFunctionTemplate = function () {
 }
 
 return defaultFunctionTemplate`
+
+export const homeCode = `const defaultFunctionTemplate = function () {
+    // Your code here
+    const arr = new AlVis("array", {
+        data: [
+            { month: 'Monday', sales: 22 },
+            { month: 'Tuesday', sales: 13 },
+            { month: 'Wednesday', sales: 25 },
+            { month: 'Thursday', sales: 29 },
+        ],
+        options: {
+            type: "pie",
+            layout: {
+                direction: "horizontal"
+            },
+            visual:{
+                color: ['#94BFFF', '#6AA1FF', '#4080FF', '#165DFF','#0E42D2','#E8F3FF','#BEDAFF', ],
+            },
+            fields: {
+                category: "month",
+                value: "sales"
+            },
+        }
+    })
+    arr.push({ month: 'Monday1', sales: 55 })
+    arr.push({ month: 'Tuesday1', sales: 12 })
+    arr.pop()
+    arr.set({ month: 'Tuesday', sales: 20 })
+    arr.insert({ month: 'Tuesday2', sales: 200 }, 3)
+    arr.delete({ month: 'Tuesday' })
+    arr.delete({ sales: 200 })
+    return arr
+}
+
+return defaultFunctionTemplate`
 export enum ChartLibType {
   visactor,
   d3

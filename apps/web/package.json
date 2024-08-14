@@ -29,6 +29,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^15.0.0",
     "react-router-dom": "6",
+    "react-sticky": "^6.0.3",
     "zustand": "^4.5.4"
   },
   "devDependencies": {

@@ -28,8 +28,8 @@ interface ThemeState {
 }
 
 const useThemeStore = create<ThemeState>()(set => ({
-  themeColor: '#F7BA1E',
-  titleBachgroundColor: 'var(--color-fill-2)',
+  themeColor: '#165DFF',
+  titleBachgroundColor: 'var(--color-bg-2)',
   contentBackgroundColor: 'var(--color-bg-2)',
   setThemeColor: color => set(() => ({ themeColor: color }))
 }))

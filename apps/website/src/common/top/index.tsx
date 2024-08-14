@@ -16,6 +16,8 @@ import { useNavigate } from 'react-router-dom'
 import { usePageStore, useThemeStore } from '../../store/create'
 import './index.css'
 import { ZHTitlte, ENTitlte } from './constants.tsx'
+import AlVisChart from '../../chart.tsx'
+import { DEFAULTCODE } from '../../constant.ts'
 const { Header } = Layout
 const Row = Grid.Row
 const Col = Grid.Col
@@ -69,18 +71,6 @@ const HomeTop = () => {
                     </Button>
                   )
                 })}
-              </div>
-            </Col>
-            <Col span={1}></Col>
-            <Col span={8} style={{ height: '100%' }}>
-              <div
-                style={{
-                  fontSize: 55,
-                  color: themeColor
-                }}
-              >
-                <div>[̲̅A̲̲̅̅l̲̲̅̅g̲̲̅̅o̲̲̅̅r̲̲̅̅i̲̲̅̅t̲̲̅̅h̲̲̅̅m̲̅</div>
-                <div style={{ paddingLeft: 150 }}>V̲̲̅̅i̲̲̅̅s̲̲̅̅u̲̲̅̅a̲̲̅̅l̲̲̅̅i̲̲̅̅z̲̲̅̅a̲̲̅̅t̲̲̅̅i̲̲̅̅o̲̲̅̅n̲̅]</div>
               </div>
             </Col>
           </Row>

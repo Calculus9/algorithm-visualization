@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useThemeStore, usePageStore, useLngStore } from '../../store/create.ts'
 const MenuItem = Menu.Item
+import { StickyContainer, Sticky } from 'react-sticky'
 import { ZhIMG, GITHUBICON } from '../../constant.tsx'
 import { LANGUAGES } from './constants.ts'
 
@@ -47,7 +48,15 @@ const MenuRoute = () => {
   )
 
   return (
-    <div style={{ background: titleColor }}>
+    <div
+      style={{
+        background: titleColor,
+        position: 'sticky',
+        top: '0px',
+        zIndex: 1,
+        boxShadow: 'rgba(22, 93, 255, 0.1) 5px 5px 2px 1px'
+      }}
+    >
       <PageHeader
         style={{ background: contentBgcColor }}
         title={<div style={{ color: themeColor }}>[̲̅A̲̲̅̅l̲̲̅̅V̲̲̅̅i̲̲̅̅s̲̅</div>}
@@ -79,7 +88,7 @@ const MenuRoute = () => {
         extra={
           <>
             <Dropdown droplist={droplist} position='bl'>
-              <span>{<ZhIMG />}</span>
+              <span style={{ cursor: 'pointer' }}>{<ZhIMG />}</span>
             </Dropdown>
             <span style={{ marginLeft: 10 }}>
               <Link href='https://github.com/Calculus9/algorithm-visualization'>

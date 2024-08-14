@@ -18,6 +18,9 @@ import { ZHTitlte, ENTitlte } from './constants.tsx'
 const { Header } = Layout
 const Row = Grid.Row
 const Col = Grid.Col
+import AlVisChart from '../../chart.tsx'
+import { DEFAULTCODE, homeCode } from '../../constant.ts'
+
 const HomeTop = () => {
   // nav
   const navigate = useNavigate()
@@ -36,21 +39,37 @@ const HomeTop = () => {
       <Layout>
         <Header
           style={{
-            padding: 20
+            padding: '0 20px'
           }}
         >
           <Row style={{ display: 'flex', alignItems: 'center' }}>
-            <Col span={4}></Col>
-            <Col span={7}>
+            <Col span={6}></Col>
+            <Col span={8}>
               <Typography>
-                <Title style={{ fontSize: 50, wordBreak: 'break-all', fontWeight: 'bolder' }}>
+                <div
+                  style={{
+                    fontSize: 50,
+                    color: themeColor,
+                    textAlign: 'center'
+                  }}
+                >
+                  <div>Algorithm-Visualization</div>
+                </div>
+                <Title
+                  style={{
+                    fontSize: 30,
+                    fontWeight: 'bolder',
+                    textAlign: 'center',
+                    marginTop: 10
+                  }}
+                >
                   {i18n.language === 'zh' ? <ZHTitlte /> : <ENTitlte />}
                 </Title>
-                <Paragraph type='secondary' style={{ fontSize: 22 }}>
+                <Paragraph type='secondary' style={{ fontSize: 25, textAlign: 'center' }}>
                   {t('subTitle')}
                 </Paragraph>
               </Typography>
-              <div style={{ paddingBottom: 10, display: 'flex', justifyContent: 'space-between' }}>
+              <div style={{ paddingBottom: 10, display: 'flex', justifyContent: 'space-evenly' }}>
                 {(menuButton as [])?.map((item: { index: string; value: string; key: string }) => {
                   return (
                     <Button
@@ -70,16 +89,12 @@ const HomeTop = () => {
                 })}
               </div>
             </Col>
-            <Col span={1}></Col>
-            <Col span={8} style={{ height: '100%' }}>
+            <Col span={10}>
               <div
-                style={{
-                  fontSize: 55,
-                  color: themeColor
-                }}
+                style={{ height: '650px', cursor: 'pointer' }}
+                // onClick={() => navigate('/playground')}
               >
-                <div>[̲̅A̲̲̅̅l̲̲̅̅g̲̲̅̅o̲̲̅̅r̲̲̅̅i̲̲̅̅t̲̲̅̅h̲̲̅̅m̲̅</div>
-                <div style={{ paddingLeft: 150 }}>V̲̲̅̅i̲̲̅̅s̲̲̅̅u̲̲̅̅a̲̲̅̅l̲̲̅̅i̲̲̅̅z̲̲̅̅a̲̲̅̅t̲̲̅̅i̲̲̅̅o̲̲̅̅n̲̅]</div>
+                <AlVisChart code={homeCode} id='home-chart' />
               </div>
             </Col>
           </Row>
