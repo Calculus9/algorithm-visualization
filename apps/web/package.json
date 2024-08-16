@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "rsbuild dev",
-    "build": "rsbuild build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "rsbuild preview"
+    "dev": "rspress dev",
+    "build": "rspress build",
+    "preview": "rspress preview"
   },
   "dependencies": {
     "@alvis/charts": "workspace:*",
@@ -44,6 +43,8 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "gh-pages": "^6.1.1",
     "less": "^4.2.0",
-    "typescript": "^5.4.5"
+    "rspress": "^1.28.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
   }
 }

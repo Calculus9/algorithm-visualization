@@ -17,7 +17,7 @@ function App(props: { children: any }) {
   const titleBachgroundColor = useThemeStore(state => state.titleBachgroundColor)
   return (
     <div>
-      <MenuRoute />
+      {/* <MenuRoute /> */}
       <div
         style={{
           padding: '0 120px',

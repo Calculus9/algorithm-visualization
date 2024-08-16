@@ -11,7 +11,6 @@ import { Typography, Button, Layout, Grid } from '@arco-design/web-react'
 import Paragraph from '@arco-design/web-react/es/Typography/paragraph'
 import Title from '@arco-design/web-react/es/Typography/title'
 import React from 'react'
-import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { usePageStore, useThemeStore } from '../../store/create'
 import { ZHTitlte, ENTitlte } from './constants.tsx'
@@ -19,15 +18,18 @@ const { Header } = Layout
 const Row = Grid.Row
 const Col = Grid.Col
 import AlVisChart from '../../chart.tsx'
-import { DEFAULTCODE, homeCode } from '../../constant.ts'
+import { homeCode } from '../../constant.ts'
+import { useI18n, useLang } from 'rspress/runtime'
 
 const HomeTop = () => {
   // nav
   const navigate = useNavigate()
   // i18n
-  const { t, i18n } = useTranslation()
+  const lang = useLang()
+  const t = useI18n()
 
-  const menuButton = t('menuButton', { returnObjects: true })
+  const menuButton = t('menuButton')
+
   // theme
   const themeColor: string = useThemeStore(state => state.themeColor)
   const titleColor: string = useThemeStore(state => state.titleBachgroundColor)
@@ -63,7 +65,7 @@ const HomeTop = () => {
                     marginTop: 10
                   }}
                 >
-                  {i18n.language === 'zh' ? <ZHTitlte /> : <ENTitlte />}
+                  {lang === 'zh' ? <ZHTitlte /> : <ENTitlte />}
                 </Title>
                 <Paragraph type='secondary' style={{ fontSize: 25, textAlign: 'center' }}>
                   {t('subTitle')}

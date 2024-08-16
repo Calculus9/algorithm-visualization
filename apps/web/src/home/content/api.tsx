@@ -11,15 +11,17 @@ import { Typography } from '@arco-design/web-react'
 import Paragraph from '@arco-design/web-react/es/Typography/paragraph'
 import Title from '@arco-design/web-react/es/Typography/title'
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useI18n } from 'rspress/runtime'
 
 export const ContentApi = () => {
-  const { t } = useTranslation()
+  const t = useI18n()
+  const api = t('api')
+
   return (
     <>
       <Typography>
-        <Title>{t('api.title')}</Title>
-        <Paragraph>{t('api.content')}</Paragraph>
+        <Title>{api.title}</Title>
+        <Paragraph>{api.content}</Paragraph>
       </Typography>
       <div>map一下</div>
     </>

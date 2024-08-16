@@ -11,15 +11,15 @@
 import { Link, Menu } from '@arco-design/web-react'
 
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useI18n } from 'rspress/runtime'
 const MenuItem = Menu.Item
 const GallerySlider = () => {
-  const { t } = useTranslation()
-  const algorithmList = t('gallery.algorithmList', { returnObjects: true })
+  const t = useI18n()
+  const gallery = t('gallery')
 
   return (
     <Menu defaultSelectedKeys={['0']} style={{ width: '100%', margin: 0, padding: 0 }}>
-      {(algorithmList as [])?.map(
+      {(gallery?.['algorithmList'] as [])?.map(
         (
           item: {
             title: string

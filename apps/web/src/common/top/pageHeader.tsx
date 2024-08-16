@@ -10,16 +10,17 @@
 import { PageHeader, Menu, Link, Dropdown } from '@arco-design/web-react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+import { useI18n, useLang } from 'rspress/runtime'
 import { useThemeStore, usePageStore, useLngStore } from '../../store/create.ts'
 const MenuItem = Menu.Item
-import { StickyContainer, Sticky } from 'react-sticky'
+
 import { ZhIMG, GITHUBICON } from '../../constant.tsx'
 import { LANGUAGES } from './constants.ts'
 
 const MenuRoute = () => {
-  const { t, i18n } = useTranslation()
-  const menuList = t('menuList', { returnObjects: true })
+  const t = useI18n()
+  const lang = useLang()
+  const menuList = t('menuList')
 
   const themeColor = useThemeStore(state => state.themeColor)
   const titleColor: string = useThemeStore(state => state.titleBachgroundColor)
