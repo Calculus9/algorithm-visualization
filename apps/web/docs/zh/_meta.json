@@ -2,7 +2,7 @@
   {
     "text": "首页",
     "link": "/",
-    "activeMatch": "/index/"
+    "activeMatch": "//"
   },
   {
     "text": "API",
