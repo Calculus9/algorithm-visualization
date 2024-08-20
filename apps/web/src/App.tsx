@@ -8,20 +8,16 @@
  */
 import React from 'react'
 
-import MenuRoute from './common/top/pageHeader'
-import { useThemeStore } from './store/create'
-
 function App(props: { children: any }) {
   const { children } = props
 
-  const titleBachgroundColor = useThemeStore(state => state.titleBachgroundColor)
   return (
     <div>
       {/* <MenuRoute /> */}
       <div
         style={{
           padding: '0 120px',
-          backgroundColor: titleBachgroundColor,
+          // backgroundColor: titleBachgroundColor,
           marginBottom: 10
         }}
       >

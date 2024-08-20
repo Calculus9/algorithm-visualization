@@ -37,7 +37,7 @@ const HomeTop = () => {
   const setPage = usePageStore(state => state.setPage)
 
   return (
-    <div style={{ backgroundColor: titleColor }}>
+    <div style={{}}>
       <Layout>
         <Header
           style={{
@@ -91,7 +91,7 @@ const HomeTop = () => {
                 })}
               </div>
             </Col>
-            <Col span={10}>
+            <Col span={8}>
               <div
                 style={{ height: '650px', cursor: 'pointer' }}
                 // onClick={() => navigate('/playground')}

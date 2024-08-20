@@ -51,7 +51,7 @@ const MenuRoute = () => {
   return (
     <div
       style={{
-        background: titleColor,
+        // background: titleColor,
         position: 'sticky',
         top: '0px',
         zIndex: 1,
@@ -59,7 +59,7 @@ const MenuRoute = () => {
       }}
     >
       <PageHeader
-        style={{ background: contentBgcColor }}
+        style={{}}
         title={<div style={{ color: themeColor }}>[̲̅A̲̲̅̅l̲̲̅̅V̲̲̅̅i̲̲̅̅s̲̅</div>}
         subTitle={
           <Menu

@@ -12,7 +12,7 @@ import { Editor, useMonaco } from '@monaco-editor/react'
 import { Space, Button, Tooltip } from '@arco-design/web-react'
 import { IconPlayArrow } from '@arco-design/web-react/icon'
 import * as monaco from 'monaco-editor'
-import { useThemeStore } from '../../../apps/website/src/store/create'
+import { useThemeStore } from '@alvis/web/src/store/create'
 
 const MonacoEditor: React.FC<{ onChange: (code: string) => void; code: string }> = ({
   onChange,
@@ -107,8 +107,8 @@ const MonacoEditor: React.FC<{ onChange: (code: string) => void; code: string }>
       <div
         style={{
           padding: 10,
-          marginBottom: 8,
-          backgroundColor: contentBgcColor
+          marginBottom: 8
+          // backgroundColor: contentBgcColor
         }}
       >
         <Tooltip content='Run' color='#165DFF'>

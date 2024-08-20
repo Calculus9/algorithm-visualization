@@ -1,7 +1,7 @@
 import { ISchemaProps } from '@alvis/schema/src'
 import React, { useEffect } from 'react'
 import { getChart } from './utils'
-import { ChartLibType } from '@alvis/website/src'
+import { ChartLibType } from '@alvis/web/src/constant'
 /*
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 19:20:23

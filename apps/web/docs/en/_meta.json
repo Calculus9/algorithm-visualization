@@ -1,0 +1,17 @@
+[
+  {
+    "text": "Home",
+    "link": "/",
+    "activeMatch": "/"
+  },
+  {
+    "text": "API",
+    "link": "/api/",
+    "activeMatch": "/api/"
+  },
+  {
+    "text": "Gallery",
+    "link": "/gallery/",
+    "activeMatch": "/gallery/"
+  }
+]

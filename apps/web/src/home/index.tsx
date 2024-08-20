@@ -20,7 +20,9 @@ export const Home = () => {
         <HomeTop />
         <Content>
           <Divider />
-          <AlVisEditor />
+          <div style={{ padding: '0 200px' }}>
+            <AlVisEditor />
+          </div>
           <HomeContent />
         </Content>
       </Layout>

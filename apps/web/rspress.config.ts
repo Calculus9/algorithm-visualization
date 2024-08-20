@@ -4,24 +4,10 @@ export default defineConfig({
   // 文档根目录
   root: 'docs',
   lang: 'zh',
-  // source: {
-  //   entry: {
-  //     index: './src/main.tsx'
-  //   },
-  //   transformImport: [
-  //     {
-  //       libraryName: '@arco-design/web-react',
-  //       libraryDirectory: 'es',
-  //       camelToDashComponentName: false,
-  //       style: 'css'
-  //     },
-  //     {
-  //       libraryName: '@arco-design/web-react/icon',
-  //       libraryDirectory: 'react-icon',
-  //       camelToDashComponentName: false
-  //     }
-  //   ]
-  // },
+  logoText: '[̲̅A̲̲̅̅l̲̲̅̅V̲̲̅̅i̲̲̅̅s̲̅',
+  // logo: 'https://avatars.githubusercontent.com/u/56892468?s=200&v=4',
+  icon: 'https://avatars.githubusercontent.com/u/56892468?s=200&v=4',
+  title: 'AlVis',
   locales: [
     {
       lang: 'en',
@@ -39,6 +25,7 @@ export default defineConfig({
     }
   ],
   themeConfig: {
+    darkMode: false,
     locales: [
       {
         lang: 'en',

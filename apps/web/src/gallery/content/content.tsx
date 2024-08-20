@@ -22,7 +22,7 @@ export const GalleryContent = () => {
         (item: { title: string; algorithms: [] }, type: number) => {
           return (
             <div id={`${item?.title}`}>
-              <h3>{item?.title}</h3>
+              <h2 style={{ fontWeight: 'bolder' }}>{item?.title}</h2>
               <div style={{ marginTop: 20, display: 'flex' }}>
                 {item?.algorithms?.map((name: string, id: any) => {
                   return <ContentCard name={name} type={type} num={id} />
@@ -34,8 +34,4 @@ export const GalleryContent = () => {
       )}
     </div>
   )
-}
-
-export const frontmatter = {
-  pageType: 'custom'
 }

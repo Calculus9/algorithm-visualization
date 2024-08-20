@@ -1,0 +1,17 @@
+[
+  {
+    "text": "首页",
+    "link": "/",
+    "activeMatch": "/index/"
+  },
+  {
+    "text": "API",
+    "link": "/api/",
+    "activeMatch": "/api/"
+  },
+  {
+    "text": "算法画廊",
+    "link": "/gallery/",
+    "activeMatch": "/gallery/"
+  }
+]

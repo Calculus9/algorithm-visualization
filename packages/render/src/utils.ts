@@ -12,7 +12,7 @@ import VChart, { ISpec } from '@visactor/vchart'
 import { ActionExec } from '@alvis/exec/src/index'
 
 import { getActionExe, getActions } from '@alvis/exec/src/index'
-import { ChartLibType } from '@alvis/website/src/constant.ts'
+import { ChartLibType } from '@alvis/web/src/constant.ts'
 import { getVChart } from '@alvis/charts/chart-visactor/src'
 import { IChartProps } from '@alvis/charts/index'
 
