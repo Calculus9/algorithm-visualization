@@ -27,7 +27,30 @@ const bruteForce = [
   
   return defaultFunctionTemplate`
 ]
-const dp = []
+const dp = [
+  `const defaultFunctionTemplate = function () {
+    // Your code here
+    const array = new AlVisArray([1, 2])
+    const n = 7
+    for (let i = 2; i < n; i++) {
+        array[i] = array[i - 1] + array[i - 2]
+    }
+    return array
+}
+
+return defaultFunctionTemplate`,
+  `const defaultFunctionTemplate = function () {
+    // Your code here
+    const array = new AlVisArray([1, 2])
+    const n = 7
+    for (let i = 2; i < n; i++) {
+        array[i] = array[i - 1] + array[i - 2]
+    }
+    return array
+}
+
+return defaultFunctionTemplate`
+]
 
 const divideConquer = [
   `const defaultFunctionTemplate = function () {

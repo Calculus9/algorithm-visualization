@@ -19,7 +19,8 @@ import { initCode } from './constant'
 export const ContentCard = (props: { name: string; type: number; num: number }) => {
   const { name, type, num } = props
   const [visible, setVisible] = useState(false)
-  const [code, setCode] = useState(initCode)
+
+  const [code, setCode] = useState(initCode?.[type]?.[num])
 
   const onChange = (code: string) => {
     setCode(code)

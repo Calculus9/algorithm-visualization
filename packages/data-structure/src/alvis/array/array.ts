@@ -13,7 +13,7 @@ import _ from 'lodash'
 import { getFields } from '../../utils/fileds.ts'
 import { schemaBuilder } from '@alvis/schema/src/builder/schemaBuilder.ts'
 import { dataStructureInitPropsMap } from '../init/initMap.ts'
-
+import { handleInitData } from './initData.ts'
 export class AlVisArray {
   [key: string]: any
   constructor(dataStructureType: string, config: IInitConfigurationProps) {
@@ -27,7 +27,11 @@ export class AlVisArray {
   ): [string, IInitConfigurationProps] {
     if (typeof dataStructureType !== 'string') {
       const tempConfig = dataStructureInitPropsMap?.['array']
-      config = _.cloneDeep({ ...tempConfig, data: dataStructureType as unknown as number[] })
+
+      config = _.cloneDeep({
+        ...tempConfig,
+        data: handleInitData(dataStructureType) as unknown as number[]
+      })
     }
 
     return ['array', config]
@@ -57,6 +61,7 @@ export class AlVisArray {
 
   getProxy() {
     const that = this
+    // debugger
     return new Proxy(this, {
       get(target, property: string) {
         // 如果属性是索引，代理数组元素的访问

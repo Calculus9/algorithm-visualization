@@ -30,6 +30,7 @@ export class ActionExec {
   exe = async () => {
     await new Promise(resolve => setTimeout(resolve, 500))
     const action = this.actions[this.index]
+
     const newSpec = actionExec(action, this.spec, this.schema)
 
     this.vchart.updateSpecSync(newSpec)

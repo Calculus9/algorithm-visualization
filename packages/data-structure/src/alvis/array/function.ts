@@ -35,7 +35,17 @@ const arrayOperations: arrayOPMap = {
         return
       }
     })
-    data[index] = modifyValue
+
+    if (index < 0) {
+      const { key, value } = modifyValue as { [key: string]: number }
+      data[key] = {
+        id: `${value}-${key}`,
+        key: key,
+        value: value
+      }
+    } else {
+      data[index] = modifyValue
+    }
 
     return data
   },

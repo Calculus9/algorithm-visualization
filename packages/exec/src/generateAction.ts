@@ -32,6 +32,7 @@ export const actionExec = (action: IActions, spec: IChartProps, schema: ISchemaP
     place: place,
     value: value
   }
+  // console.log(props)
 
   data[0].values = _.cloneDeep(arrayOperations[op](props))
 
