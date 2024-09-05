@@ -11,13 +11,15 @@ export const isNumberArray = (arr: any): arr is number[] => {
   return Array.isArray(arr) && arr.every(item => typeof item === 'number')
 }
 
-export const checkValue = (checkParams: number | object): object => {
+export const checkValue = (checkParams: number | object, len: number): object => {
   let value: object
   if (typeof checkParams === 'number') {
-    // TODO： key，统一成object
-    value = { key: checkParams, value: checkParams }
+    value = { id: `${checkParams}-${len}`, key: `${checkParams}-${len}`, value: checkParams }
   } else {
-    value = checkParams
+    value = {
+      id: `${checkParams}`,
+      ...checkParams
+    }
   }
   return value
 }

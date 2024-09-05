@@ -84,8 +84,8 @@ class AlVisStack {
   }
 
   push(pushParams: object) {
-    this.data.push(checkValue(pushParams))
-    this.schema.actions.push({ op: 'push', value: checkValue(pushParams) })
+    this.data.push(checkValue(pushParams, this.data.length))
+    this.schema.actions.push({ op: 'push', value: checkValue(pushParams, this.data.length) })
   }
   pop() {
     this.data.pop()

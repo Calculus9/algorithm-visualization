@@ -1,13 +1,66 @@
-# Array
+# AlvisArray
 
-## push
+Description: Provides js-like array operations. Use `new AlVisArray([])` to create an array.
 
-## pop
+## 1. push
 
-## set
+Add new data.
 
-## get
+**Required parameters 1**
 
-## insert
+`value`：value
+**eg**: `arr.push(1)`
 
-## []
+**Required parameters 2**
+
+`category`：category label, such as x-axis labels or category labels.
+
+`value`: Values label, such as y-axis labels or value labels.
+
+**eg**: `arr.push({ month: 'Monday1', sales: 55 })`, where month is category and sales is value.
+
+## 2.pop
+
+Delete the last data in the array without providing parameters.
+
+## 3. set
+
+Modify the elements in an array.
+
+**Required parameters**
+
+`category`：category label, such as x-axis labels or category labels.
+
+`value`: Values label, such as y-axis labels or value labels.
+
+**eg**: `arr.set({ month: 'Tuesday', sales: 20 })`, where month is category and sales is value.
+
+## 4. insert
+
+Insert an element at any position.
+
+**Required parameters**
+
+`category`：category label, such as x-axis labels or category labels.
+
+`value`: Values label, such as y-axis labels or value labels.
+
+`place`: Element insertion position
+
+**eg**: `arr.insert({ month: 'Tuesday2', sales: 200 }, 3)`, where month is category and sales is value, insert element at position 3.
+
+## 5. delete
+
+Delete any element in the array.
+
+**Optional parameters**
+
+`category`：category label, such as x-axis labels or category labels.
+
+`value`: Values label, such as y-axis labels or value labels.
+
+**eg**: `arr.delete({ month: 'Tuesday' })` or `arr.delete({ sales: 200 })`, where month is category and sales is value.
+
+## 6. length
+
+Return the length of array.

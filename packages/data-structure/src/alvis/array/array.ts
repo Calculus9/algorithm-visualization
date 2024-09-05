@@ -91,8 +91,9 @@ export class AlVisArray {
   }
 
   push(pushParams: object | number) {
-    this.data.push(checkValue(pushParams))
-    this.schema.actions.push({ op: 'push', value: checkValue(pushParams) })
+    const pushData = checkValue(pushParams, this.data.length)
+    this.data.push(pushData)
+    this.schema.actions.push({ op: 'push', value: pushData })
   }
 
   pop() {
@@ -140,7 +141,11 @@ export class AlVisArray {
 
   insert(insertData: object, place: number) {
     this.data.splice(place, 0, insertData)
-    this.schema.actions.push({ op: 'insert', value: checkValue(insertData), place })
+    this.schema.actions.push({
+      op: 'insert',
+      value: checkValue(insertData, this.data.length),
+      place
+    })
   }
 
   delete(deleteData: object) {
