@@ -1,4 +1,4 @@
-import { Card, Modal } from '@arco-design/web-react'
+import { Button, Card, Modal } from '@arco-design/web-react'
 import React, { useState } from 'react'
 import AlVisChart from '../../chart'
 import MonacoEditor from '@alvis/editor/src'
@@ -57,7 +57,17 @@ export const ContentCard = (props: { name: string; type: number; num: number }) 
         style={{ width: 1200 }}
         title={name}
         visible={visible}
-        onOk={() => setVisible(false)}
+        footer={
+          <>
+            <Button
+              onClick={() => {
+                setVisible(false)
+              }}
+            >
+              Close
+            </Button>
+          </>
+        }
         onCancel={() => setVisible(false)}
         autoFocus={false}
         focusLock={true}

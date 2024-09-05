@@ -1,5 +1,6 @@
 import { initArrayConfigs } from './array'
 import { IInitConfigurationProps } from '../index'
+import { initStackConfigs } from './stack'
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-23 16:42:55
@@ -10,6 +11,7 @@ import { IInitConfigurationProps } from '../index'
  *
  */
 const dataStructureInitPropsMap: Record<string, IInitConfigurationProps> = {
-  array: initArrayConfigs
+  array: initArrayConfigs,
+  stack: initStackConfigs
 }
 export { dataStructureInitPropsMap }
