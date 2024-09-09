@@ -5,23 +5,18 @@ export default defineConfig({
   root: 'docs',
   lang: 'zh',
   logoText: '[̲̅A̲̲̅̅l̲̲̅̅V̲̲̅̅i̲̲̅̅s̲̅',
-  // logo: 'https://avatars.githubusercontent.com/u/56892468?s=200&v=4',
   icon: 'https://avatars.githubusercontent.com/u/56892468?s=200&v=4',
   title: 'AlVis',
   locales: [
     {
       lang: 'en',
       // 导航栏切换语言的标签
-      label: 'English',
-      title: 'Modern.js',
-      description: 'Modern.js 文档框架'
+      label: 'English'
     },
     {
       lang: 'zh',
       // 导航栏切换语言的标签
-      label: '简体中文',
-      title: 'Modern.js',
-      description: 'Rspress'
+      label: '简体中文'
     }
   ],
   themeConfig: {
@@ -29,7 +24,7 @@ export default defineConfig({
     locales: [
       {
         lang: 'en',
-        outlineTitle: 'ON THIS Page',
+        outlineTitle: 'Outline',
         label: ''
       },
       {

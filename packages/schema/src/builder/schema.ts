@@ -32,7 +32,7 @@ class Schema {
     this.schema.data = _.cloneDeep(data)
   }
   getData() {
-    return this.schema.data
+    return this.schema.data || []
   }
 
   // DataStructure Type

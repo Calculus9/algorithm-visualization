@@ -30,7 +30,7 @@ export class AlVisArray {
 
       config = _.cloneDeep({
         ...tempConfig,
-        data: handleInitData(dataStructureType) as unknown as number[]
+        data: handleInitData(dataStructureType) as unknown as number[] | string[]
       })
     }
 

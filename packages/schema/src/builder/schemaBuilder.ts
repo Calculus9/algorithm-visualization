@@ -31,6 +31,8 @@ const schemaBuilder = (): Builder => {
   }
 
   const loadBasicProperties = (fields: IFieldsProps, dataStructure: string) => {
+    console.log(fields)
+
     schema.setFields(fields)
     schema.setDataStructureType(dataStructure)
     schema.setActions([])

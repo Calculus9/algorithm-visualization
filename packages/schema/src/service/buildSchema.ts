@@ -16,6 +16,6 @@ export const convertCode2Schema = (code: string): ISchemaProps => {
   alvis = alvis()
 
   const schema: ISchemaProps = alvis.schema
-  // window.schema = schema
+  window.schema = schema
   return schema
 }

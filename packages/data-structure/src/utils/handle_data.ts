@@ -11,9 +11,9 @@ export const isNumberArray = (arr: any): arr is number[] => {
   return Array.isArray(arr) && arr.every(item => typeof item === 'number')
 }
 
-export const checkValue = (checkParams: number | object, len: number): object => {
+export const checkValue = (checkParams: number | string | object, len: number): object => {
   let value: object
-  if (typeof checkParams === 'number') {
+  if (typeof checkParams !== 'object') {
     value = { id: `${checkParams}-${len}`, key: `${checkParams}-${len}`, value: checkParams }
   } else {
     value = {

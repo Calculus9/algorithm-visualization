@@ -1,5 +1,6 @@
 import { IInitConfigurationProps } from '@alvis/data-structure/src/index'
 import { initArrayConfigs } from './array'
+import { initStackConfigs } from './stack'
 
 /*
  * @Author: hh 1441211576@qq.com
@@ -11,6 +12,7 @@ import { initArrayConfigs } from './array'
  *
  */
 const dataStructureInitPropsMap: Record<string, IInitConfigurationProps> = {
-  array: initArrayConfigs
+  array: initArrayConfigs,
+  stack: initStackConfigs
 }
 export { dataStructureInitPropsMap }

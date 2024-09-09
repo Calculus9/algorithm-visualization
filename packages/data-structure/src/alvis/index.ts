@@ -8,6 +8,6 @@
  *
  */
 export interface IInitConfigurationProps {
-  data: object[] | number[]
+  data: object[] | number[] | string[]
   [key: string]: any
 }

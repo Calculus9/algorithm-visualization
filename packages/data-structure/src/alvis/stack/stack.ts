@@ -13,6 +13,7 @@ import _ from 'lodash'
 import { IInitConfigurationProps } from '..'
 import { dataStructureInitPropsMap } from '../init'
 import { checkValue } from '../..'
+import { handleInitData } from '../array/initData'
 
 class AlVisStack {
   [key: string]: any
@@ -53,18 +54,24 @@ class AlVisStack {
   getDefaultConfig(
     dataStructureType: string,
     config: IInitConfigurationProps
-  ): IInitConfigurationProps {
-    const tempConfig = dataStructureInitPropsMap?.[dataStructureType]
-    config = _.cloneDeep({ ...tempConfig, data: config as unknown as number[] })
-    return config
+  ): [string, IInitConfigurationProps] {
+    if (typeof dataStructureType !== 'string') {
+      const tempConfig = dataStructureInitPropsMap?.['stack']
+
+      config = _.cloneDeep({
+        ...tempConfig,
+        data: handleInitData(dataStructureType) as unknown as number[] | string[]
+      })
+    }
+
+    return ['stack', config]
   }
 
-  init(dataStructureType: string, config: IInitConfigurationProps) {
-    if (!config?.options) {
-      config = this.getDefaultConfig(dataStructureType, config)
-    }
+  init(dataStructureType: string, config: IInitConfigurationProps): void {
+    ;[dataStructureType, config] = this.getDefaultConfig(dataStructureType, config)
     const { data, options } = config ?? {}
     const { fields } = options ?? {}
+    console.log(config)
 
     const builder = schemaBuilder()
     builder.loadData(data)
@@ -79,8 +86,11 @@ class AlVisStack {
     return this
   }
 
-  get isEmpty(): boolean {
+  isEmpty(): boolean {
     return this.data.length ? false : true
+  }
+  get length(): number {
+    return this.data.length
   }
 
   push(pushParams: object) {
@@ -90,6 +100,9 @@ class AlVisStack {
   pop() {
     this.data.pop()
     this.schema.actions.push({ op: 'pop' })
+  }
+  top() {
+    return this.data[this.data.length - 1].value
   }
   clear() {
     this.data = []
