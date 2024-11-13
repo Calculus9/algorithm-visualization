@@ -1,8 +1,8 @@
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-06-25 14:56:42
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-09 15:52:13
+ * @LastEditors: hjy 1441211576@qq.com
+ * @LastEditTime: 2024-11-13 22:18:00
  * @FilePath: \algorithm-visualization\packages\editor\src\index.tsx
  * @Description:
  *
@@ -64,7 +64,7 @@ const MonacoEditor: React.FC<{ onChange: (code: string) => void; code: string }>
           const str = model.getValue()
           const arrayMethods = ['push', 'pop', 'insert', 'get', 'set', 'delete']
           const stackMethods = ['push', 'pop']
-          if (str.includes('AlVisArray' || 'AlVis')) {
+          if (str.includes('AlVisArray') || str.includes('AlVis')) {
             arrayMethods?.map(d => {
               suggestions.push({
                 label: d,
