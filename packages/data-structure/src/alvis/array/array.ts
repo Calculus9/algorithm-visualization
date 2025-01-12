@@ -2,7 +2,7 @@
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-07-01 14:22:28
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-08-10 10:17:19
+ * @LastEditTime: 2025-01-12 20:40:24
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\array.ts
  * @Description: This is the monoarray
  */
@@ -14,6 +14,8 @@ import { getFields } from '../../utils/fileds.ts'
 import { schemaBuilder } from '@alvis/schema/src/builder/schemaBuilder.ts'
 import { dataStructureInitPropsMap } from '../init/initMap.ts'
 import { handleInitData } from './initData.ts'
+import { findEqualObject } from '../util.ts'
+
 export class AlVisArray {
   [key: string]: any
   constructor(dataStructureType: string, config: IInitConfigurationProps) {
@@ -61,23 +63,25 @@ export class AlVisArray {
 
   getProxy() {
     const that = this
-    // debugger
+
     return new Proxy(this, {
       get(target, property: string) {
-        // 如果属性是索引，代理数组元素的访问
+        // if the property is index, get the element
+
         if (!isNaN(Number(property))) {
           return target.get(property)
         }
-        // 如果属性是类的方法或属性，返回其值
+        // if the property is method or attribute, return its value
         const value = target?.[property]
 
         if (typeof value === 'function') {
-          // 返回方法的绑定版本，使其可以在代理上调用
+          // value bind this, to call this func in the proxy
           return value.bind(that)
         }
         return value
       },
-      set(target, property: string, value) {
+      set(target, property: string, value, receiver: any) {
+        debugger
         if (!isNaN(Number(property))) {
           // 代理数组元素的设置
           target.set(+property, value)
@@ -96,9 +100,35 @@ export class AlVisArray {
     this.schema.actions.push({ op: 'push', value: pushData })
   }
 
+  unshift(unshiftParams: object | number) {
+    const unshiftData = checkValue(unshiftParams, this.data.length)
+    this.data.push(unshiftData)
+    this.schema.actions.push({ op: 'push', value: unshiftData })
+  }
+
   pop() {
     this.data.pop()
     this.schema.actions.push({ op: 'pop' })
+  }
+  shift() {
+    this.data.shift()
+    this.schema.actions.push({ op: 'shift' })
+  }
+
+  swap(param1: number, param2: number)
+  swap(param1: object, param2: object)
+  swap(param1, param2) {
+    if (typeof param1 === 'number' && typeof param1 === typeof param2) {
+      ;[this.data[param1], this.data[param2]] = [this.data[param2], this.data[param1]]
+    } else if (typeof param1 === 'object' && typeof param1 === typeof param2) {
+      const index1 = findEqualObject(this.data, param1)
+      const index2 = findEqualObject(this.data, param2)
+      ;[this.data[index1], this.data[index2]] = [this.data[index2], this.data[index1]]
+    } else {
+      alert('swap function incorrectly called')
+      return
+    }
+    this.schema.actions.push({ op: 'swap', value: _.cloneDeep(this.data) })
   }
 
   set(params: object | number, value: string) {

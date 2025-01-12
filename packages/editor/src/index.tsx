@@ -2,7 +2,7 @@
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-06-25 14:56:42
  * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-11-13 22:18:00
+ * @LastEditTime: 2025-01-12 20:14:11
  * @FilePath: \algorithm-visualization\packages\editor\src\index.tsx
  * @Description:
  *
@@ -13,7 +13,7 @@ import { Space, Button, Tooltip } from '@arco-design/web-react'
 import { IconPlayArrow } from '@arco-design/web-react/icon'
 import * as monaco from 'monaco-editor'
 import { useThemeStore } from '@alvis/web/src/store/create'
-
+import { arrayMethods, stackMethods } from './constant'
 const MonacoEditor: React.FC<{ onChange: (code: string) => void; code: string }> = ({
   onChange,
   code
@@ -62,8 +62,7 @@ const MonacoEditor: React.FC<{ onChange: (code: string) => void; code: string }>
             }
           ]
           const str = model.getValue()
-          const arrayMethods = ['push', 'pop', 'insert', 'get', 'set', 'delete']
-          const stackMethods = ['push', 'pop']
+
           if (str.includes('AlVisArray') || str.includes('AlVis')) {
             arrayMethods?.map(d => {
               suggestions.push({

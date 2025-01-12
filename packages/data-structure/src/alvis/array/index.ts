@@ -1,14 +1,15 @@
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-11 20:35:28
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 19:13:11
+ * @LastEditors: hjy 1441211576@qq.com
+ * @LastEditTime: 2025-01-12 20:16:35
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\index.ts
  * @Description:
  *
  */
 
-export type arrayOP = 'push' | 'pop' | 'set' | 'insert' | 'delete' //| 'length' | 'shift' | 'unshift' | 'swap'
+// This describes the opereation will infulence the chart.
+export type arrayOP = 'push' | 'pop' | 'set' | 'insert' | 'delete' | 'swap' | 'shift' | 'unshift'
 
 export type arrayOPMap = Record<arrayOP, Function>
 
