@@ -1,8 +1,8 @@
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-05 19:21:34
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-09 10:02:01
+ * @LastEditors: 1441211576@qq.com huangjingyu@kuaishou.com
+ * @LastEditTime: 2025-02-13 17:59:32
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\stack\stack.ts
  * @Description:
  *
@@ -71,8 +71,6 @@ class AlVisStack {
     ;[dataStructureType, config] = this.getDefaultConfig(dataStructureType, config)
     const { data, options } = config ?? {}
     const { fields } = options ?? {}
-    console.log(config)
-
     const builder = schemaBuilder()
     builder.loadData(data)
     builder.loadChartConfig(config)

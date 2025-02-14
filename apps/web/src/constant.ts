@@ -9,7 +9,7 @@
 
 export const DEFAULTCODE = `const defaultFunctionTemplate = function () {
     // Your code here
-    const arr = new AlVis("array", {
+    const arr = new AlVis("stack", {
         data: [
             { month: 'Monday', sales: 22 },
             { month: 'Tuesday', sales: 13 },
@@ -19,15 +19,15 @@ export const DEFAULTCODE = `const defaultFunctionTemplate = function () {
         ],
         options: {
             type: "bar",
-            layout: {
-                direction: "horizontal"
-            },
             fields: {
                 category: "month",
                 value: "sales"
             },
         }
     })
+    arr.push({ month: 'Monday1', sales: 55 })
+    arr.pop()
+    arr.push({ month: 'Tuesday1', sales: 12 })
     return arr
 }
 

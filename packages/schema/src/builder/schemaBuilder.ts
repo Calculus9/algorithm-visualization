@@ -1,8 +1,8 @@
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-05 15:57:48
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-09 09:52:26
+ * @LastEditors: 1441211576@qq.com huangjingyu@kuaishou.com
+ * @LastEditTime: 2025-02-13 17:59:41
  * @FilePath: \algorithm-visualization\packages\schema\src\builder\schemaBuilder.ts
  * @Description:
  *
@@ -31,8 +31,6 @@ const schemaBuilder = (): Builder => {
   }
 
   const loadBasicProperties = (fields: IFieldsProps, dataStructure: string) => {
-    console.log(fields)
-
     schema.setFields(fields)
     schema.setDataStructureType(dataStructure)
     schema.setActions([])

@@ -25,7 +25,7 @@ const stackOperations: stackOPMap = {
   },
   //   TODO:这里有问题
   size: () => {
-    return null
+    console.log(this)
   }
 }
 

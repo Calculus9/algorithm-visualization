@@ -2,10 +2,12 @@
   "name": "@alvis/charts",
   "version": "1.0.0",
   "devDependencies": {
+    "@types/d3": "^7.4.3",
     "typescript": "^5.4.5"
   },
   "main": "index.tsx",
   "dependencies": {
-    "@visactor/vchart": "^1.11.0"
+    "@visactor/vchart": "^1.11.0",
+    "d3": "^7.9.0"
   }
 }

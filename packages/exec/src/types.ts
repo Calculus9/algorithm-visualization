@@ -7,10 +7,11 @@
  * @Description: this is the types definations
  */
 
+import { stackOP } from '@alvis/data-structure/src/alvis/stack'
 import { arrayOP } from '@alvis/data-structure/src/index'
 
 export interface IActions {
-  op: arrayOP | string
+  op: arrayOP | string | stackOP
   value?: Object
   place?: number
 }

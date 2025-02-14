@@ -1,8 +1,8 @@
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-20 13:36:49
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-07-20 14:53:24
+ * @LastEditors: 1441211576@qq.com huangjingyu@kuaishou.com
+ * @LastEditTime: 2025-02-13 16:09:38
  * @FilePath: \algorithm-visualization\packages\charts\utils\types.ts
  * @Description:
  *

@@ -1,8 +1,8 @@
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-06-25 14:56:42
- * @LastEditors: hjy 1441211576@qq.com
- * @LastEditTime: 2024-08-10 10:18:36
+ * @LastEditors: 1441211576@qq.com huangjingyu@kuaishou.com
+ * @LastEditTime: 2025-02-13 16:04:12
  * @FilePath: \algorithm-visualization\apps\website\src\common\top\index.tsx
  * @Description:
  *
@@ -50,7 +50,7 @@ const HomeTop = () => {
               <Typography>
                 <div
                   style={{
-                    fontSize: 50,
+                    fontSize: 48,
                     color: themeColor,
                     textAlign: 'center'
                   }}

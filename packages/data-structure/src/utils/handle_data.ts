@@ -14,10 +14,10 @@ export const isNumberArray = (arr: any): arr is number[] => {
 export const checkValue = (checkParams: number | string | object, len: number): object => {
   let value: object
   if (typeof checkParams !== 'object') {
-    value = { id: `${checkParams}-${len}`, key: `${checkParams}-${len}`, value: checkParams }
+    value = { id: `${len}`, key: `${checkParams}-${len}`, value: checkParams }
   } else {
     value = {
-      id: `${checkParams}`,
+      id: `${len}`,
       ...checkParams
     }
   }

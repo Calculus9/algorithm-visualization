@@ -8,21 +8,20 @@ import { arrayOperations } from '@alvis/data-structure/src'
 import { IChartProps } from '@alvis/charts/index'
 import { arrayOP } from '@alvis/data-structure/src'
 
-/*
- * @Author: hh 1441211576@qq.com
- * @Date: 2024-07-11 16:12:57
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 19:13:59
- * @FilePath: \algorithm-visualization\packages\exec\src\generateAction.ts
- * @Description:
- *
- */
 import _ from 'lodash'
+import { stackOperations } from '@alvis/data-structure/src/alvis/stack'
+
+export const operationMapping = {
+  stack: stackOperations,
+  array: arrayOperations
+}
+
 export const actionExec = (action: IActions, spec: IChartProps, schema: ISchemaProps) => {
-  const { data } = spec
+  const { data, dataStructure } = spec
+
   const { category, value } = schema?.fields ?? {}
   const actionValue = action?.value
-  const op: arrayOP = action?.op as arrayOP
+  const op = action?.op
   const place = action?.place
 
   const props: OperationParams = {
@@ -32,9 +31,7 @@ export const actionExec = (action: IActions, spec: IChartProps, schema: ISchemaP
     place: place,
     value: value
   }
-  // console.log(props)
-
-  data[0].values = _.cloneDeep(arrayOperations[op](props))
+  data[0].values = _.cloneDeep(operationMapping?.[dataStructure]?.[op](props))
 
   return spec as ISpec
 }
