@@ -7,9 +7,10 @@
  * @Description: Here is the constant data.
  */
 
-export const DEFAULTCODE = `const defaultFunctionTemplate = function () {
+export const DEFAULTCODE = `
+const defaultFunctionTemplate = function () {
     // Your code here
-    const arr = new AlVis("array", {
+    const arr = new AlVis("stack", {
         data: [
             { month: 'Monday', sales: 22 },
             { month: 'Tuesday', sales: 13 },
@@ -28,10 +29,14 @@ export const DEFAULTCODE = `const defaultFunctionTemplate = function () {
             },
         }
     })
+    arr.push({ month: 'Thursday1', sales: 290})
+    arr.pop()
+    arr.push({ month: 'Thursday2', sales: 90})
     return arr
 }
 
-return defaultFunctionTemplate`
+return defaultFunctionTemplate
+`
 
 export const homeCode = `const defaultFunctionTemplate = function () {
     // Your code here

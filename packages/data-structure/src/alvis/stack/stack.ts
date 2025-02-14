@@ -71,15 +71,13 @@ class AlVisStack {
     ;[dataStructureType, config] = this.getDefaultConfig(dataStructureType, config)
     const { data, options } = config ?? {}
     const { fields } = options ?? {}
-    console.log(config)
-
     const builder = schemaBuilder()
     builder.loadData(data)
     builder.loadChartConfig(config)
     builder.loadBasicProperties(fields, dataStructureType)
     const instance = builder.build()
     this.schema = instance.getSchema()
-    this.data = instance.getData()
+    this.data = _.cloneDeep(instance.getData())
   }
 
   getInstance() {
