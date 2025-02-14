@@ -16,7 +16,12 @@ export const ChartVis = (props: { schema: ISchemaProps | null; id: string }) => 
 
   useEffect(() => {
     if (!schema) return
-    const [, vchart, actionExecutor] = getChart(schema, ChartLibType.visactor, id)
+    const { dataStructureType } = schema
+    const [, chart, actionExecutor] = getChart(
+      schema,
+      dataStructureType === 'stack' ? ChartLibType.d3 : ChartLibType.visactor,
+      id
+    )
     const exe = async () => {
       for (let i = 0; i < schema.actions.length; i++) {
         await actionExecutor.exeNext()
@@ -25,7 +30,7 @@ export const ChartVis = (props: { schema: ISchemaProps | null; id: string }) => 
     exe()
 
     return () => {
-      vchart.release()
+      chart.release()
     }
   }, [schema])
 

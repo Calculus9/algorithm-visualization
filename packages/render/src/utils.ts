@@ -7,7 +7,7 @@
  * @Description: render index
  */
 import { ISchemaProps } from '@alvis/schema/src'
-
+import { D3Chart } from '@alvis/charts/chart-d3/src'
 import VChart, { ISpec } from '@visactor/vchart'
 import { ActionExec } from '@alvis/exec/src/index'
 
@@ -48,7 +48,7 @@ export const getChart = (
   schema: ISchemaProps,
   chartType: ChartLibType,
   dom: string
-): [IChartProps, VChart, ActionExec] => {
+): [IChartProps, VChart | D3Chart, ActionExec] => {
   if (ChartLibType.visactor === chartType) {
     const spec: IChartProps = getSpec(schema)
 
@@ -61,10 +61,10 @@ export const getChart = (
   // d3
   const spec = getSpec(schema)
   // const actionExecv = getActionExe(schema)
-  const vchart: VChart = new VChart(spec as ISpec, { dom: dom })
-  vchart.renderAsync()
+  const chart: D3Chart = new D3Chart(spec, { dom: dom })
+  chart.renderAsync()
   const actions = getActionExe(schema)
-  const actionExecutor = new ActionExec(spec, vchart, actions, schema)
+  const actionExecutor = new ActionExec(spec, chart, actions, schema)
 
-  return [spec, vchart, actionExecutor]
+  return [spec, chart, actionExecutor]
 }
