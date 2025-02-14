@@ -1,13 +1,13 @@
 /*
  * @Author: hjy 1441211576@qq.com
  * @Date: 2024-05-14 10:32:05
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 18:43:53
+ * @LastEditors: 1441211576@qq.com huangjingyu@kuaishou.com
+ * @LastEditTime: 2025-02-13 16:09:51
  * @FilePath: \algorithm-visualization\packages\render\src\utils.ts
  * @Description: render index
  */
 import { ISchemaProps } from '@alvis/schema/src'
-import { D3Chart } from '@alvis/charts/chart-d3/src'
+
 import VChart, { ISpec } from '@visactor/vchart'
 import { ActionExec } from '@alvis/exec/src/index'
 
@@ -15,6 +15,7 @@ import { getActionExe, getActions } from '@alvis/exec/src/index'
 import { ChartLibType } from '@alvis/web/src/constant.ts'
 import { getVChart } from '@alvis/charts/chart-visactor/src'
 import { IChartProps } from '@alvis/charts/index'
+import { D3Chart } from '@alvis/charts/chart-d3/src'
 
 /**
  * parse schema 2 Specs
@@ -22,7 +23,7 @@ import { IChartProps } from '@alvis/charts/index'
  * @returns spec
  */
 export const getSpec = (schema: ISchemaProps): IChartProps => {
-  const { chartConfig, data } = schema
+  const { chartConfig, data, dataStructureType } = schema
   const { type, layout, visual, chartFields } = chartConfig ?? {}
 
   return {
@@ -35,10 +36,10 @@ export const getSpec = (schema: ISchemaProps): IChartProps => {
         id: `${type}-data`,
         values: data
       }
-    ]
+    ],
+    dataStructure: dataStructureType
   }
 }
-
 /**
  * parse schema to chart and action execv
  * @param schema
