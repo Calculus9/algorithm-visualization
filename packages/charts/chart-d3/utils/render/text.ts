@@ -49,12 +49,14 @@ export const renderTextGroup = (
         return d?.[field] ?? 0
       })
 
-    // rects
-    //   .transition()
-    //   .ease(d3.easeCubic)
-    //   .duration(duration)
-    //   .attr('y', -innerRect.innerTop / 2)
-    //   .attr('dy', innerRect.innerTop / 2)
-    //   .remove()
+    // 移除多余的文本元素
+    rects
+      .exit()
+      .transition()
+      .ease(d3.easeCubic)
+      .duration(duration)
+      .attr('y', -innerRect.innerTop / 2)
+      .attr('dy', innerRect.innerTop / 2)
+      .remove()
   })
 }

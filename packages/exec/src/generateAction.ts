@@ -18,6 +18,7 @@ import { arrayOP } from '@alvis/data-structure/src'
  *
  */
 import _ from 'lodash'
+import { D3Chart } from '@alvis/charts/chart-d3/src'
 export const actionExec = (action: IActions, spec: IChartProps, schema: ISchemaProps) => {
   const { data } = spec
   const { category, value } = schema?.fields ?? {}
@@ -42,10 +43,9 @@ export const getActionExe = (schema: ISchemaProps): IActions[] => {
   return schema.actions
 }
 
-export const getActions = (schema: ISchemaProps, spec: IChartProps, vchart: VChart) => {
+export const getActions = (schema: ISchemaProps, spec: IChartProps, chart: VChart | D3Chart) => {
   const actions = getActionExe(schema)
-
-  const actionExecutor = new ActionExec(spec, vchart, actions, schema)
+  const actionExecutor = new ActionExec(spec, chart, actions, schema)
 
   return actionExecutor
 }

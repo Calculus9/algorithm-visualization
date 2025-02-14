@@ -20,9 +20,6 @@ const defaultFunctionTemplate = function () {
         ],
         options: {
             type: "bar",
-            layout: {
-                direction: "horizontal"
-            },
             fields: {
                 category: "month",
                 value: "sales"

@@ -51,11 +51,7 @@ export class D3Chart {
 
   initGroup() {
     this.groups = {}
-    console.log(this.dataStructure)
-
     dataStructureMap?.[this.dataStructure]?.map((d: string, index: number) => {
-      console.log(`${d}Group`)
-
       this.groups[`${d}Group`] = addGroup(this.svg)
     })
   }
@@ -65,6 +61,7 @@ export class D3Chart {
    */
   updateSpecSync(newSpec: IChartProps) {
     // 处理相关数据
+    this.data = parseSpec2Data(newSpec)
     this.renderAsync()
   }
 
@@ -81,5 +78,7 @@ export class D3Chart {
       const [key, group] = d
       group.remove()
     })
+    this.svg.remove()
+    this.container.remove()
   }
 }
