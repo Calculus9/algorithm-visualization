@@ -50,7 +50,7 @@ const HomeTop = () => {
               <Typography>
                 <div
                   style={{
-                    fontSize: 50,
+                    fontSize: 44,
                     color: themeColor,
                     textAlign: 'center'
                   }}
