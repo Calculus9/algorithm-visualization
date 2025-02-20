@@ -11,8 +11,8 @@ import { arrayOP } from '@alvis/data-structure/src'
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-11 16:12:57
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 19:13:59
+ * @LastEditors: hjy 1441211576@qq.com
+ * @LastEditTime: 2025-01-12 20:11:35
  * @FilePath: \algorithm-visualization\packages\exec\src\generateAction.ts
  * @Description:
  *
@@ -32,7 +32,6 @@ export const actionExec = (action: IActions, spec: IChartProps, schema: ISchemaP
     place: place,
     value: value
   }
-  // console.log(props)
 
   data[0].values = _.cloneDeep(arrayOperations[op](props))
 

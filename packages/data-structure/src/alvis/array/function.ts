@@ -4,8 +4,8 @@ import { OperationParams } from '../../utils/strategy'
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-07-11 20:35:09
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-05 19:12:58
+ * @LastEditors: hjy 1441211576@qq.com
+ * @LastEditTime: 2025-01-12 20:39:14
  * @FilePath: \algorithm-visualization\packages\data-structure\src\alvis\array\function.ts
  * @Description:
  *
@@ -63,6 +63,19 @@ const arrayOperations: arrayOPMap = {
       if ((obj as { [key: string]: object })[type] === Object.values(modifyValue)[0]) index = i
     })
     data.splice(index, 1)
+    return data
+  },
+  swap: (props: OperationParams): Object[] => {
+    return props?.modifyValue as Object[]
+  },
+  shift: (props: OperationParams): Object[] => {
+    const { data } = props
+    data.shift()
+    return data
+  },
+  unshift: (props: OperationParams): Object[] => {
+    const { data, modifyValue = {} } = props
+    data.unshift(modifyValue)
     return data
   }
 }
