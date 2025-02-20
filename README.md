@@ -9,5 +9,5 @@
 # Algorithm Visualization
 
 ## Development1 
-1. Create the project.(React + ts + vite + swc + monorepo)
+1. Create the project.(React + ts + vite + monorepo)
 test
