@@ -1,8 +1,8 @@
 /*
  * @Author: hh 1441211576@qq.com
  * @Date: 2024-08-09 11:03:31
- * @LastEditors: hh 1441211576@qq.com
- * @LastEditTime: 2024-08-09 15:23:56
+ * @LastEditors: hjy 1441211576@qq.com
+ * @LastEditTime: 2025-01-12 20:18:42
  * @FilePath: \algorithm-visualization\apps\website\src\gallery\contanst.ts
  * @Description:
  *
@@ -15,16 +15,14 @@ const bruteForce = [
       for (let i = 0; i < n - 1; i++) {
           for (let j = 0; j < n - 1 - i; j++) {
               if (arr[j] > arr[j + 1]) {
-                  // 交换元素
-                  let temp = arr[j];
-                  arr[j] = arr[j + 1];
-                  arr[j + 1] = temp;
+                  // swap
+                  arr.swap(j, j + 1)
               }
           }
       }
       return arr
   }
-  
+
   return defaultFunctionTemplate`
 ]
 const dp = [
@@ -69,7 +67,8 @@ const divideConquer = [
 }
 
 return defaultFunctionTemplate`,
-  `const defaultFunctionTemplate = function () {
+  `// quickSort
+const defaultFunctionTemplate = function () {
     const nums = new AlVisArray([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
     qSort(nums, 0, nums.length - 1)
     return nums;
